@@ -44,8 +44,8 @@ public class GameFunction : MonoBehaviour {
             Destroy(each);
         }
 
-        playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
-        playerData.playerSouls = 0;
+        //playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
+        //playerData.playerSouls = 0;
 
         GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
         GameObject LoseMenu  = winLoseMenu.transform.GetChild(0).gameObject;

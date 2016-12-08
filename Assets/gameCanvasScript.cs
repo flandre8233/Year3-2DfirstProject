@@ -21,7 +21,6 @@ public class gameCanvasScript : MonoBehaviour {
 
     float HPFillAmountInBar;
 
-
     // Use this for initialization
     void Start() {
 
@@ -32,6 +31,7 @@ public class gameCanvasScript : MonoBehaviour {
         if (playerContorl != null) {
             inContorlObjectnpcClass = playerContorl.incontorlObj.GetComponent<npcClass>();
         }
+        soulsPart();
         HPBARPart();
         ShieldPart();
         controlNpcTypeShow();
@@ -50,6 +50,11 @@ public class gameCanvasScript : MonoBehaviour {
                 break;
         }
     }
+
+    void soulsPart() {
+        soulsDisplayText.text = playerDataclass.playerSouls.ToString();
+    }
+
     void HPBARPart() {
         HPFillAmountInBar = (1.0f / playerDataclass.MAXHP) * playerDataclass.HP;
         HPPart.fillAmount = HPFillAmountInBar;
