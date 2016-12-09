@@ -3,15 +3,12 @@ using System.Collections;
 
 public class npcMove : GameFunction
 {
-
     npcClass npcclass;
     npcScript npcscript;
     Rigidbody2D rb2d;
 
     [SerializeField]
-    private int speed;
-    [SerializeField]
-    private int MAXspeed;
+    private float speed;
     [SerializeField]
     private float jumpHeight;
     [SerializeField]
@@ -55,11 +52,12 @@ public class npcMove : GameFunction
 
     // Update is called once per frame
     void Update() {
+        Debug.Log(rb2d.velocity);
         if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 
         }
         else {  // npcAIMove npc自行控制
-            rb2d.velocity -= new Vector2(1.0f * Time.deltaTime * speed * rb2d.transform.localScale.x, 0);
             simpleAutoJump();
+
             switch (npcclass.attackStateP) {
                 case npcClass.attackState.alert:
 
@@ -112,11 +110,10 @@ public class npcMove : GameFunction
         checker = patrolRightPointSave.x;
         if (!patrolWaitLock) {
             if (isPatrolToLeft) {
-
                 if (transform.position.x >= patrolLeftPointSave.x) {
-                    if (rb2d.velocity.x <= MAXspeed && rb2d.velocity.x >= -MAXspeed) {
-                        rb2d.velocity -= new Vector2(1.0f * Time.deltaTime * speed * rb2d.transform.localScale.x, 0);
-                    }
+                    //rb2d.AddForce(new Vector2(-(Time.deltaTime * speed * rb2d.transform.localScale.x), 0 ), ForceMode2D.Force);
+                        rb2d.velocity = new Vector2( -( speed * rb2d.transform.localScale.x), rb2d.velocity.y);
+                        //rb2d.velocity = new Vector2(-4, rb2d.velocity.y);
                 }
                 else {
                     StartCoroutine(Timer(patrolWaitTime));
@@ -124,9 +121,9 @@ public class npcMove : GameFunction
             }
             else {
                 if (transform.position.x <= patrolRightPointSave.x) {
-                    if (rb2d.velocity.x <= MAXspeed && rb2d.velocity.x >= -MAXspeed) {
-                        rb2d.velocity -= new Vector2(1.0f * Time.deltaTime * speed * rb2d.transform.localScale.x, 0);
-                    }
+                    //rb2d.AddForce(new Vector2(-(Time.deltaTime * speed * rb2d.transform.localScale.x), 0 ), ForceMode2D.Force);
+                    rb2d.velocity = new Vector2( -( speed * rb2d.transform.localScale.x), rb2d.velocity.y);
+                    //rb2d.velocity = new Vector2(4, rb2d.velocity.y);
                 }
                 else {
                     StartCoroutine(Timer(patrolWaitTime));
@@ -157,16 +154,13 @@ public class npcMove : GameFunction
             //Gfunction.ImageLookAt2D(transform.position, attackTargetPoint);
 
             if (transform.position.x >= attackTargetPoint.x) {  //簡單角色移動
-                if (rb2d.velocity.x <= MAXspeed && rb2d.velocity.x >= -MAXspeed) {
-                    rb2d.velocity -= new Vector2(1.0f * Time.deltaTime * speed * rb2d.transform.localScale.x, 0);
-                }
+
+                rb2d.velocity = new Vector2(-(speed * rb2d.transform.localScale.x) * 1.2f , rb2d.velocity.y);
                 transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
 
             }
             else {
-                if (rb2d.velocity.x <= MAXspeed && rb2d.velocity.x >= -MAXspeed) {
-                    rb2d.velocity -= new Vector2(1.0f * Time.deltaTime * speed * rb2d.transform.localScale.x, 0);
-                }
+                rb2d.velocity = new Vector2(-(speed * rb2d.transform.localScale.x) *1.2f, rb2d.velocity.y);
                 transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
             }
         }

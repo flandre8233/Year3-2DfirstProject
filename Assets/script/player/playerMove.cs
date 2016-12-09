@@ -19,8 +19,6 @@ public class playerMove : MonoBehaviour {
 
     Rigidbody2D rb2d;
 
-    SpriteRenderer SR;
-
     // Use this for initialization
     void Start () {
         if(transform.localScale.x < 0) {
@@ -30,8 +28,6 @@ public class playerMove : MonoBehaviour {
             localScaleX = transform.localScale.x;
         }
         
-        
-        SR = GetComponent<SpriteRenderer>();
         npcclass = GetComponent<npcClass>();
         npcScript = GetComponent<npcScript>();
         GroundCheckWall1 = npcScript.GroundCheckWall1;
@@ -51,14 +47,7 @@ public class playerMove : MonoBehaviour {
             }
         }
 
-        if (Input.GetButtonDown("JumpYbutton")) {
-            if (npcclass.movementStateP != npcClass.movementState.jumpingBothCanMove && npcclass.movementStateP != npcClass.movementState.falling) {
-                //transform.Translate(Vector3.up * 260 * Time.deltaTime, Space.World);
-                rb2d.velocity = new Vector2(rb2d.velocity.x,0);
-                rb2d.AddForce(transform.up * jumpHeight/54, ForceMode2D.Impulse);  //jump
-                npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
-            }
-        }
+
 
         /*
         if (Input.GetButton("Abutton")) {
@@ -72,17 +61,8 @@ public class playerMove : MonoBehaviour {
         }
         */
 
-
-        if (Input.GetAxisRaw("Horizontal") >= 0.01 ) {
-            //playerFace = true;
-            transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
-            //flip();
-        }
-        else if (Input.GetAxisRaw("Horizontal") <= -0.01 ) {
-            //playerFace = false;
-            transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
-            //flip();
-        }
+        jump();
+        faceDetect();
 
         //Debug.Log(npcclass.movementStateP);
         if (npcclass.movementStateP == npcClass.movementState.falling) {
@@ -97,8 +77,32 @@ public class playerMove : MonoBehaviour {
         else {
             rb2d.velocity = new Vector2(movementX * (movespeed * 10) * Time.deltaTime, rb2d.velocity.y); //角色移動
         }
+        //Debug.Log(rb2d.velocity);
 
-        
+    }
+
+    void jump() {
+        if (Input.GetButtonDown("JumpYbutton")) {
+            if (npcclass.movementStateP != npcClass.movementState.jumpingBothCanMove && npcclass.movementStateP != npcClass.movementState.falling) {
+                //transform.Translate(Vector3.up * 260 * Time.deltaTime, Space.World);
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+                rb2d.AddForce(transform.up * jumpHeight / 54, ForceMode2D.Impulse);  //jump
+                npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
+            }
+        }
+    }
+
+    void faceDetect() {
+        if (Input.GetAxisRaw("Horizontal") >= 0.01) {
+            //playerFace = true;
+            transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
+            //flip();
+        }
+        else if (Input.GetAxisRaw("Horizontal") <= -0.01) {
+            //playerFace = false;
+            transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+            //flip();
+        }
     }
 
     void flip() {

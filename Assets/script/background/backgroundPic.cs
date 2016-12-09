@@ -17,6 +17,6 @@ public class backgroundPic : MonoBehaviour {
     void Update() {
         float distance =  Vector3.Distance(camera.transform.position,Vector3.zero);
         float newPosition = Mathf.Repeat(-distance * (scrollSpeed/100), tileSizeZ);
-        transform.localPosition = startPosition + Vector3.right * newPosition;
+        transform.localPosition = startPosition + (Vector3.right * Time.deltaTime) * newPosition ;
     }
 }

@@ -51,6 +51,7 @@ public class gameCanvasScript : MonoBehaviour {
         }
     }
 
+
     void soulsPart() {
         soulsDisplayText.text = playerDataclass.playerSouls.ToString();
     }

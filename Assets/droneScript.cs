@@ -17,7 +17,7 @@ public class droneScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Debug.Log("hello github idiu u");
+
             if (!attackCDLock) {
                 StartCoroutine("attackFunction");
             }

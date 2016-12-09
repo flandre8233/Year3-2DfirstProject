@@ -60,7 +60,7 @@ public class npcScript : GameFunction
         movementStateCheck();
         NpcDead();
         if (npcclass.TypeP == npcClass.Type.contorl) {
-            Debug.Log(thisAnimation.AnimationState);
+
         }
 
 
@@ -109,37 +109,40 @@ public class npcScript : GameFunction
     
     void movementStateCheck() {
         #region npc的move狀態定位
-        if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 ) || (rigidbody2d.velocity.x < -0.1 ))) {
-            npcclass.movementStateP = npcClass.movementState.walking;
+        if (Time.timeScale != 0) {
+            if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
+                npcclass.movementStateP = npcClass.movementState.walking;
 
-            thisAnimation.loop = true;
-            thisAnimation.AnimationName = "run_sword";
-            thisAnimation.timeScale = 1f;
-          
-        }
-        else if (rigidbody2d.velocity.y > 0.1 && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) ) {
+                thisAnimation.loop = true;
+                thisAnimation.AnimationName = "run_sword";
+                thisAnimation.timeScale = 1f;
+
+            }
+            else if (rigidbody2d.velocity.y > 0.1 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
 
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
-            GetComponent<Rigidbody2D>().gravityScale = 3.0f;
-            thisAnimation.loop = false;
-            thisAnimation.AnimationName = "jump_sword";
-            thisAnimation.timeScale = 1f;
+                GetComponent<Rigidbody2D>().gravityScale = 3.0f;
+                thisAnimation.loop = false;
+                thisAnimation.AnimationName = "jump_sword";
+                thisAnimation.timeScale = 1f;
 
 
-        }
-        else if (rigidbody2d.velocity.y < -0.05 && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) ) {
-            npcclass.movementStateP = npcClass.movementState.falling;
-            //thisAnimation.AnimationName = "_sword";
-            thisAnimation.timeScale = 1f;
-        }
-        else if (Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer)) {
-            npcclass.movementStateP = npcClass.movementState.landed;
-            GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-            thisAnimation.loop = true;
-            thisAnimation.AnimationName = "sword_idel_single_hand";
-            thisAnimation.timeScale = 1f;
+            }
+            else if (rigidbody2d.velocity.y < -0.05 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
+                npcclass.movementStateP = npcClass.movementState.falling;
+                //thisAnimation.AnimationName = "_sword";
+                thisAnimation.timeScale = 1f;
+            }
+            else if (Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer)) {
+                npcclass.movementStateP = npcClass.movementState.landed;
+                GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                thisAnimation.loop = true;
+                thisAnimation.AnimationName = "sword_idel_single_hand";
+                thisAnimation.timeScale = 1f;
 
+            }
         }
+        
         #endregion
     }
 

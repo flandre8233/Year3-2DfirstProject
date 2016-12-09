@@ -14,6 +14,11 @@ public class playerContorl : GameFunction {
     [SerializeField][HideInInspector]
     Transform pointerTransform;
 
+    [SerializeField]
+    float ghostMoveMentSmoothTime;
+    [SerializeField]
+    float GhostMovementSpeed;
+
     public GameObject incontorlObj;
 
     // Use this for initialization
@@ -124,7 +129,7 @@ public class playerContorl : GameFunction {
             if (GetComponent<Collider2D>().enabled) {
                 GetComponent<Collider2D>().enabled = false;
             }
-            
+
         }
         else {
             if (!GetComponent<Collider2D>().enabled) {
@@ -134,8 +139,16 @@ public class playerContorl : GameFunction {
             //journeyLength = Vector3.Distance(transform.position, incontorlObj.GetComponent<Transform>().position);
             //float fracJourney = Time.deltaTime * 1 / journeyLength;
             //transform.position = Vector3.Lerp(transform.position, keyUpPointerPosition, fracJourney);
+
+            //
+
+            //float posX = Mathf.SmoothDamp(transform.position.x, playerTransform.position.x, ref velocity.x, smoothTimeX, 100, Time.deltaTime);
+            //float posY = Mathf.SmoothDamp(transform.position.y, playerTransform.position.y, ref velocity.y, smoothTimeY, 100, Time.deltaTime);
+
+            //先前的移動系統
             transform.rotation = ImageLookAt2D(transform.position, lockDownSystem.targetGameObj.transform.position);
-            transform.position += transform.right * Time.deltaTime * 10;
+            transform.position += transform.right * Time.deltaTime * GhostMovementSpeed;
+
             //transform.position = new Vector3(transform.position.x,transform.position.y,0);
         }
 
