@@ -71,10 +71,10 @@ public class playerMove : MonoBehaviour {
 
         float movementX = Input.GetAxisRaw("Horizontal");
 
-        if ((Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer))) {
+        if ( ( (Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)) ) ) {
             //movementX = 0;
         }
-        else {
+        else if(npcclass.CastAniP == npcClass.CastAni.onMovement) {
             rb2d.velocity = new Vector2(movementX * (movespeed * 10) * Time.deltaTime, rb2d.velocity.y); //角色移動
         }
         //Debug.Log(rb2d.velocity);
@@ -93,16 +93,20 @@ public class playerMove : MonoBehaviour {
     }
 
     void faceDetect() {
-        if (Input.GetAxisRaw("Horizontal") >= 0.01) {
-            //playerFace = true;
-            transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
-            //flip();
+        if (npcclass.CastAniP == npcClass.CastAni.onMovement) {
+            if (Input.GetAxisRaw("Horizontal") >= 0.01) {
+                //playerFace = true;
+                transform.localScale = new Vector3(-localScaleX, transform.localScale.y, transform.localScale.z);
+                //flip();
+            }
+            else if (Input.GetAxisRaw("Horizontal") <= -0.01) {
+                //playerFace = false;
+                transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+                //flip();
+            }
         }
-        else if (Input.GetAxisRaw("Horizontal") <= -0.01) {
-            //playerFace = false;
-            transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
-            //flip();
-        }
+    
+
     }
 
     void flip() {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Spine;
 using Spine.Unity;
 using myFunction;
 
@@ -10,7 +11,7 @@ public class npcScript : GameFunction
 
     bool IsAlreadyStartDeadFunction = false;
     bool inDeadHitFly = false;
-
+    
     [SerializeField]
     private Transform GroundCheck1;
     [SerializeField]
@@ -27,6 +28,8 @@ public class npcScript : GameFunction
 
     [SerializeField]
     public Object hpParticlePrefab;
+
+
     // Use this for initialization
     void Start () {
         
@@ -50,7 +53,8 @@ public class npcScript : GameFunction
             Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>());
             Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<CircleCollider2D>());
         }
-
+        thisAnimation.state.Complete += MyCompleteListener;
+        thisAnimation.state.Start += MyStartListener;
     }
 	
 	// Update is called once per frame
@@ -60,7 +64,45 @@ public class npcScript : GameFunction
         movementStateCheck();
         NpcDead();
         if (npcclass.TypeP == npcClass.Type.contorl) {
+        }
 
+
+    }
+
+    //很像end效果都一樣
+    //complete 當完成這次動畫後
+
+    private void MyStartListener(Spine.TrackEntry trackEntry) {
+        if (npcclass.TypeP == npcClass.Type.contorl) {
+
+
+            if (thisAnimation.AnimationName == "jump_sword") {
+                Debug.Log(trackEntry.trackIndex);
+            }
+
+        }
+    }
+
+    private void MyCompleteListener( Spine.TrackEntry trackEntry) {
+        if (npcclass.TypeP == npcClass.Type.contorl) {
+            //Debug.Log(trackEntry.loop.ToString());
+
+
+            if (thisAnimation.AnimationName == "jump_sword") {
+                //thisAnimation.state.SetAnimation(0, "run_sword", false);
+                thisAnimation.state.SetAnimation(0, "jump_sword" , false);
+                thisAnimation.timeScale = 0.1f; // timescale到0會有問題
+                trackEntry.TrackTime = 0.6f;
+                Debug.Log(trackEntry.trackIndex);
+            }
+
+            //Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": end");
+        }
+    }
+
+    void HandleEvent(Spine.AnimationState state, int trackIndex, Spine.Event e) {
+        if (npcclass.TypeP == npcClass.Type.contorl) {
+            Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": event " + e + ", " + e.Int);
         }
 
 
@@ -109,36 +151,48 @@ public class npcScript : GameFunction
     
     void movementStateCheck() {
         #region npc的move狀態定位
-        if (Time.timeScale != 0) {
+        if (Time.timeScale != 0 ) {
             if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
                 npcclass.movementStateP = npcClass.movementState.walking;
 
-                thisAnimation.loop = true;
-                thisAnimation.AnimationName = "run_sword";
-                thisAnimation.timeScale = 1f;
+                if (thisAnimation.AnimationName != "run_sword") {
+                    thisAnimation.loop = true;
+                    thisAnimation.timeScale = 1f;
+                    //thisAnimation.AnimationName = "run_sword";
+                    thisAnimation.state.SetAnimation(0, "run_sword", true);
+                }
+
 
             }
             else if (rigidbody2d.velocity.y > 0.1 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
 
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
                 GetComponent<Rigidbody2D>().gravityScale = 3.0f;
-                thisAnimation.loop = false;
-                thisAnimation.AnimationName = "jump_sword";
-                thisAnimation.timeScale = 1f;
+                if (thisAnimation.AnimationName != "jump_sword") {
+                    thisAnimation.loop = false;
+                    thisAnimation.timeScale = 1f;
+                    //thisAnimation.AnimationName = "jump_sword";
+                    thisAnimation.state.SetAnimation(0, "jump_sword", false);
+                }
 
 
             }
             else if (rigidbody2d.velocity.y < -0.05 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
                 npcclass.movementStateP = npcClass.movementState.falling;
                 //thisAnimation.AnimationName = "_sword";
-                thisAnimation.timeScale = 1f;
+                //thisAnimation.timeScale = 1f;
             }
             else if (Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer)) {
                 npcclass.movementStateP = npcClass.movementState.landed;
                 GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                thisAnimation.loop = true;
-                thisAnimation.AnimationName = "sword_idel_single_hand";
-                thisAnimation.timeScale = 1f;
+
+                if (thisAnimation.AnimationName != "sword_idel_single_hand") {
+                    thisAnimation.loop = true;
+                    thisAnimation.timeScale = 1f;
+                    //thisAnimation.AnimationName = "sword_idel_single_hand";
+                    thisAnimation.state.SetAnimation(0, "sword_idel_single_hand", true);
+                }
+
 
             }
         }

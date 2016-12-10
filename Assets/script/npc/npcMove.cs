@@ -52,7 +52,7 @@ public class npcMove : GameFunction
 
     // Update is called once per frame
     void Update() {
-        Debug.Log(rb2d.velocity);
+
         if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 
         }
         else {  // npcAIMove npc自行控制
