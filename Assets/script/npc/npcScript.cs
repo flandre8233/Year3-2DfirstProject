@@ -28,7 +28,8 @@ public class npcScript : GameFunction
 
     [SerializeField]
     public Object hpParticlePrefab;
-
+    [SerializeField]
+    public Object SoulsParticlePrefab;
 
     // Use this for initialization
     void Start () {
@@ -273,7 +274,8 @@ public class npcScript : GameFunction
             else {  //當死亡時就一直做
                 if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly) { //landed時就毀掉自己
                     Destroy(gameObject);
-                    playerData.playerSouls += npcclass.souls; //玩家靈魂增加
+                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+                    //playerData.playerSouls += npcclass.souls; //玩家靈魂增加
                 }
 
             }

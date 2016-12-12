@@ -14,6 +14,7 @@ TagManager:
   - playerCollider
   - bullet
   - SkeletonAnimation
+  - soulsTargetPoint
   layers:
   - Default
   - TransparentFX

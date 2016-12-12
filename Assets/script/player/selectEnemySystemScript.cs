@@ -8,10 +8,8 @@ public class selectEnemySystemScript : GameFunction
 
     [HideInInspector]
     public GameObject[] GB; //•ÿº–©“¶b™∫array
-    [HideInInspector]
     public GameObject playerSelectPointerSystem; //®˙±oselectPointerMovementµ{¶° §∫Æe
-    [SerializeField]
-    public GameObject selectPointerUIpart;
+    //public GameObject selectPointerUIpart;
 
     [SerializeField]
     [HideInInspector]
@@ -33,8 +31,6 @@ public class selectEnemySystemScript : GameFunction
 
     public GameObject targetGameObj;  //§£¨O§‚∞ ©Ò∂i•h
 
-    GameObject lockDownTargetGO;
-
     Function myfunction = new Function();
     int selectTaget = 1;
 
@@ -50,8 +46,9 @@ public class selectEnemySystemScript : GameFunction
         playercontorl = GetComponent<playerContorl>();
         TriggerArray = OnTriggerEnter2DCircle.TriggerList.ToArray();
 
+        playerSelectPointerSystem.transform.position = transform.position;
         playerSelectPointerSystem.SetActive(false);
-        selectPointerUIpart.SetActive(false);
+        //selectPointerUIpart.SetActive(false);
         GB = getallenemyWithoutContorlOnce();
     }
     
@@ -100,7 +97,7 @@ public class selectEnemySystemScript : GameFunction
         targetGameObj = null;
 
         playerSelectPointerSystem.SetActive(true);  //∂}±“?E‹∂ÅE
-        selectPointerUIpart.SetActive(true);
+        //selectPointerUIpart.SetActive(true);
         GB = TriggerArray;
         openTargetLockDown = true;
     }
@@ -110,7 +107,7 @@ public class selectEnemySystemScript : GameFunction
         Time.timeScale = 1f;
         //playercontorl.incontorlObj.GetComponent<playerMove>().enabled = true;
         playerSelectPointerSystem.SetActive(false);
-        selectPointerUIpart.SetActive(false);
+        //selectPointerUIpart.SetActive(false);
         openTargetLockDown = false;
 
         if (targetGameObj!=null) {

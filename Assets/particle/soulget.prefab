@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4421947224785680}
   - component: {fileID: 198176334863570838}
   - component: {fileID: 199865531375523300}
+  - component: {fileID: 114762454951844558}
   m_Layer: 0
   m_Name: soulget
   m_TagString: Untagged
@@ -34,13 +35,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982747734304984}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.02, y: 5.96, z: -0.05}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -23.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114762454951844558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1982747734304984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca33df4937c04964a98f206badc33fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPositionGameObject: {fileID: 0}
 --- !u!198 &198176334863570838
 ParticleSystem:
   m_ObjectHideFlags: 1

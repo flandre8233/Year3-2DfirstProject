@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4883076867404690}
   - component: {fileID: 198553129044440190}
   - component: {fileID: 199585058688086304}
+  - component: {fileID: 114972236586547896}
   m_Layer: 0
   m_Name: Bloodget2
   m_TagString: Untagged
@@ -34,13 +35,24 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694256992989790}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 28.202894, y: 6.290868, z: -0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.238146, y: -0.049999475, z: -3.6793756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114972236586547896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694256992989790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27c430f0e5dca44e8eafe539df7d2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198553129044440190
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -48,9 +60,9 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694256992989790}
   serializedVersion: 5
-  lengthInSec: 5
+  lengthInSec: 0.25
   speed: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   autoRandomSeed: 0
