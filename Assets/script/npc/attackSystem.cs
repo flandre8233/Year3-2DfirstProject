@@ -58,27 +58,23 @@ public class attackSystem : MonoBehaviour {
             npcclass.CastAniP = npcClass.CastAni.onMovement;
         }
 
-
-        //Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": end");
     }
 
     // Update is called once per frame
     void Update() {
 
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
-
             if (Input.GetMouseButtonUp(1) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
                 attackFunction();
-
             }
-
         }
-        else {
+        else { //npc的攻擊
             if (!attackCDLock) {
+                attackCDLock = true; //只能打一次
                 attackFunction();
             }
         }
-
+        
 
 
     }
@@ -90,19 +86,15 @@ public class attackSystem : MonoBehaviour {
         else if (ComboCounter == 1) {
             isCastCombo = true;
         }
-
-        if (!attackCDLock) {
-
             if (attackGO != null) {
                 //StartCoroutine("spawnAttackSensorFunction");
-                Debug.Log("diudiudiud");
                 ComboCounter++;
                 spawnAttackAni();
             }
             else {
                 gunspawn.Shot();
             }
-        }
+        
     }
 
     IEnumerator attackColdDown() {
@@ -119,12 +111,19 @@ public class attackSystem : MonoBehaviour {
             npcSkeletonAnimation.state.SetAnimation(1, "up_attack_sword", false);
             attackGO.SetActive(true);
         }
-
         Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******
         //velocityPart
 
-        rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
-        rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
+
+        if (npcclass.TypeP == npcClass.Type.contorl) {
+            rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
+            rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
+        }
+        else {
+            rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
+            //rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
+        }
+
         //rigid2d.velocity -= new Vector2(3.5f * rigid2d.transform.localScale.x, 0);
         //rigid2d.transform.position += transform.right * Time.deltaTime * 100;
         Debug.Log("diudiudiud");

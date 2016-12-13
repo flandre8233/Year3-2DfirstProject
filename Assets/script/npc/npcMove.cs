@@ -63,18 +63,20 @@ public class npcMove : GameFunction
 
                     break;
                 case npcClass.attackState.attack:
-
-                    switch (npcclass.WeaponP) {
-                        case npcClass.Weapon.sword:
-                            simpleChasePlayer();
-                            break;
-                        case npcClass.Weapon.axe:
-                            simpleChasePlayer();
-                            break;
-                        case npcClass.Weapon.rifle:
-                            simpleFacePlayer();
-                            break;
+                    if(npcclass.CastAniP == npcClass.CastAni.onMovement) { //只能在能播放移動動畫的時間移動
+                        switch (npcclass.WeaponP) {
+                            case npcClass.Weapon.sword:
+                                simpleChasePlayer();
+                                break;
+                            case npcClass.Weapon.axe:
+                                simpleChasePlayer();
+                                break;
+                            case npcClass.Weapon.rifle:
+                                simpleFacePlayer();
+                                break;
+                        }
                     }
+
                     break;
                 case npcClass.attackState.guard:
                     simplePatrol();
