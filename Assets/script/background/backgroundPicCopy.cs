@@ -20,7 +20,7 @@ public class backgroundPicCopy : MonoBehaviour {
         //float x = Mathf.Repeat( (distance * (scrollSpeed/1000.0f) ), 1f);
         // Vector2 offset = new Vector2(x, savedOffset.y);
 
-        Vector2 offset = new Vector2( -(distance * (scrollSpeed / 1000.0f) ) , savedOffset.y);
+        Vector2 offset = new Vector2( (distance * (scrollSpeed / 1000.0f) ) , savedOffset.y);
         renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
     }
 
