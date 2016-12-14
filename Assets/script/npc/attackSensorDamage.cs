@@ -32,6 +32,7 @@ public class attackSensorDamage : GameFunction
     }
 
     void triggerBullet(Collider2D other) {
+        #region 反彈子彈
         if (other.tag == "bullet" && npcclass.WeaponP == npcClass.Weapon.sword && npcclass.TypeP == npcClass.Type.contorl) {
             GameObject bulletObject = other.gameObject;
             //bulletObject.transform.eulerAngles = new Vector3(0,0,444);
@@ -40,6 +41,7 @@ public class attackSensorDamage : GameFunction
             //bulletObject
             //transform.rotation = Quaternion.Euler(0, 0, i);
         }
+        #endregion
     }
     void triggerNpc(Collider2D other) {
         bool alreadyDeal = false;

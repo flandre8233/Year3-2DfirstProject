@@ -33,13 +33,15 @@ public class npcScript : GameFunction
 
     // Use this for initialization
     void Start () {
-        
-
         playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
         rigidbody2d = GetComponent<Rigidbody2D>();
         npcclass = GetComponent<npcClass>();
         npcclass.npcClassSetUp();
-
+        ignoreCollisionSetUp();//無視其他enemy碰撞
+        thisAnimation.state.Complete += MyCompleteListener;
+    }
+	
+    void ignoreCollisionSetUp() {//無視其他enemy碰撞
         GameObject[] gameObj = GameObject.FindGameObjectsWithTag("enemy");  //無視其他enemy碰撞
         foreach (GameObject each in gameObj) {
             Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
@@ -49,15 +51,12 @@ public class npcScript : GameFunction
         }
 
         GameObject[] HPpartaclegameObj = GameObject.FindGameObjectsWithTag("HPpartacle");  //無視其他enemy碰撞
-        foreach (GameObject each in HPpartaclegameObj)
-        {
+        foreach (GameObject each in HPpartaclegameObj) {
             Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>());
             Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<CircleCollider2D>());
         }
-        thisAnimation.state.Complete += MyCompleteListener;
-        thisAnimation.state.Start += MyStartListener;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
         attackStateChangeCodeFunction();
@@ -73,24 +72,9 @@ public class npcScript : GameFunction
     //很像end效果都一樣
     //complete 當完成這次動畫後
 
-    private void MyStartListener(Spine.TrackEntry trackEntry) {
-        if (npcclass.TypeP == npcClass.Type.contorl) {
-
-
-            if (thisAnimation.AnimationName == "jump_sword") {
-                Debug.Log(trackEntry.trackIndex);
-            }
-
-        }
-    }
-
     private void MyCompleteListener( Spine.TrackEntry trackEntry) {
         if (npcclass.TypeP == npcClass.Type.contorl) {
-            //Debug.Log(trackEntry.loop.ToString());
-
-
-            if (thisAnimation.AnimationName == "jump_sword") {
-                //thisAnimation.state.SetAnimation(0, "run_sword", false);
+            if (thisAnimation.AnimationName == "jump_sword") { //使跳躍動畫不會回到<none>
                 thisAnimation.state.SetAnimation(0, "jump_sword" , false);
                 thisAnimation.timeScale = 0.1f; // timescale到0會有問題
                 trackEntry.TrackTime = 0.6f;
@@ -99,14 +83,6 @@ public class npcScript : GameFunction
 
             //Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": end");
         }
-    }
-
-    void HandleEvent(Spine.AnimationState state, int trackIndex, Spine.Event e) {
-        if (npcclass.TypeP == npcClass.Type.contorl) {
-            Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": event " + e + ", " + e.Int);
-        }
-
-
     }
 
     void attackStateChangeCodeFunction() {
@@ -287,6 +263,7 @@ public class npcScript : GameFunction
 
     void spawnHPParticle(int Number)
     {
+        #region hp粒子
         Function myfunction = new Function();
         while (Number >= 0)
         {
@@ -299,5 +276,7 @@ public class npcScript : GameFunction
             ParticleScript.playerData = playerData;
             Number--;
         }
+        #endregion
     }
+
 }

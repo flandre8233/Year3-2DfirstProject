@@ -41,6 +41,7 @@ public class attackSystem : MonoBehaviour {
                 attackGO.SetActive(true);
             }
             else {
+                npcSkeletonAnimation.state.SetAnimation(1, "sword_idel_single_hand_back_to_front2", false);
                 attackGO.SetActive(false);
                 attackCDLock = true;
                 StartCoroutine("attackColdDown");

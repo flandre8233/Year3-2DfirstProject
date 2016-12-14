@@ -24,7 +24,8 @@ public class soulsScript : MonoBehaviour {
         t += 0.5f * Time.deltaTime;
 
         targetPosition = targetPositionGameObject.transform.position;
-        transform.position = new Vector2(Mathf.Lerp(startPoint.x ,  targetPosition.x,  t), Mathf.Lerp(startPoint.y ,   targetPosition.y, t ));
+        // transform.position = new Vector2(Mathf.Lerp(startPoint.x ,  targetPosition.x,  t), Mathf.Lerp(startPoint.y ,   targetPosition.y, t ));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, targetPosition.x, t-0.2f), Mathf.Lerp(transform.position.y, targetPosition.y, t-0.2f));
 
         viewportPoint = Camera.main.ViewportToWorldPoint(targetPosition);
 
