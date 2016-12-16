@@ -20,7 +20,7 @@ public class playerMove : MonoBehaviour {
     Rigidbody2D rb2d;
 
     // Use this for initialization
-    void Start () {
+    void Awake() {
         if(transform.localScale.x < 0) {
             localScaleX = -1*transform.localScale.x;
         }
@@ -30,25 +30,20 @@ public class playerMove : MonoBehaviour {
         
         npcclass = GetComponent<npcClass>();
         npcScript = GetComponent<npcScript>();
+        rb2d = GetComponent<Rigidbody2D>();
         GroundCheckWall1 = npcScript.GroundCheckWall1;
         GroundCheckWall2 = npcScript.GroundCheckWall2;
     }
 
-    void OnEnable() {
-        rb2d = GetComponent<Rigidbody2D>();
-    }
-
-    void FixedUpdate () {
-
-
+    void saveCode() {
         foreach (KeyCode vKey in System.Enum.GetValues(typeof(KeyCode))) {
             if (Input.GetKey(vKey)) { //找出自己按什麼鍵
                 //your code here
             }
         }
+    }
 
-
-
+    public void delegateUpdate () {
         /*
         if (Input.GetButton("Abutton")) {
             Debug.Log("A");
@@ -61,9 +56,15 @@ public class playerMove : MonoBehaviour {
         }
         */
 
-        jump();
-        faceDetect();
+        //Debug.Log("gkgkgkdad");
+        if (npcclass.TypeP == npcClass.Type.contorl) {
+            jump();
+            faceDetect();
+            movement();
+        }
+    }
 
+    void movement() {
         //Debug.Log(npcclass.movementStateP);
         if (npcclass.movementStateP == npcClass.movementState.falling) {
         }
@@ -71,10 +72,10 @@ public class playerMove : MonoBehaviour {
 
         float movementX = Input.GetAxisRaw("Horizontal");
 
-        if ( ( (Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)) ) ) {
+        if (((Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)))) {
             //movementX = 0;
         }
-        else if(npcclass.CastAniP == npcClass.CastAni.onMovement) {
+        else if (npcclass.CastAniP == npcClass.CastAni.onMovement) {
             rb2d.velocity = new Vector2(movementX * (movespeed * 10) * Time.deltaTime, rb2d.velocity.y); //角色移動
         }
         //Debug.Log(rb2d.velocity);

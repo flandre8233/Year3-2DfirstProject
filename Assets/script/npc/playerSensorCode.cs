@@ -5,7 +5,7 @@ public class playerSensorCode : MonoBehaviour {
     public GameObject npc;
     npcClass.attackState OriginalAttackState;
 
-    bool isLostPlayer = false;
+    public bool isLostPlayer = false;
     float timer = 2.0f;
 
     // Use this for initialization

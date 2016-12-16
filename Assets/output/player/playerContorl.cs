@@ -18,8 +18,10 @@ public class playerContorl : GameFunction {
     float ghostMoveMentSmoothTime;
     [SerializeField]
     float GhostMovementSpeed;
-
+    [SerializeField]
     public GameObject incontorlObj;
+    [SerializeField]
+    GameObject SoulPacticle;
 
     // Use this for initialization
 
@@ -30,9 +32,9 @@ public class playerContorl : GameFunction {
 
     void controlEnemyFunction(GameObject GameEnemy) {  //控制這裡
 
-        GameEnemy.GetComponent<playerMove>().enabled = true;
+        //GameEnemy.GetComponent<playerMove>().enabled = true;
 
-        GameEnemy.GetComponent<npcMove>().enabled = false;
+        //GameEnemy.GetComponent<npcMove>().enabled = false;
         //GameEnemy.GetComponent<SpriteRenderer>().color = Color.blue;
         //Debug.Log(GameEnemy.GetComponent<SpriteRenderer>().color);
         GameEnemy.GetComponents<npcClass>()[0].TypeP = npcClass.Type.contorl;
@@ -51,6 +53,7 @@ public class playerContorl : GameFunction {
 
     void Start() {
         GetComponent<Collider2D>().enabled = false;
+        SoulPacticle.SetActive(false);
         lockDownSystem = GetComponent<selectEnemySystemScript>();
         //pm = GetComponents<playerMove>()[0];
         //GM = GetComponents<playerGhostMove>()[0];
@@ -67,7 +70,7 @@ public class playerContorl : GameFunction {
 
     // Update is called once per frame
     void Update() {
-
+        SoulPacticle.SetActive(!inContorl);
         #region movement
         /*
         if (Input.GetKeyUp(KeyCode.X)) {
@@ -110,11 +113,11 @@ public class playerContorl : GameFunction {
 
                 
                 
-                incontorlObj.GetComponent<npcMove>().enabled = true;
+                //incontorlObj.GetComponent<npcMove>().enabled = true;
                 //GB[i].tag = "enemy";
                 incontorlObj.GetComponents<npcClass>()[0].TypeP = npcClass.Type.normal;
                 //incontorlObj.GetComponent<SpriteRenderer>().color = Color.white;
-                incontorlObj.GetComponent<playerMove>().enabled = false;
+                //incontorlObj.GetComponent<playerMove>().enabled = false;
                 incontorlObj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 if (incontorlObj.GetComponentInChildren<attackSystem>() != null) {

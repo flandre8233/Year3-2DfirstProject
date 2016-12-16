@@ -7,6 +7,9 @@ public class attackSystem : MonoBehaviour {
     npcClass npcclass;
     [SerializeField]
     SkeletonAnimation npcSkeletonAnimation;
+    [SerializeField]
+    playerSensor2 playerSensor; //確定player在攻擊範圍
+
 
     public float CD = 0.5F;
     bool attackCDLock = false;
@@ -70,7 +73,7 @@ public class attackSystem : MonoBehaviour {
             }
         }
         else { //npc的攻擊
-            if (!attackCDLock) {
+            if (!attackCDLock && playerSensor.isFindPlayer) {
                 attackCDLock = true; //只能打一次
                 attackFunction();
             }

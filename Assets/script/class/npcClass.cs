@@ -18,7 +18,7 @@ public class npcClass : MonoBehaviour {
     public enum movementState { landed, walking, jumpingBothCanMove, jumpingOnlyLeftMove, jumpingOnlyRightMove, falling };
     public movementState movementStateP;
 
-    public enum CastAni { onMovement, onAttack };
+    public enum CastAni { onMovement, onAttack,onDestory };
     public CastAni CastAniP;
 
     //public enum attackState { landed, walking, jumpingBothCanMove, jumpingOnlyLeftMove, jumpingOnlyRightMove, falling };

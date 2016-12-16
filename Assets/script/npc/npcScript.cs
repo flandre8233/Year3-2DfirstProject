@@ -21,6 +21,13 @@ public class npcScript : GameFunction
     [SerializeField]
     public LayerMask groundLayer;
 
+    [SerializeField]
+    delegate void npcUpdataDelegate();
+    npcUpdataDelegate npcDelegate;
+
+     playerMove playermove;
+     npcMove npcmove;
+
     Rigidbody2D rigidbody2d;
 
     [SerializeField]
@@ -36,11 +43,23 @@ public class npcScript : GameFunction
         playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
         rigidbody2d = GetComponent<Rigidbody2D>();
         npcclass = GetComponent<npcClass>();
+        playermove = GetComponent<playerMove>();
+        npcmove = GetComponent<npcMove>();
         npcclass.npcClassSetUp();
         ignoreCollisionSetUp();//無視其他enemy碰撞
         thisAnimation.state.Complete += MyCompleteListener;
+        DelegateSetUp();
     }
 	
+    void DelegateSetUp() {
+        npcDelegate += attackStateChangeCodeFunction;
+        npcDelegate += npcColorSetting;
+        npcDelegate += movementStateCheck;
+        npcDelegate += NpcDead;
+        npcDelegate += npcmove.delegateUpdate;
+        npcDelegate += playermove.delegateUpdate;
+    }
+
     void ignoreCollisionSetUp() {//無視其他enemy碰撞
         GameObject[] gameObj = GameObject.FindGameObjectsWithTag("enemy");  //無視其他enemy碰撞
         foreach (GameObject each in gameObj) {
@@ -59,14 +78,9 @@ public class npcScript : GameFunction
 
 	// Update is called once per frame
 	void Update () {
-        attackStateChangeCodeFunction();
-        npcColorSetting();
-        movementStateCheck();
-        NpcDead();
-        if (npcclass.TypeP == npcClass.Type.contorl) {
+        if (npcDelegate != null) {
+            npcDelegate.Invoke();
         }
-
-
     }
 
     //很像end效果都一樣
@@ -168,6 +182,7 @@ public class npcScript : GameFunction
                     thisAnimation.timeScale = 1f;
                     //thisAnimation.AnimationName = "sword_idel_single_hand";
                     thisAnimation.state.SetAnimation(0, "sword_idel_single_hand", true);
+                    
                 }
 
 
@@ -233,7 +248,11 @@ public class npcScript : GameFunction
                 IsAlreadyStartDeadFunction = true;
 
                 spawnHPParticle(10);
-                GetComponent<npcMove>().enabled = false;
+                //GetComponent<npcMove>().enabled = false;
+                npcclass.CastAniP = npcClass.CastAni.onDestory;
+                npcDelegate -= npcmove.delegateUpdate;
+                npcDelegate -= playermove.delegateUpdate;
+                
                 GetComponentInChildren<attackSystem>().enabled = false;
 
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;//強制鎖定為跳躍  處理死亡時往後擊飛
