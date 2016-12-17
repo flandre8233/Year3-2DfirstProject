@@ -10,6 +10,9 @@ public class gunShot : MonoBehaviour {
     [Range(0,100)] [SerializeField]
         short damage;
 
+    [SerializeField]
+    public Object bullethitParticlePrefab;
+
     // Use this for initialization
     void Start () {
     }
@@ -39,12 +42,14 @@ public class gunShot : MonoBehaviour {
                 case damageType.npcOnly:
                     if (other.gameObject.GetComponent<npcClass>().TypeP == npcClass.Type.normal) {
                         other.gameObject.GetComponent<npcScript>().npcHPCheck(damage,"player");
+                        Instantiate(bullethitParticlePrefab, transform.position, Quaternion.identity);
                         Destroy(gameObject); //destroy self
                     }                    
                     break;
                 case damageType.playerOnly:
                     if (other.gameObject.GetComponent<npcClass>().TypeP == npcClass.Type.contorl) {
                         other.gameObject.GetComponent<npcScript>().npcHPCheck(damage, "enemy");
+                        Instantiate(bullethitParticlePrefab, transform.position, Quaternion.identity);
                         Destroy(gameObject); //destroy self
                     }
                     break;

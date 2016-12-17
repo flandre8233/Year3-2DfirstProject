@@ -38,6 +38,7 @@ public class npcScript : GameFunction
     [SerializeField]
     public Object SoulsParticlePrefab;
 
+
     // Use this for initialization
     void Start () {
         playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //

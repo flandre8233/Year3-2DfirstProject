@@ -636,7 +636,7 @@ MonoBehaviour:
   thisAnimation: {fileID: 114873768467214450}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
-  SoulsParticlePrefab: {fileID: 1982747734304984, guid: 6b424b578e093764d8ccfc67ccb23cc6,
+  SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
     type: 2}
 --- !u!114 &114000012432281434
 MonoBehaviour:
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
-  isLostPlayer: 0
+  isFindPlayer: 0
 --- !u!114 &114685927151064002
 MonoBehaviour:
   m_ObjectHideFlags: 1
