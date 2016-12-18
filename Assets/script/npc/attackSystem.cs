@@ -88,20 +88,20 @@ public class attackSystem : MonoBehaviour {
             attackCDLock = true; //鎖上不讓再打
         }
         else if (ComboCounter == 1) {
-            isCastCombo = true;
+            isCastCombo = true; //單純指出現在需要COMBO 未有任何程式碼需要用到
         }
             if (attackGO != null) {
                 //StartCoroutine("spawnAttackSensorFunction");
-                ComboCounter++;
-                spawnAttackAni();
-            }
+                ComboCounter++; //計算當前要不要COMBO COMBO到多少?
+            spawnAttackAni();//播動畫
+        }
             else {
                 gunspawn.Shot();
             }
         
     }
 
-    IEnumerator attackColdDown() {
+    IEnumerator attackColdDown() { //當正式打完攻擊招式時就進行COLDDOWN
         yield return new WaitForSeconds(CD);
         ComboCounter = 0;
         attackCDLock = false;
@@ -111,15 +111,18 @@ public class attackSystem : MonoBehaviour {
     void spawnAttackAni() {
         npcclass.CastAniP = npcClass.CastAni.onAttack;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
-        if (ComboCounter == 1) {
+        if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             npcSkeletonAnimation.state.SetAnimation(1, "up_attack_sword", false);
             attackGO.SetActive(true);
         }
         Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******
-        //velocityPart
 
+        attackVelocity();
 
-        if (npcclass.TypeP == npcClass.Type.contorl) {
+    }
+
+    void attackVelocity() {        //velocityPart
+        if (npcclass.TypeP == npcClass.Type.contorl) { //給予攻擊動量
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
         }
@@ -127,10 +130,5 @@ public class attackSystem : MonoBehaviour {
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             //rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
         }
-
-        //rigid2d.velocity -= new Vector2(3.5f * rigid2d.transform.localScale.x, 0);
-        //rigid2d.transform.position += transform.right * Time.deltaTime * 100;
-        Debug.Log("diudiudiud");
     }
-
 }
