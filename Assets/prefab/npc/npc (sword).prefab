@@ -593,6 +593,7 @@ MonoBehaviour:
   npcSkeletonAnimation: {fileID: 114873768467214450}
   playerSensor: {fileID: 114328212589297092}
   CD: 0.75
+  npcReaction: 1
   attackGO: {fileID: 1000011588386404}
   gunspawn: {fileID: 0}
   attackSensorCD: 0.2

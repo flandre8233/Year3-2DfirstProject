@@ -12,6 +12,8 @@ public class attackSystem : MonoBehaviour {
 
 
     public float CD = 0.5F;
+    public float npcReaction = 5.0F;
+    bool npcReactionLock = true;
     bool attackCDLock = false;
     public GameObject attackGO;
     public gunSpawn gunspawn;
@@ -73,10 +75,11 @@ public class attackSystem : MonoBehaviour {
             }
         }
         else { //npc的攻擊
-            if (!attackCDLock && playerSensor.isFindPlayer) {
-                attackCDLock = true; //只能打一次
-                attackFunction();
+            if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) {
+                npcReactionLock = false;
+                StartCoroutine("npcReactionColdDown");
             }
+
         }
         
 
@@ -106,7 +109,16 @@ public class attackSystem : MonoBehaviour {
         ComboCounter = 0;
         attackCDLock = false;
     }
+    IEnumerator npcReactionColdDown() { //當正式打完攻擊招式時就進行COLDDOWN
+        yield return new WaitForSeconds(npcReaction);
+        if (!attackCDLock && !npcReactionLock) {
+            attackCDLock = true; //只能打一次
+            attackFunction();
+        }
 
+        npcReactionLock = true;
+
+    }
 
     void spawnAttackAni() {
         npcclass.CastAniP = npcClass.CastAni.onAttack;

@@ -270,7 +270,8 @@ public class npcScript : GameFunction
             else {  //當死亡時就一直做
                 if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly) { //landed時就毀掉自己
                     Destroy(gameObject);
-                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+                    
+                       Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity)  ;
                     //playerData.playerSouls += npcclass.souls; //玩家靈魂增加
                 }
 

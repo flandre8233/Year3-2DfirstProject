@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4025468250250300}
   - component: {fileID: 198208710466273332}
   - component: {fileID: 199336853802762074}
+  - component: {fileID: 114390769601526742}
   m_Layer: 0
   m_Name: blooduse
   m_TagString: Untagged
@@ -51,8 +52,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141518146677330}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.53, y: -1.79, z: -0.05}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 55.92, y: 0, z: -10.1662855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479960849932934}
@@ -66,12 +67,23 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160573961951540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06999993, y: 4.950001, z: -0.17999983}
+  m_LocalPosition: {x: -0.06999993, y: 0, z: -0.17999983}
   m_LocalScale: {x: 0.932057, y: 0.9320573, z: 0.9320573}
   m_Children: []
   m_Father: {fileID: 4025468250250300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114390769601526742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141518146677330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27c430f0e5dca44e8eafe539df7d2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198208710466273332
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -84,7 +96,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 1
-  autoRandomSeed: 0
+  autoRandomSeed: 1
   startDelay:
     scalar: 0
     maxCurve:
@@ -127,7 +139,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1111302400
+  randomSeed: -255894269
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -691,7 +703,7 @@ ParticleSystem:
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
-    time0: 1
+    time0: 0
     time1: 0
     time2: 0
     time3: 0
@@ -2709,7 +2721,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 1
-  autoRandomSeed: 0
+  autoRandomSeed: 1
   startDelay:
     scalar: 0
     maxCurve:
@@ -2752,7 +2764,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1111302400
+  randomSeed: 1632932036
   InitialModule:
     serializedVersion: 3
     enabled: 1

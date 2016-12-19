@@ -238,6 +238,9 @@ public class playerContorl : GameFunction {
     }
      */
 
+    [SerializeField]
+    Object blooduseParticle;
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "enemy" && !inContorl && other.gameObject != incontorlObj) {
             //Debug.Log("ssssasdasd");
@@ -245,6 +248,7 @@ public class playerContorl : GameFunction {
             if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {   //還原
                 
                 incontorlObj = other.gameObject;
+                Instantiate(blooduseParticle,transform.position,Quaternion.identity);
                 inContorl = true;
 
                 lockDownSystem.cancelTargetLockDown();
