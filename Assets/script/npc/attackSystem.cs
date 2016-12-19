@@ -75,7 +75,7 @@ public class attackSystem : MonoBehaviour {
             }
         }
         else { //npc的攻擊
-            if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) {
+            if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) { //npc反應
                 npcReactionLock = false;
                 StartCoroutine("npcReactionColdDown");
             }
