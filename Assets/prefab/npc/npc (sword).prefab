@@ -272,7 +272,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014235818842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 1, z: 0}
+  m_LocalPosition: {x: -0.67, y: 2.09, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
@@ -298,8 +298,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010031063364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.26, y: 0.73, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -21.766129, y: -6.3556995, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4301831010979730}
   - {fileID: 4987637179848030}
@@ -360,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013006934984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: -1, z: 0}
+  m_LocalPosition: {x: -0.67, y: -0.75, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
@@ -387,7 +387,7 @@ Transform:
   m_GameObject: {fileID: 1916459438716478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -1.07, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 0
@@ -528,9 +528,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 9258f124cb06b964a90f8df8c91c3e2a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.043561935, y: 0.85798514}
+  m_Offset: {x: -0.043561935, y: 0.6193218}
   serializedVersion: 2
-  m_Size: {x: 1.0551453, y: 3.4621403}
+  m_Size: {x: 1.0551453, y: 2.9848135}
 --- !u!61 &61000013472567544
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSkeletonAnimation: {fileID: 114878668092091436}
   playerSensor: {fileID: 114328212589297092}
-  CD: 0.75
+  CD: 0.375
   npcReaction: 1
   attackGO: {fileID: 1000011588386404}
   gunspawn: {fileID: 0}
@@ -608,10 +608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57963090418beeb41a5355ce1ebc3b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeP: 1
+  TypeP: 0
   liveStateP: 0
   attackStateP: 1
-  movementStateP: 0
+  movementStateP: 5
   CastAniP: 0
   WeaponP: 0
   rifleBullet: 10
@@ -704,8 +704,8 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: idel_single
-  loop: 0
+  _animationName: side_connect
+  loop: 1
   timeScale: 1
 --- !u!212 &212000010605637028
 SpriteRenderer:

@@ -37,6 +37,7 @@ public class GameFunction : MonoBehaviour {
     }
 
     public void OnPlayerGameOver() {
+        
         Debug.Log("ggggg");
         GameObject[] playerGhost  = GameObject.FindGameObjectsWithTag("Player"); //
         
@@ -46,13 +47,35 @@ public class GameFunction : MonoBehaviour {
 
         //playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
         //playerData.playerSouls = 0;
+        GameObject gameCanvas = GameObject.FindGameObjectsWithTag("Menu/game-Canvas")[0];
+        gameCanvas.SetActive(false);
+
 
         GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
         GameObject LoseMenu  = winLoseMenu.transform.GetChild(0).gameObject; //顯示輸掉畫面
         LoseMenu.SetActive(true);
+        float fadeInTime = 5.0f;
+
+        /*
+        do {
+            LoseMenu.GetComponent<Renderer>().material.color = new Color(1,1,1,0);
+        }
+        while(){
+            LoseMenu.GetComponent<Renderer>().material.color = new Color(1,1,1,Time.deltaTime/fadeInTime );
+        }
+        */
+
+
     }
+    /*
+    IEnumerator void fadeIntest() {
+        yield break 0;
+    }
+    */
 
     public void OnPlayerWin() {
+        GameObject gameCanvas = GameObject.FindGameObjectsWithTag("Menu/game-Canvas")[0];
+        gameCanvas.SetActive(false);
 
         GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
         //GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;

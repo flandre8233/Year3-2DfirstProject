@@ -6,7 +6,7 @@ public class npcClass : MonoBehaviour {
     Function myfunction = new Function();
     
 
-    public enum Type{ contorl,normal};
+    public enum Type{ contorl,normal,spyder};
     public Type TypeP;
 
     public enum liveState { live, dead };

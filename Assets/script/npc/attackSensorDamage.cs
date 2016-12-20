@@ -59,11 +59,12 @@ public class attackSensorDamage : GameFunction
             if (!alreadyDeal) {
                 switch (npcclass.TypeP) {
                     case npcClass.Type.contorl:
-                        if (other.gameObject.GetComponent<npcClass>().TypeP == npcClass.Type.normal) {
+                        if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {
                             other.gameObject.GetComponent<npcScript>().npcHPCheck(damage, "player");
                             alreadyDamageArray.Add(other.gameObject);
                             //gameObject.SetActive(false);
                         }
+
                         break;
                     case npcClass.Type.normal:
                         if (other.gameObject == playerSensorCode.npc && playerSensorCode.npc != null) {

@@ -16,7 +16,7 @@ public class goalPointCheck : GameFunction {
 
     void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.tag == "playerCollider") {
+        if (other.tag == "playerCollider" && gameStateDataClass.gamestate!= gameStateDataClass.gameState.gameover) {
             OnPlayerWin();
             gameStateDataClass.gamestate = gameStateDataClass.gameState.gameover;
         }

@@ -48,7 +48,9 @@ public class npcScript : GameFunction
         npcmove = GetComponent<npcMove>();
         npcclass.npcClassSetUp();
         ignoreCollisionSetUp();//無視其他enemy碰撞
-        thisAnimation.state.Complete += MyCompleteListener;
+        if (thisAnimation!=null) {
+            thisAnimation.state.Complete += MyCompleteListener;
+        }
         DelegateSetUp();
     }
 	
@@ -56,6 +58,7 @@ public class npcScript : GameFunction
         npcDelegate += attackStateChangeCodeFunction;
         npcDelegate += npcColorSetting;
         npcDelegate += movementStateCheck;
+        npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
         npcDelegate += npcmove.delegateUpdate;
         npcDelegate += playermove.delegateUpdate;
@@ -87,19 +90,21 @@ public class npcScript : GameFunction
     //很像end效果都一樣
     //complete 當完成這次動畫後
 
+
+
     private void MyCompleteListener( Spine.TrackEntry trackEntry) {
         if (npcclass.TypeP == npcClass.Type.contorl) {
-            if (thisAnimation.AnimationName == "jump") { //使跳躍動畫不會回到<none>
-                //float animationEndTime =;
-                //Debug.Log(animationEndTime);
-                thisAnimation.state.SetAnimation(0, "jump" , false);
-                trackEntry.trackTime = trackEntry.TrackEnd;
-                thisAnimation.timeScale = 0.00f; // timescale到0會有問題
-                //trackEntry.TrackTime = animationEndTime;
-                //Debug.Log(trackEntry.trackIndex);
-            }
 
-            //Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": end");
+        }
+        loopEndHoldTheAnimation("jump", trackEntry);
+        loopEndHoldTheAnimation("hit_sword", trackEntry);
+    }
+
+    void loopEndHoldTheAnimation(string name, Spine.TrackEntry trackEntry) {
+        if (thisAnimation.AnimationName == name) { //使跳躍動畫不會回到<none>
+            thisAnimation.state.SetAnimation(0, name, false);
+            trackEntry.trackTime = trackEntry.TrackEnd;
+            thisAnimation.timeScale = 0.00f;
         }
     }
 
@@ -143,53 +148,64 @@ public class npcScript : GameFunction
         }
         #endregion
     }
-    
+
+
+    void movementAnimationSetting() {
+        if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement && thisAnimation != null) {
+            switch (npcclass.movementStateP) {
+                case npcClass.movementState.walking:
+                    if (thisAnimation.AnimationName != "run") {
+                        thisAnimation.loop = true;
+                        thisAnimation.timeScale = 1f;
+                        //thisAnimation.AnimationName = "run_sword";
+                        thisAnimation.state.SetAnimation(0, "run", true);
+                    }
+
+                    break;
+                case npcClass.movementState.jumpingBothCanMove:
+                    if (thisAnimation.AnimationName != "jump") {
+                        thisAnimation.loop = false;
+                        thisAnimation.timeScale = 1f;
+                        //thisAnimation.AnimationName = "jump_sword";
+                        thisAnimation.state.SetAnimation(0, "jump", false);
+                    }
+
+                    break;
+                case npcClass.movementState.falling:
+
+                    break;
+                case npcClass.movementState.landed:
+                    GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                    if (thisAnimation.AnimationName != "idel_single") {
+                        thisAnimation.loop = true;
+                        thisAnimation.timeScale = 1f;
+                        //thisAnimation.AnimationName = "sword_idel_single_hand";
+                        thisAnimation.state.SetAnimation(0, "idel_single", true);
+                    }
+                    break;
+
+            }
+
+
+        }
+    }
+
     void movementStateCheck() {
         #region npc的move狀態定位
         if (Time.timeScale != 0 ) {
             if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
                 npcclass.movementStateP = npcClass.movementState.walking;
-
-                if (thisAnimation.AnimationName != "run") {
-                    thisAnimation.loop = true;
-                    thisAnimation.timeScale = 1f;
-                    //thisAnimation.AnimationName = "run_sword";
-                    thisAnimation.state.SetAnimation(0, "run", true);
-                }
-
-
             }
             else if (rigidbody2d.velocity.y > 0.1 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
-
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
                 GetComponent<Rigidbody2D>().gravityScale = 3.0f;
-                if (thisAnimation.AnimationName != "jump") {
-                    thisAnimation.loop = false;
-                    thisAnimation.timeScale = 1f;
-                    //thisAnimation.AnimationName = "jump_sword";
-                    thisAnimation.state.SetAnimation(0, "jump", false);
-                }
-
 
             }
             else if (rigidbody2d.velocity.y < -0.05 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
                 npcclass.movementStateP = npcClass.movementState.falling;
-                //thisAnimation.AnimationName = "_sword";
-                //thisAnimation.timeScale = 1f;
             }
             else if (Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer)) {
                 npcclass.movementStateP = npcClass.movementState.landed;
-                GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-
-                if (thisAnimation.AnimationName != "idel_single") {
-                    thisAnimation.loop = true;
-                    thisAnimation.timeScale = 1f;
-                    //thisAnimation.AnimationName = "sword_idel_single_hand";
-                    thisAnimation.state.SetAnimation(0, "idel_single", true);
-                    
-                }
-
-
             }
         }
         
@@ -247,7 +263,7 @@ public class npcScript : GameFunction
 
     void NpcDead() { //do once
         #region npc死亡時做的程式
-        if (npcclass.liveStateP == npcClass.liveState.dead && npcclass.TypeP == npcClass.Type.normal) { //當死亡時
+        if (npcclass.liveStateP == npcClass.liveState.dead && npcclass.TypeP != npcClass.Type.contorl) { //當死亡時
              if (!IsAlreadyStartDeadFunction) { //當死亡時只做一次
                 IsAlreadyStartDeadFunction = true;
 
@@ -256,10 +272,17 @@ public class npcScript : GameFunction
                 npcclass.CastAniP = npcClass.CastAni.onDestory;
                 npcDelegate -= npcmove.delegateUpdate;
                 npcDelegate -= playermove.delegateUpdate;
-                
-                GetComponentInChildren<attackSystem>().enabled = false;
 
-                npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;//強制鎖定為跳躍  處理死亡時往後擊飛
+                if (npcclass.TypeP == npcClass.Type.normal) {
+                    GetComponentInChildren<attackSystem>().enabled = false;
+                }
+
+                //npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;//強制鎖定為跳躍  處理死亡時往後擊飛
+                npcclass.CastAniP = npcClass.CastAni.onDestory;
+                if (thisAnimation!=null) {
+                    thisAnimation.state.SetAnimation(0, "hit_sword", false);
+                    thisAnimation.loop = false;
+                }
                 inDeadHitFly = true;
                 if (transform.localScale.x > 0f) { //大過0面向左邊,反則右邊
                     rigidbody2d.velocity = new Vector2(2.5f, 10);
@@ -274,7 +297,7 @@ public class npcScript : GameFunction
                 if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly) { //landed時就毀掉自己
                     Destroy(gameObject);
                     
-                       Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity)  ;
+                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity)  ;
                     //playerData.playerSouls += npcclass.souls; //玩家靈魂增加
                 }
 
