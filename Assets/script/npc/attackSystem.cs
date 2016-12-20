@@ -39,24 +39,29 @@ public class attackSystem : MonoBehaviour {
     private void State_Complete(Spine.TrackEntry trackEntry) { //動作結果那時
                                                                //throw new System.NotImplementedException();
 
-        if (trackEntry.animation.name == "up_attack_sword" && trackEntry.trackIndex == 1) {
+        if (trackEntry.animation.name == "up_attack" && trackEntry.trackIndex == 0) {
             if (ComboCounter >= 2) {
                 attackGO.SetActive(false);
-                npcSkeletonAnimation.state.SetAnimation(1, "side_attack_sword", false);
+                npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
                 attackGO.SetActive(true);
             }
             else {
-                npcSkeletonAnimation.state.SetAnimation(1, "sword_idel_single_hand_back_to_front2", false);
-                attackGO.SetActive(false);
-                attackCDLock = true;
-                StartCoroutine("attackColdDown");
-                rigid2d.velocity = new Vector2(0, rigid2d.velocity.y); //還原
-                npcclass.CastAniP = npcClass.CastAni.onMovement;
+                npcSkeletonAnimation.state.SetAnimation(0, "up_front", false);
+                //npcSkeletonAnimation.state.SetAnimation(1, "idel_single", false);
             }
 
         }
 
-        if (trackEntry.animation.name == "side_attack_sword" && trackEntry.trackIndex == 1) {
+        if (trackEntry.animation.name == "side_attack" && trackEntry.trackIndex == 0) {
+            attackGO.SetActive(false);
+            attackCDLock = true; //進入CD
+            StartCoroutine("attackColdDown");
+            rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
+            npcclass.CastAniP = npcClass.CastAni.onMovement;
+        }
+
+        if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
+            npcSkeletonAnimation.state.SetAnimation(0, "idel_single", false);
             attackGO.SetActive(false);
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
@@ -124,7 +129,8 @@ public class attackSystem : MonoBehaviour {
         npcclass.CastAniP = npcClass.CastAni.onAttack;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
-            npcSkeletonAnimation.state.SetAnimation(1, "up_attack_sword", false);
+            npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
+            npcSkeletonAnimation.timeScale = 1.0f;
             attackGO.SetActive(true);
         }
         Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******

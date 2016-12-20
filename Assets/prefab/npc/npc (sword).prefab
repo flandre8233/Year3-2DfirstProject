@@ -189,24 +189,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1183108255368152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4275536113038152}
-  - component: {fileID: 33554941868968050}
-  - component: {fileID: 23176791722350906}
-  - component: {fileID: 114873768467214450}
-  m_Layer: 0
-  m_Name: test SkeletonAnimation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1463553315484272
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +201,24 @@ GameObject:
   - component: {fileID: 114685927151064002}
   m_Layer: 17
   m_Name: player sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1916459438716478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4301831010979730}
+  - component: {fileID: 33582463882921580}
+  - component: {fileID: 23299509318053948}
+  - component: {fileID: 114878668092091436}
+  m_Layer: 0
+  m_Name: sword-Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ Transform:
   m_LocalPosition: {x: -16.26, y: 0.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4275536113038152}
+  - {fileID: 4301831010979730}
   - {fileID: 4987637179848030}
   - {fileID: 4000013284979108}
   - {fileID: 4000010611676076}
@@ -379,15 +379,15 @@ Transform:
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4275536113038152
+--- !u!4 &4301831010979730
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183108255368152}
-  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.73, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_GameObject: {fileID: 1916459438716478}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 0
@@ -405,12 +405,12 @@ Transform:
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23176791722350906
+--- !u!23 &23299509318053948
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183108255368152}
+  m_GameObject: {fileID: 1916459438716478}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -418,7 +418,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 89888d396299c24458c35dcaa23c70e1, type: 2}
+  - {fileID: 2100000, guid: 7627021b1a307724d8a4a3f310d88897, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,14 +434,14 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -2021803037
   m_SortingOrder: 0
---- !u!33 &33554941868968050
+--- !u!33 &33582463882921580
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183108255368152}
+  m_GameObject: {fileID: 1916459438716478}
   m_Mesh: {fileID: 0}
 --- !u!50 &50000010981948730
 Rigidbody2D:
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263247cfd0be5f845b0d6f5c85bd12fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcSkeletonAnimation: {fileID: 114873768467214450}
+  npcSkeletonAnimation: {fileID: 114878668092091436}
   playerSensor: {fileID: 114328212589297092}
   CD: 0.75
   npcReaction: 1
@@ -634,7 +634,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  thisAnimation: {fileID: 114873768467214450}
+  thisAnimation: {fileID: 114878668092091436}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -681,18 +681,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
   isLostPlayer: 0
---- !u!114 &114873768467214450
+--- !u!114 &114878668092091436
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183108255368152}
+  m_GameObject: {fileID: 1916459438716478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 39eb6b01f3d08334aa92d90c4135edd5, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: df843afa948375541954815ee2bac1a0, type: 2}
   initialSkinName: default
   separatorSlotNames: []
   zSpacing: 0
@@ -704,7 +704,7 @@ MonoBehaviour:
   calculateTangents: 0
   logErrors: 0
   disableRenderingOnOverride: 1
-  _animationName: 
+  _animationName: idel_single
   loop: 0
   timeScale: 1
 --- !u!212 &212000010605637028

@@ -89,11 +89,14 @@ public class npcScript : GameFunction
 
     private void MyCompleteListener( Spine.TrackEntry trackEntry) {
         if (npcclass.TypeP == npcClass.Type.contorl) {
-            if (thisAnimation.AnimationName == "jump_sword") { //使跳躍動畫不會回到<none>
-                thisAnimation.state.SetAnimation(0, "jump_sword" , false);
-                thisAnimation.timeScale = 0.1f; // timescale到0會有問題
-                trackEntry.TrackTime = 0.6f;
-                Debug.Log(trackEntry.trackIndex);
+            if (thisAnimation.AnimationName == "jump") { //使跳躍動畫不會回到<none>
+                //float animationEndTime =;
+                //Debug.Log(animationEndTime);
+                thisAnimation.state.SetAnimation(0, "jump" , false);
+                trackEntry.trackTime = trackEntry.TrackEnd;
+                thisAnimation.timeScale = 0.00f; // timescale到0會有問題
+                //trackEntry.TrackTime = animationEndTime;
+                //Debug.Log(trackEntry.trackIndex);
             }
 
             //Debug.Log(trackIndex + " " + state.GetCurrent(trackIndex) + ": end");
@@ -147,11 +150,11 @@ public class npcScript : GameFunction
             if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
                 npcclass.movementStateP = npcClass.movementState.walking;
 
-                if (thisAnimation.AnimationName != "run_sword") {
+                if (thisAnimation.AnimationName != "run") {
                     thisAnimation.loop = true;
                     thisAnimation.timeScale = 1f;
                     //thisAnimation.AnimationName = "run_sword";
-                    thisAnimation.state.SetAnimation(0, "run_sword", true);
+                    thisAnimation.state.SetAnimation(0, "run", true);
                 }
 
 
@@ -160,11 +163,11 @@ public class npcScript : GameFunction
 
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
                 GetComponent<Rigidbody2D>().gravityScale = 3.0f;
-                if (thisAnimation.AnimationName != "jump_sword") {
+                if (thisAnimation.AnimationName != "jump") {
                     thisAnimation.loop = false;
                     thisAnimation.timeScale = 1f;
                     //thisAnimation.AnimationName = "jump_sword";
-                    thisAnimation.state.SetAnimation(0, "jump_sword", false);
+                    thisAnimation.state.SetAnimation(0, "jump", false);
                 }
 
 
@@ -178,11 +181,11 @@ public class npcScript : GameFunction
                 npcclass.movementStateP = npcClass.movementState.landed;
                 GetComponent<Rigidbody2D>().gravityScale = 1.0f;
 
-                if (thisAnimation.AnimationName != "sword_idel_single_hand") {
+                if (thisAnimation.AnimationName != "idel_single") {
                     thisAnimation.loop = true;
                     thisAnimation.timeScale = 1f;
                     //thisAnimation.AnimationName = "sword_idel_single_hand";
-                    thisAnimation.state.SetAnimation(0, "sword_idel_single_hand", true);
+                    thisAnimation.state.SetAnimation(0, "idel_single", true);
                     
                 }
 
