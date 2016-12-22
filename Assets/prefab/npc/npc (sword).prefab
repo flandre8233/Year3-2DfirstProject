@@ -206,19 +206,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1916459438716478
+--- !u!1 &1780395249339870
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4301831010979730}
-  - component: {fileID: 33582463882921580}
-  - component: {fileID: 23299509318053948}
-  - component: {fileID: 114878668092091436}
+  - component: {fileID: 4761906198694934}
+  - component: {fileID: 33490624048883378}
+  - component: {fileID: 23872401115183318}
+  - component: {fileID: 114305783306590650}
   m_Layer: 0
-  m_Name: sword-Skeleton
+  m_Name: sword_Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,10 +298,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010031063364}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.766129, y: -6.3556995, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -16.26, y: 0.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4301831010979730}
+  - {fileID: 4761906198694934}
   - {fileID: 4987637179848030}
   - {fileID: 4000013284979108}
   - {fileID: 4000010611676076}
@@ -321,7 +321,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010467735636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15, y: 0, z: 0}
+  m_LocalPosition: {x: -12.09, y: 0, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
@@ -334,7 +334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011658643838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.05, y: -0.88, z: 0}
+  m_LocalPosition: {x: -3.56, y: -0.88, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
@@ -379,14 +379,14 @@ Transform:
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4301831010979730
+--- !u!4 &4761906198694934
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1916459438716478}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.07, z: 0}
+  m_GameObject: {fileID: 1780395249339870}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.11, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000010995169648}
@@ -405,12 +405,12 @@ Transform:
   m_Father: {fileID: 4000010995169648}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23299509318053948
+--- !u!23 &23872401115183318
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1916459438716478}
+  m_GameObject: {fileID: 1780395249339870}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -418,7 +418,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7627021b1a307724d8a4a3f310d88897, type: 2}
+  - {fileID: 2100000, guid: e1861275d15f99e4b92af5a5ed8478b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -434,14 +434,14 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2021803037
+  m_SortingLayerID: 1385265519
   m_SortingOrder: 0
---- !u!33 &33582463882921580
+--- !u!33 &33490624048883378
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1916459438716478}
+  m_GameObject: {fileID: 1780395249339870}
   m_Mesh: {fileID: 0}
 --- !u!50 &50000010981948730
 Rigidbody2D:
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263247cfd0be5f845b0d6f5c85bd12fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcSkeletonAnimation: {fileID: 114878668092091436}
+  npcSkeletonAnimation: {fileID: 114305783306590650}
   playerSensor: {fileID: 114328212589297092}
   CD: 0.375
   npcReaction: 1
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57963090418beeb41a5355ce1ebc3b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeP: 0
+  TypeP: 1
   liveStateP: 0
   attackStateP: 1
   movementStateP: 5
@@ -634,7 +634,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
-  thisAnimation: {fileID: 114878668092091436}
+  thisAnimation: {fileID: 114305783306590650}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -655,6 +655,32 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &114305783306590650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780395249339870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: 143209c17b109fb44aeb979e4f9aae8c, type: 2}
+  initialSkinName: default
+  separatorSlotNames: []
+  zSpacing: 0
+  renderMeshes: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  calculateNormals: 0
+  calculateTangents: 0
+  logErrors: 0
+  disableRenderingOnOverride: 1
+  _animationName: 
+  loop: 0
+  timeScale: 1
 --- !u!114 &114328212589297092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,32 +707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npc: {fileID: 0}
   isLostPlayer: 0
---- !u!114 &114878668092091436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1916459438716478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: df843afa948375541954815ee2bac1a0, type: 2}
-  initialSkinName: default
-  separatorSlotNames: []
-  zSpacing: 0
-  renderMeshes: 1
-  immutableTriangles: 0
-  pmaVertexColors: 1
-  clearStateOnDisable: 0
-  calculateNormals: 0
-  calculateTangents: 0
-  logErrors: 0
-  disableRenderingOnOverride: 1
-  _animationName: side_connect
-  loop: 1
-  timeScale: 1
 --- !u!212 &212000010605637028
 SpriteRenderer:
   m_ObjectHideFlags: 1

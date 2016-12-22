@@ -267,7 +267,15 @@ public class npcScript : GameFunction
              if (!IsAlreadyStartDeadFunction) { //當死亡時只做一次
                 IsAlreadyStartDeadFunction = true;
 
-                spawnHPParticle(10);
+                switch (npcclass.TypeP) {
+                    case npcClass.Type.normal:
+                        spawnHPParticle(10);
+                        break;
+                    case npcClass.Type.spyder:
+                        spawnHPParticle(1);
+                        break;
+                }
+
                 //GetComponent<npcMove>().enabled = false;
                 npcclass.CastAniP = npcClass.CastAni.onDestory;
                 npcDelegate -= npcmove.delegateUpdate;
@@ -312,7 +320,7 @@ public class npcScript : GameFunction
     {
         #region hp粒子
         Function myfunction = new Function();
-        while (Number >= 0)
+        while (Number > 0)
         {
             GameObject thisHPparticle = Instantiate(hpParticlePrefab,transform.position,Quaternion.identity) as GameObject;
             Rigidbody2D rigid = thisHPparticle.GetComponent<Rigidbody2D>();

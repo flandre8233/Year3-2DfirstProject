@@ -1,0 +1,62 @@
+
+spider.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+ball
+  rotate: false
+  xy: 238, 77
+  size: 43, 38
+  orig: 43, 38
+  offset: 0, 0
+  index: -1
+eyes
+  rotate: false
+  xy: 2, 39
+  size: 134, 76
+  orig: 134, 76
+  offset: 0, 0
+  index: -1
+left back
+  rotate: true
+  xy: 92, 4
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+left front
+  rotate: true
+  xy: 309, 93
+  size: 22, 38
+  orig: 22, 38
+  offset: 0, 0
+  index: -1
+middle
+  rotate: false
+  xy: 138, 25
+  size: 98, 90
+  orig: 98, 90
+  offset: 0, 0
+  index: -1
+right back
+  rotate: false
+  xy: 238, 38
+  size: 31, 37
+  orig: 31, 37
+  offset: 0, 0
+  index: -1
+right front
+  rotate: false
+  xy: 283, 78
+  size: 24, 37
+  orig: 24, 37
+  offset: 0, 0
+  index: -1
+top
+  rotate: false
+  xy: 2, 2
+  size: 88, 35
+  orig: 88, 35
+  offset: 0, 0
+  index: -1
