@@ -32,8 +32,8 @@ public class playerSensorCode : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
 
         
-        if (other.gameObject.tag == "enemy"  ) {
-            
+        if (other.gameObject.tag == "enemy" && GetComponentInParent<npcClass>().WeaponP !=  npcClass.Weapon.none ) { //進入攻擊狀態
+
             if (other.GetComponent<npcClass>().TypeP == npcClass.Type.contorl) {
                 string st = this.gameObject.name + "    " + "find";
                 npc = other.gameObject;  //player as 
@@ -43,7 +43,7 @@ public class playerSensorCode : MonoBehaviour {
                 if (GetComponentInParent<npcClass>().attackStateP != npcClass.attackState.attack) {
                     OriginalAttackState = GetComponentInParent<npcClass>().attackStateP;
                 }
-                GetComponentInParent<npcClass>().attackStateP = npcClass.attackState.attack;
+                GetComponentInParent<npcClass>().attackStateP = npcClass.attackState.attack; 
                 //GetComponent<npcClass>().attackStateP = npcClass.attackState.attack;
             }
 

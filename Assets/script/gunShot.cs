@@ -8,7 +8,7 @@ public class gunShot : MonoBehaviour {
 
     public float speed;
     [Range(0,100)] [SerializeField]
-        short damage;
+     public short damage;
 
     [SerializeField]
     public Object bullethitParticlePrefab;
@@ -37,7 +37,7 @@ public class gunShot : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.gameObject.tag == "enemy") {
+        if (other.gameObject.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed") {
             switch (damagetype) {
                 case damageType.npcOnly:
                     if (other.gameObject.GetComponent<npcClass>().TypeP == npcClass.Type.normal) {

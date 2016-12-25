@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
@@ -17,8 +17,6 @@ public class UI : MonoBehaviour {
     public Text scriptText2;
     public Slider volSlider;
     public GameObject pauseMenuCanvas;
-
-
 
     // Use this for initialization
     void Start() {
@@ -77,7 +75,7 @@ public class UI : MonoBehaviour {
         Application.Quit();
         gameStateDataClass.gamestate = gameStateDataClass.gameState.menu; //?
     }
-
+    
     void SilderVol() {
         if (volSlider!=null) {
             AudioListener.volume = volSlider.value;

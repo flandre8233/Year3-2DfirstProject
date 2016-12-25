@@ -4,13 +4,13 @@ namespace myFunction {
     public class Function {
 
         #region randomFunction
-        public int RandomNumber(int selectedDice) {
+        public static int RandomNumber(int selectedDice) {
             Random myRand = new Random(Guid.NewGuid().GetHashCode());
             int randomNumber = (myRand.Next(1, selectedDice + 1));
             return randomNumber;
         }
 
-        public int TimesDiceSided(int Times, int sided_dice) {
+        public static int TimesDiceSided(int Times, int sided_dice) {
             int totalRandomNumber = 0;
             for (int i = 1; i <= Times; i++) {
                 totalRandomNumber += RandomNumber(sided_dice);
@@ -20,7 +20,7 @@ namespace myFunction {
         #endregion
 
         #region sortFunction
-        public int[] SortTheArray(int[] intArrray, bool isbigtoSmall) {
+        public static int[] SortTheArray(int[] intArrray, bool isbigtoSmall) {
             int saveNum = 0;
             for (int i = 0; i <= intArrray.Length - 1; i++) {
                 for (int j = 0; j <= intArrray.Length - 2; j++) {
@@ -44,7 +44,7 @@ namespace myFunction {
             return intArrray;
         }
 
-        public string[] SortTheArray(string[] stringArray, bool isbigtoSmall) {
+        public static string[] SortTheArray(string[] stringArray, bool isbigtoSmall) {
             Array.Sort(stringArray, StringComparer.InvariantCulture);
             if (!isbigtoSmall) {
                 string saveString = "";
@@ -59,7 +59,7 @@ namespace myFunction {
         }
         #endregion
 
-        public int findSmallestOfBigestNumberInArray(int[] intArray, bool isfindBigest) {
+        public static int findSmallestOfBigestNumberInArray(int[] intArray, bool isfindBigest) {
             int targetNumber = 0;
             if (isfindBigest) {
                 for (int i = 0; i <= (intArray.Length - 2); i++) {
@@ -79,7 +79,7 @@ namespace myFunction {
         }
 
 
-        public int findSmallestOfBigestNumberInArray(float[] floatArray, bool isfindBigest,int indexNo) {
+        public static int findSmallestOfBigestNumberInArray(float[] floatArray, bool isfindBigest,int indexNo) {
             int[] targetNumber = new int[indexNo+1];  //targetnumber是floatarray裡的index
 
             bool firstOKNumber = false;
@@ -131,7 +131,7 @@ namespace myFunction {
     
 
         #region keysFunction
-        public string keysStringConvert(string keysString) {
+        public static string keysStringConvert(string keysString) {
             switch (keysString) {
                 case "OemOpenBrackets":
                     return "[";

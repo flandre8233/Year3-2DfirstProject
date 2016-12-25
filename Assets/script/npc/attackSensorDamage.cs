@@ -4,7 +4,6 @@ using myFunction;
 public class attackSensorDamage : GameFunction
 {
     npcClass npcclass;
-    Function function = new Function(); 
     [SerializeField]
     playerSensorCode playerSensorCode;
     public playerDataClass pDc;
@@ -36,7 +35,7 @@ public class attackSensorDamage : GameFunction
         if (other.tag == "bullet" && npcclass.WeaponP == npcClass.Weapon.sword && npcclass.TypeP == npcClass.Type.contorl) {
             GameObject bulletObject = other.gameObject;
             //bulletObject.transform.eulerAngles = new Vector3(0,0,444);
-            bulletObject.transform.eulerAngles = new Vector3(0, 0, function.RandomNumber(40) + 160 + bulletObject.transform.eulerAngles.z);
+            bulletObject.transform.eulerAngles = new Vector3(0, 0, Function.RandomNumber(40) + 160 + bulletObject.transform.eulerAngles.z);
             bulletObject.GetComponent<gunShot>().speed *= 3;
             //bulletObject
             //transform.rotation = Quaternion.Euler(0, 0, i);
@@ -45,7 +44,7 @@ public class attackSensorDamage : GameFunction
     }
     void triggerNpc(Collider2D other) {
         bool alreadyDeal = false;
-        if (other.tag == "enemy" && other.gameObject != gameObject) {   //多重攻擊目標
+        if ( (other.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed" )&& other.gameObject != gameObject) {   //多重攻擊目標
             if (alreadyDamageArray.Count > 0) {
                 foreach (GameObject each in alreadyDamageArray) {
                     if (each == other.gameObject) {

@@ -16,6 +16,7 @@ TagManager:
   - SkeletonAnimation
   - soulsTargetPoint
   - Menu/game-Canvas
+  - enemy-cantbePossessed
   layers:
   - Default
   - TransparentFX

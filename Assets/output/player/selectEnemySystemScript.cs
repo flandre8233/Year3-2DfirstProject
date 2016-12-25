@@ -33,7 +33,6 @@ public class selectEnemySystemScript : GameFunction
 
     public GameObject targetGameObj;  //¤£¬O¤â°Ê©ñ¶i¥h
 
-    Function myfunction = new Function();
     int selectTaget = 1;
 
     float[] eachEnemylerpFloat;
@@ -67,7 +66,7 @@ public class selectEnemySystemScript : GameFunction
                 i++;
             }
 
-            target = myfunction.findSmallestOfBigestNumberInArray(eachEnemylerpFloat, false, targetNum);  //?oeachEnemylerpFloat array?‘æŠôŒÂÅ¬É?
+            target = Function.findSmallestOfBigestNumberInArray(eachEnemylerpFloat, false, targetNum);  //?oeachEnemylerpFloat array?‘æŠôŒÂÅ¬É?
 
             targetGameObj = GB[target]; //§â¥Ø¼Ğ§ä¥X¨Ó
             //targetGameObj.GetComponent<SpriteRenderer>().color = Color.red;

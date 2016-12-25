@@ -78,8 +78,8 @@ public class GameFunction : MonoBehaviour {
         gameCanvas.SetActive(false);
 
         GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
-        //GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;
-        //winMenu.SetActive(true);
+        GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;
+        winMenu.SetActive(true);
     }
 
 }

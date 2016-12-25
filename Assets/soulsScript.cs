@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class soulsScript : MonoBehaviour {
+public class soulsScript : MonoBehaviour
+{
     playerDataClass playerdataclass;
     GameObject targetPositionGameObject;
-    
+
     Vector2 targetPosition;
     Vector2 viewportPoint;
 
@@ -13,16 +14,17 @@ public class soulsScript : MonoBehaviour {
 
     float t;
     // Use this for initialization
-    void Start () {
+
+    void Start() {
         playerdataclass = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
-        if (playerdataclass.HP > 0.0f ) {
+        if (playerdataclass.HP > 0.0f) {
             targetPositionGameObject = GameObject.FindGameObjectsWithTag("soulsTargetPoint")[0];
         }
         startPoint = transform.position;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         if (playerdataclass.HP > 0.0f) {
             t += 0.5f * Time.deltaTime;
             targetPosition = targetPositionGameObject.transform.position;

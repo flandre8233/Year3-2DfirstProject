@@ -613,7 +613,7 @@ MonoBehaviour:
   attackStateP: 1
   movementStateP: 5
   CastAniP: 0
-  WeaponP: 0
+  WeaponP: 1
   rifleBullet: 10
   souls: 1
   HP: 2

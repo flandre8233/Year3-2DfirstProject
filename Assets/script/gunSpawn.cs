@@ -20,7 +20,8 @@ public class gunSpawn : GameFunction{
     bool shootByNpc;
     [SerializeField]
     Camera mouseInCameraPosition;
-
+    [SerializeField]
+    short bulletDamage;
 
 	
 	public void Shot() {
@@ -62,20 +63,20 @@ public class gunSpawn : GameFunction{
             if (shootByNpc && npcclass!= null) {
                 
                 if (npcclass.TypeP == npcClass.Type.contorl) {
-                    StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i)  ,gunShot.damageType.npcOnly));
+                    StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i)  ,gunShot.damageType.npcOnly, bulletDamage));
                     //Instantiate(bulletPrefabs, transform.position, Quaternion.Euler(0, 0, 5));
 
                 }
                 else {
                    // Instantiate(bulletPrefabs, transform.position, Quaternion.Euler(0, 0, 5));
 
-                    StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i), gunShot.damageType.playerOnly));
+                    StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i), gunShot.damageType.playerOnly, bulletDamage));
                 }
             }
             else {
                 //Instantiate(bulletPrefabs, transform.position, Quaternion.Euler(0, 0, 5));
 
-                StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i), gunShot.damageType.playerOnly));
+                StartCoroutine(spawnBullet(bulletPrefabs, Quaternion.Euler(0, 0, i), gunShot.damageType.playerOnly, bulletDamage));
             }
         }
         
@@ -91,9 +92,10 @@ public class gunSpawn : GameFunction{
     }
     */
 
-    IEnumerator spawnBullet(GameObject prefabs,Quaternion rotation, gunShot.damageType damageType) {
+    IEnumerator spawnBullet(GameObject prefabs,Quaternion rotation, gunShot.damageType damageType , short bulletDamage) {
         GameObject PF = Instantiate(prefabs, transform.position, rotation) as GameObject;
         PF.GetComponent<gunShot>().damagetype = damageType;
+        PF.GetComponent<gunShot>().damage = bulletDamage;
         yield return new WaitForSeconds(5);
         Destroy(PF);
         StopCoroutine("spawnBullet");

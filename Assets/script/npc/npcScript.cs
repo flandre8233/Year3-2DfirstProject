@@ -73,6 +73,16 @@ public class npcScript : GameFunction
             Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<CircleCollider2D>());
         }
 
+        if (gameObject.tag != "enemy") {  //無視自己同tag的npc碰撞
+            gameObj = GameObject.FindGameObjectsWithTag(gameObject.tag);  
+            foreach (GameObject each in gameObj) {
+                Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
+                Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<CircleCollider2D>());
+                Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
+                Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<CircleCollider2D>());
+            }
+        }
+
         GameObject[] HPpartaclegameObj = GameObject.FindGameObjectsWithTag("HPpartacle");  //無視其他enemy碰撞
         foreach (GameObject each in HPpartaclegameObj) {
             Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>());
@@ -281,7 +291,7 @@ public class npcScript : GameFunction
                 npcDelegate -= npcmove.delegateUpdate;
                 npcDelegate -= playermove.delegateUpdate;
 
-                if (npcclass.TypeP == npcClass.Type.normal) {
+                if (npcclass.TypeP == npcClass.Type.normal && GetComponentInChildren<attackSystem>() ) {
                     GetComponentInChildren<attackSystem>().enabled = false;
                 }
 
@@ -319,15 +329,14 @@ public class npcScript : GameFunction
     void spawnHPParticle(int Number)
     {
         #region hp粒子
-        Function myfunction = new Function();
         while (Number > 0)
         {
             GameObject thisHPparticle = Instantiate(hpParticlePrefab,transform.position,Quaternion.identity) as GameObject;
             Rigidbody2D rigid = thisHPparticle.GetComponent<Rigidbody2D>();
             SpriteRenderer spriteRend = thisHPparticle.GetComponent<SpriteRenderer>();
             hpParticleScript ParticleScript = thisHPparticle.GetComponent<hpParticleScript>();
-            rigid.velocity = new Vector2(myfunction.RandomNumber(12)-4, myfunction.RandomNumber(10));
-            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, (myfunction.RandomNumber(4)+3)/10f);
+            rigid.velocity = new Vector2(Function.RandomNumber(12)-4, Function.RandomNumber(10));
+            spriteRend.color = new Color(spriteRend.color.r, spriteRend.color.g, spriteRend.color.b, (Function.RandomNumber(4)+3)/10f);
             ParticleScript.playerData = playerData;
             Number--;
         }

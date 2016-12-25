@@ -24,7 +24,7 @@ public class npcClass : MonoBehaviour {
     //public enum attackState { landed, walking, jumpingBothCanMove, jumpingOnlyLeftMove, jumpingOnlyRightMove, falling };
     //public State movementStateP;
 
-    public enum Weapon { sword,rifle,axe};
+    public enum Weapon {  none,sword,rifle,axe};
     public Weapon WeaponP;
 
     [SerializeField]

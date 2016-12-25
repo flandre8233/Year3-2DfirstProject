@@ -19,7 +19,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4826993734898990}
-  - component: {fileID: 114905963532947216}
   - component: {fileID: 114313530282044464}
   m_Layer: 0
   m_Name: OnAwakenpcSpawnPoint (2)
@@ -27,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4826993734898990
 Transform:
   m_ObjectHideFlags: 1
@@ -35,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207636862753312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.18, y: 7.1, z: 0}
+  m_LocalPosition: {x: -6.75, y: 1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,18 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1cfea2ddf6655844b2d4b17adee9df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefabs: {fileID: 0}
-  spawnTimes: 0
---- !u!114 &114905963532947216
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1207636862753312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8bbc8e4f2e4de448d88315c149ecd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcPrefabs: {fileID: 1000010031063364, guid: b7426055694104d4ba655b034b7eb2b7, type: 2}
-  perSecond: 0.8
+  npcPrefabs: {fileID: 1237405700300280, guid: a2072fb6240adf84b90cc0bafa75900e, type: 2}
+  spawnTimes: 5
+  dispersion: 6

@@ -45,6 +45,16 @@ public class npcMove : GameFunction
             localScaleX = transform.localScale.x;
         }
 
+        setPatrolDirection();
+    }
+
+    public void setPatrolDirection() {
+        if (transform.localScale.x >= 0) { // 1 is left , -1 is right
+            isPatrolToLeft = true;
+        }
+        else {
+            isPatrolToLeft = false;
+        }
 
     }
 
@@ -105,6 +115,7 @@ public class npcMove : GameFunction
     void simplePatrol() {
         //awake時的scale一定要X係正值
         if (!patrolWaitLock) {
+            //setPatrolDirection();
             rb2d.velocity = new Vector2(-(speed * rb2d.transform.localScale.x), rb2d.velocity.y);
             if (isPatrolToLeft) {
                 if (transform.position.x < patrolLeftPointSave.x) {
