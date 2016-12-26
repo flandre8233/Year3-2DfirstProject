@@ -15,7 +15,6 @@ public class OnAwakeSpawnOnce : MonoBehaviour
     void Awake() {
         while (spawnTimes-- > 0) { //it's work
             setLocalScale(npcPrefabs);
-
             GameObject Clone = Instantiate(npcPrefabs, setPosition(dispersion), Quaternion.identity);
             Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position = new Vector3(Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.x, Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.y - (Function.RandomNumber(10) / 20f), 0);
             //Debug.Log(Function.RandomNumber(6));
