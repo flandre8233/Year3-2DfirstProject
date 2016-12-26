@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -569,6 +569,17 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 23872401115183318, guid: b7426055694104d4ba655b034b7eb2b7,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 54f17697be1470943b8604d3f75ea035, type: 2}
+    - target: {fileID: 114305783306590650, guid: b7426055694104d4ba655b034b7eb2b7,
+        type: 2}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f0d2be81a020af488896c911d12bdb2,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7426055694104d4ba655b034b7eb2b7, type: 2}
   m_IsPrefabParent: 0
@@ -5708,6 +5719,21 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 23631227137815280, guid: 7017f0a4f26d7604f9a6b70c6e536d01,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 40a842b77fb11544a8092b8e739fd8e8, type: 2}
+    - target: {fileID: 114391571281210356, guid: 7017f0a4f26d7604f9a6b70c6e536d01,
+        type: 2}
+      propertyPath: skeletonDataAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ed1c6cc23f3146048a4e2a1e152a08f0,
+        type: 2}
+    - target: {fileID: 1963130101012098, guid: 7017f0a4f26d7604f9a6b70c6e536d01, type: 2}
+      propertyPath: m_Name
+      value: npc_Skeleton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7017f0a4f26d7604f9a6b70c6e536d01, type: 2}
   m_IsPrefabParent: 0
@@ -6510,6 +6536,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 23081441466685328, guid: b3d8693a1340bf6428640cd74db4f874,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15cef74c858207b479e07b664813ee2d, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3d8693a1340bf6428640cd74db4f874, type: 2}
   m_IsPrefabParent: 0
