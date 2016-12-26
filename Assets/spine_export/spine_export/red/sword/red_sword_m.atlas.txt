@@ -1,0 +1,167 @@
+
+red_sword_m.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+back_body
+  rotate: false
+  xy: 886, 150
+  size: 113, 104
+  orig: 113, 104
+  offset: 0, 0
+  index: -1
+back_chest
+  rotate: false
+  xy: 542, 138
+  size: 186, 116
+  orig: 186, 116
+  offset: 0, 0
+  index: -1
+back_head
+  rotate: false
+  xy: 188, 26
+  size: 182, 165
+  orig: 182, 165
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 741, 90
+  size: 98, 79
+  orig: 98, 79
+  offset: 0, 0
+  index: -1
+body_down
+  rotate: true
+  xy: 841, 91
+  size: 78, 39
+  orig: 78, 39
+  offset: 0, 0
+  index: -1
+body_up
+  rotate: false
+  xy: 542, 32
+  size: 113, 104
+  orig: 113, 104
+  offset: 0, 0
+  index: -1
+chest
+  rotate: false
+  xy: 730, 171
+  size: 154, 83
+  orig: 154, 83
+  offset: 0, 0
+  index: -1
+down(2)
+  rotate: false
+  xy: 965, 76
+  size: 32, 72
+  orig: 32, 72
+  offset: 0, 0
+  index: -1
+down(2)(2)
+  rotate: false
+  xy: 839, 2
+  size: 29, 71
+  orig: 29, 71
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 372, 88
+  size: 168, 166
+  orig: 168, 166
+  offset: 0, 0
+  index: -1
+head_center
+  rotate: false
+  xy: 2, 26
+  size: 184, 165
+  orig: 184, 165
+  offset: 0, 0
+  index: -1
+left_arm_down
+  rotate: true
+  xy: 372, 21
+  size: 65, 115
+  orig: 65, 115
+  offset: 0, 0
+  index: -1
+left_arm_up
+  rotate: false
+  xy: 657, 34
+  size: 82, 102
+  orig: 82, 102
+  offset: 0, 0
+  index: -1
+left_hand
+  rotate: true
+  xy: 489, 32
+  size: 54, 51
+  orig: 54, 51
+  offset: 0, 0
+  index: -1
+right_arm_down
+  rotate: true
+  xy: 882, 75
+  size: 73, 81
+  orig: 73, 81
+  offset: 0, 0
+  index: -1
+right_arm_up
+  rotate: true
+  xy: 741, 14
+  size: 74, 96
+  orig: 74, 96
+  offset: 0, 0
+  index: -1
+right_hand
+  rotate: false
+  xy: 870, 20
+  size: 62, 53
+  orig: 62, 53
+  offset: 0, 0
+  index: -1
+right_hand - Copy
+  rotate: false
+  xy: 870, 20
+  size: 62, 53
+  orig: 62, 53
+  offset: 0, 0
+  index: -1
+sword
+  rotate: true
+  xy: 2, 193
+  size: 61, 358
+  orig: 61, 358
+  offset: 0, 0
+  index: -1
+tie
+  rotate: false
+  xy: 527, 5
+  size: 34, 25
+  orig: 34, 25
+  offset: 0, 0
+  index: -1
+tie(2)
+  rotate: false
+  xy: 489, 5
+  size: 36, 25
+  orig: 36, 25
+  offset: 0, 0
+  index: -1
+up(2)
+  rotate: false
+  xy: 934, 25
+  size: 37, 48
+  orig: 37, 48
+  offset: 0, 0
+  index: -1
+up(2)(2)
+  rotate: false
+  xy: 973, 26
+  size: 34, 48
+  orig: 34, 48
+  offset: 0, 0
+  index: -1
