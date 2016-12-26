@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using myFunction;
-public class OnAwakeSpawnOnce : MonoBehaviour {
+public class OnAwakeSpawnOnce : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject npcPrefabs;
@@ -14,7 +15,9 @@ public class OnAwakeSpawnOnce : MonoBehaviour {
     void Awake() {
         while (spawnTimes-- > 0) { //it's work
             setLocalScale(npcPrefabs);
-            Instantiate(npcPrefabs, setPosition(dispersion)  , Quaternion.identity)  ;
+
+            GameObject Clone = Instantiate(npcPrefabs, setPosition(dispersion), Quaternion.identity);
+            Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position = new Vector3(Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.x, Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.y - (Function.RandomNumber(10) / 20f), 0);
             //Debug.Log(Function.RandomNumber(6));
         }
         Destroy(gameObject);
@@ -32,6 +35,6 @@ public class OnAwakeSpawnOnce : MonoBehaviour {
     Vector3 setPosition(int dispersion) {
         dispersion *= 10;
         //return new Vector3((transform.position.x + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, (transform.position.y + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, transform.position.z);
-        return new Vector3((transform.position.x + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, transform.position.y,transform.position.z);
+        return new Vector3((transform.position.x + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, transform.position.y, transform.position.z);
     }
 }
