@@ -63,6 +63,10 @@ public class npcMove : GameFunction
         if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 
         }
         else {  // npcAIMove npc自行控制
+            if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 
+                Debug.Log("hhhhh");
+            }
+            
             simpleAutoJump();
             switch (npcclass.attackStateP) {
                 case npcClass.attackState.alert:

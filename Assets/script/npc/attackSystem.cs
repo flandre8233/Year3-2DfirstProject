@@ -47,7 +47,7 @@ public class attackSystem : MonoBehaviour {
             }
             else {
                 npcSkeletonAnimation.state.SetAnimation(0, "up_front", false);
-                //npcSkeletonAnimation.state.SetAnimation(1, "idel_single", false);
+                //npcSkeletonAnimation.state.SetAnimation(1, "idle_single", false);
             }
 
         }
@@ -61,7 +61,7 @@ public class attackSystem : MonoBehaviour {
         }
 
         if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
-            npcSkeletonAnimation.state.SetAnimation(0, "idel_single", false);
+            npcSkeletonAnimation.state.SetAnimation(0, "idle_single", false);
             attackGO.SetActive(false);
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");

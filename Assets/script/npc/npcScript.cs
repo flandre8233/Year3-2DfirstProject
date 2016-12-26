@@ -60,7 +60,7 @@ public class npcScript : GameFunction
         npcDelegate += movementStateCheck;
         npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
-        npcDelegate += npcmove.delegateUpdate;
+        //npcDelegate += npcmove.delegateUpdate;
         npcDelegate += playermove.delegateUpdate;
     }
 
@@ -186,11 +186,11 @@ public class npcScript : GameFunction
                     break;
                 case npcClass.movementState.landed:
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                    if (thisAnimation.AnimationName != "idel_single") {
+                    if (thisAnimation.AnimationName != "idle_single") {
                         thisAnimation.loop = true;
                         thisAnimation.timeScale = 1f;
-                        //thisAnimation.AnimationName = "sword_idel_single_hand";
-                        thisAnimation.state.SetAnimation(0, "idel_single", true);
+                        //thisAnimation.AnimationName = "sword_idle_single_hand";
+                        thisAnimation.state.SetAnimation(0, "idle_single", true);
                     }
                     break;
 
