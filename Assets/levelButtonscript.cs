@@ -30,18 +30,17 @@ public class levelButtonscript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        //buttonSetUp();
+
     }
 
     public void buttonSetUp() {
         if (islocked) {
             GetComponentInChildren<Image>().sprite = LockedLevelButtonSpriteList[level - 2];
             GetComponent<Button>().enabled = false;
-            GetComponentInChildren<Image>().SetNativeSize();
+
         }
         else {
             GetComponentInChildren<Image>().sprite = UnlockLevelButtonSpriteList[level - 2];
-            GetComponentInChildren<Image>().SetNativeSize();
             while (starNumber-- > 0) {
                 starImageList[starNumber].sprite = starSpriteList[1];
             }
