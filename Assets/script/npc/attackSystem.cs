@@ -5,10 +5,13 @@ using Spine.Unity;
 public class attackSystem : MonoBehaviour {
     selectEnemySystemScript selectEnemySystem;
     npcClass npcclass;
+    npcScript npcscript;
     [SerializeField]
     SkeletonAnimation npcSkeletonAnimation;
     [SerializeField]
     playerSensor2 playerSensor; //確定player在攻擊範圍
+    [SerializeField]
+    public float attackVelocity = 300;
 
 
     public float CD = 0.5F;
@@ -28,26 +31,28 @@ public class attackSystem : MonoBehaviour {
     void Start() {
         rigid2d = GetComponentInParent<Rigidbody2D>();
         npcclass = GetComponentInParent<npcClass>();
+        npcscript = GetComponentInParent<npcScript>();
         if (GameObject.FindGameObjectsWithTag("megumin_player").Length != 0) {
             selectEnemySystem = GameObject.FindGameObjectsWithTag("megumin_player")[0].GetComponent<selectEnemySystemScript>(); //
         }
-        npcSkeletonAnimation.state.Complete += State_Complete;
-
-
+        npcSkeletonAnimation.state.Complete += State_End;
     }
 
-    private void State_Complete(Spine.TrackEntry trackEntry) { //動作結果那時
+    private void State_End(Spine.TrackEntry trackEntry) { //動作結果那時
                                                                //throw new System.NotImplementedException();
 
         if (trackEntry.animation.name == "up_attack" && trackEntry.trackIndex == 0) {
             if (ComboCounter >= 2) {
-                attackGO.SetActive(false);
+                StartCoroutine("sideAttackStoprheVelocity");
                 npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
+                npcSkeletonAnimation.Update(0);
+                attackGO.SetActive(false);
                 attackGO.SetActive(true);
             }
             else {
+                
                 npcSkeletonAnimation.state.SetAnimation(0, "up_front", false);
-                //npcSkeletonAnimation.state.SetAnimation(1, "idle_single", false);
+                //npcSkeletonAnimation.state.SetAnimation(1, npcscript.idle1, false);
             }
 
         }
@@ -61,7 +66,8 @@ public class attackSystem : MonoBehaviour {
         }
 
         if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
-            npcSkeletonAnimation.state.SetAnimation(0, "idle_single", false);
+            
+            npcSkeletonAnimation.state.SetAnimation(0, npcscript.idle1, false);
             attackGO.SetActive(false);
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
@@ -132,21 +138,32 @@ public class attackSystem : MonoBehaviour {
             npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
             npcSkeletonAnimation.timeScale = 1.0f;
             attackGO.SetActive(true);
+            attackVelocitySetting(attackVelocity);
         }
-        Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******
+        //Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******
 
-        attackVelocity();
 
     }
 
-    void attackVelocity() {        //velocityPart
+    void attackVelocitySetting(float velocity) {        //velocityPart
         if (npcclass.TypeP == npcClass.Type.contorl) { //給予攻擊動量
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
-            rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
+            rigid2d.AddForce(transform.right * velocity * -rigid2d.transform.localScale.x, ForceMode2D.Force);
+            StartCoroutine( "stoprheVelocity");
         }
         else {
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             //rigid2d.AddForce(transform.right * 300 * -rigid2d.transform.localScale.x, ForceMode2D.Force);
         }
+    }
+
+
+    IEnumerator sideAttackStoprheVelocity() {
+        yield return new WaitForSeconds(0.15f);
+        attackVelocitySetting(attackVelocity);
+    }
+    IEnumerator stoprheVelocity() { 
+        yield return new WaitForSeconds(0.15f);
+        rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
     }
 }

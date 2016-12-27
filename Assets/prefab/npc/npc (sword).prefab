@@ -471,7 +471,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1000010031063364}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9258f124cb06b964a90f8df8c91c3e2a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: -1}
@@ -592,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSkeletonAnimation: {fileID: 114305783306590650}
   playerSensor: {fileID: 114328212589297092}
+  attackVelocity: 1200
   CD: 0.375
   npcReaction: 1
   attackGO: {fileID: 1000011588386404}
@@ -639,6 +640,13 @@ MonoBehaviour:
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
     type: 2}
+  idle1: idle_single
+  run: 
+  jump: 
+  hit: 
+  dead: 
+  attack1: 
+  attack2: 
 --- !u!114 &114000012432281434
 MonoBehaviour:
   m_ObjectHideFlags: 1

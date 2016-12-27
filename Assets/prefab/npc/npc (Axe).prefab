@@ -581,6 +581,13 @@ MonoBehaviour:
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
     type: 2}
+  idle1: idle_double
+  run: 
+  jump: 
+  hit: 
+  dead: 
+  attack1: 
+  attack2: 
 --- !u!114 &114250380368538774
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -38,6 +38,22 @@ public class npcScript : GameFunction
     [SerializeField]
     public Object SoulsParticlePrefab;
 
+    
+    [SerializeField]
+    public string idle1;
+    [SerializeField]
+    public string run;
+    [SerializeField]
+    public string jump;
+    [SerializeField]
+    public string hit;
+    [SerializeField]
+    public string dead;
+    [SerializeField]
+    public string attack1;
+    [SerializeField]
+    public string attack2;
+    
 
     // Use this for initialization
     void Start () {
@@ -60,7 +76,7 @@ public class npcScript : GameFunction
         npcDelegate += movementStateCheck;
         npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
-        //npcDelegate += npcmove.delegateUpdate;
+        npcDelegate += npcmove.delegateUpdate;
         npcDelegate += playermove.delegateUpdate;
     }
 
@@ -182,15 +198,14 @@ public class npcScript : GameFunction
 
                     break;
                 case npcClass.movementState.falling:
-
                     break;
                 case npcClass.movementState.landed:
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                    if (thisAnimation.AnimationName != "idle_single") {
+                    if (thisAnimation.AnimationName !=idle1) {
                         thisAnimation.loop = true;
                         thisAnimation.timeScale = 1f;
                         //thisAnimation.AnimationName = "sword_idle_single_hand";
-                        thisAnimation.state.SetAnimation(0, "idle_single", true);
+                        thisAnimation.state.SetAnimation(0,idle1, true);
                     }
                     break;
 

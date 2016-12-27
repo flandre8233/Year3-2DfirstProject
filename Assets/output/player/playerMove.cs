@@ -17,7 +17,7 @@ public class playerMove : MonoBehaviour {
     bool playerFace = false;  // false to left   true to right
     bool needChangeFace = false;
 
-    Rigidbody2D rb2d;
+    Rigidbody2D rb2d;   
 
     // Use this for initialization
     void Awake() {
