@@ -45,6 +45,7 @@ public class attackSystem : MonoBehaviour {
             if (ComboCounter >= 2) {
                 StartCoroutine("sideAttackStoprheVelocity");
                 npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
+                npcSkeletonAnimation.timeScale = 1.0f;
                 npcSkeletonAnimation.Update(0);
                 attackGO.SetActive(false);
                 attackGO.SetActive(true);
@@ -136,7 +137,7 @@ public class attackSystem : MonoBehaviour {
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
-            npcSkeletonAnimation.timeScale = 1.0f;
+            npcSkeletonAnimation.timeScale = 1.25f;
             attackGO.SetActive(true);
             attackVelocitySetting(attackVelocity);
         }

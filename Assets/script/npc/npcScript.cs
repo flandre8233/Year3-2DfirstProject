@@ -203,7 +203,7 @@ public class npcScript : GameFunction
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                     if (thisAnimation.AnimationName !=idle1) {
                         thisAnimation.loop = true;
-                        thisAnimation.timeScale = 1f;
+                        thisAnimation.timeScale = 0.5f;
                         //thisAnimation.AnimationName = "sword_idle_single_hand";
                         thisAnimation.state.SetAnimation(0,idle1, true);
                     }
@@ -317,11 +317,16 @@ public class npcScript : GameFunction
                     thisAnimation.loop = false;
                 }
                 inDeadHitFly = true;
+                npcDelegate += spyDerSpecDeadAni;
+                //rigidbody2d.velocity = new Vector2(5f * (Function.RandomNumber(10) / 10) * transform.localScale.x, 20 * (Function.RandomNumber(10) / 10)); //大過0面向左邊,反則右邊
                 if (transform.localScale.x > 0f) { //大過0面向左邊,反則右邊
-                    rigidbody2d.velocity = new Vector2(2.5f, 10);
+                    //rigidbody2d.velocity = new Vector2(2.5f, 10);
+                    
+                    rigidbody2d.velocity = new Vector2( Function.RandomNumber(10) + 5, Function.RandomNumber(15) + 10  ); //大過0面向左邊,反則右邊
                 }
                 else {
-                    rigidbody2d.velocity = new Vector2(-2.5f, 10);
+                    //rigidbody2d.velocity = new Vector2(-2.5f, 10);
+                    rigidbody2d.velocity = new Vector2(-Function.RandomNumber(10) + 5,  Function.RandomNumber(15)+10  ); //大過0面向左邊,反則右邊
                 }
 
 
@@ -340,6 +345,17 @@ public class npcScript : GameFunction
         #endregion
     }
 
+    float z = 0;
+    bool spyTranformsSettingLock = false;
+    void spyDerSpecDeadAni() {
+        if (!spyTranformsSettingLock) {
+            spyTranformsSettingLock = true;
+            //GetComponentInChildren<SkeletonAnimation>().gameObject.transform.localPosition = Vector3.zero;
+        }
+        if (npcclass.TypeP == npcClass.Type.spyder && npcclass.liveStateP == npcClass.liveState.dead) {
+            GetComponentInChildren<SkeletonAnimation>().gameObject.transform.RotateAround(transform.position, transform.forward, Time.deltaTime * Function.RandomNumber(45) + 10);
+        }
+    }
 
     void spawnHPParticle(int Number)
     {

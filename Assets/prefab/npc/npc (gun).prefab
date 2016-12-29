@@ -278,7 +278,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1154264781316252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.56, y: -0.88, z: 0}
+  m_LocalPosition: {x: -3.56, y: 0.88, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4372409274318180}
@@ -369,7 +369,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548049743942774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.09, y: 0, z: 0}
+  m_LocalPosition: {x: -12.09, y: 1.3, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4372409274318180}
@@ -432,7 +432,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1385265519
   m_SortingOrder: 0
 --- !u!33 &33702326442447320
 MeshFilter:
@@ -545,7 +545,7 @@ MonoBehaviour:
   attackStateP: 1
   movementStateP: 5
   CastAniP: 0
-  WeaponP: 0
+  WeaponP: 2
   rifleBullet: 10
   souls: 1
   HP: 2
@@ -679,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSkeletonAnimation: {fileID: 114323693262561758}
   playerSensor: {fileID: 114570967384173354}
+  attackVelocity: 300
   CD: 1.5
   npcReaction: 5
   attackGO: {fileID: 0}
