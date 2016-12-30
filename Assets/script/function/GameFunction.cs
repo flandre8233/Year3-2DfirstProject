@@ -54,8 +54,6 @@ public class GameFunction : MonoBehaviour {
         GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
         GameObject LoseMenu  = winLoseMenu.transform.GetChild(0).gameObject; //顯示輸掉畫面
         LoseMenu.SetActive(true);
-        float fadeInTime = 5.0f;
-
         /*
         do {
             LoseMenu.GetComponent<Renderer>().material.color = new Color(1,1,1,0);

@@ -14,7 +14,7 @@ public class UI : MonoBehaviour {
 
     GUIStyle myStyle;
 
-    public Text scriptText2;
+    //public Text scriptText2; //soulsText
     public Slider volSlider;
     public GameObject pauseMenuCanvas;
 
@@ -37,7 +37,7 @@ public class UI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //scriptText = GameObject.Find("/Canvas/CountText").GetComponent("Text (Script)");
-        SoulsText();
+        //SoulsText();
         SilderVol();
 
     }
@@ -83,14 +83,15 @@ public class UI : MonoBehaviour {
 
     }
 
+    /*
     void SoulsText() {
         if(scriptText2 != null) {
             string text = "";
             text = "靈魂數：" + playerDataClass.playerSouls.ToString();
             scriptText2.text = text;
         }
-
     }
+    */
 
     void OnGUI() {
     }

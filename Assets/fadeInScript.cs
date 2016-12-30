@@ -25,7 +25,6 @@ public class fadeInScript : MonoBehaviour {
             CurrentTime += Time.deltaTime / fadeInTime;
             //fadeInCurrentNumber += Time.deltaTime / fadeInTime;
             fadeInCurrentNumber = Mathf.Lerp(0, 1, CurrentTime);
-
             GetComponent<CanvasGroup>().alpha = fadeInCurrentNumber;
         }
     }
