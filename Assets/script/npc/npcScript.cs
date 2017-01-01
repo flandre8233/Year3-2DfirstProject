@@ -32,6 +32,8 @@ public class npcScript : GameFunction
 
     [SerializeField]
     public SkeletonAnimation thisAnimation;
+    [SerializeField]
+    public Animator TestAnimator;
 
     [SerializeField]
     public Object hpParticlePrefab;
@@ -177,9 +179,20 @@ public class npcScript : GameFunction
 
 
     void movementAnimationSetting() {
+        if (TestAnimator != null) {
+            TestAnimator.SetFloat("velocityX", rigidbody2d.velocity.x);
+            TestAnimator.SetFloat("velocityY", rigidbody2d.velocity.y);
+        }
+
         if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement && thisAnimation != null) {
             switch (npcclass.movementStateP) {
                 case npcClass.movementState.walking:
+                    if (TestAnimator != null) {
+                        TestAnimator.SetBool("onWalking", true);
+                        TestAnimator.SetBool("onFalling", false);
+                        TestAnimator.SetBool("onJumping", false);
+                        TestAnimator.SetBool("onLanded", false);
+                    }
                     if (thisAnimation.AnimationName != "run") {
                         thisAnimation.loop = true;
                         thisAnimation.timeScale = 1f;
@@ -189,6 +202,12 @@ public class npcScript : GameFunction
 
                     break;
                 case npcClass.movementState.jumpingBothCanMove:
+                    if (TestAnimator != null) {
+                        TestAnimator.SetBool("onWalking", false);
+                        TestAnimator.SetBool("onFalling", false);
+                        TestAnimator.SetBool("onJumping", true);
+                        TestAnimator.SetBool("onLanded", false);
+                    }
                     if (thisAnimation.AnimationName != "jump") {
                         thisAnimation.loop = false;
                         thisAnimation.timeScale = 1f;
@@ -200,6 +219,12 @@ public class npcScript : GameFunction
                 case npcClass.movementState.falling:
                     break;
                 case npcClass.movementState.landed:
+                    if (TestAnimator != null) {
+                        TestAnimator.SetBool("onWalking", false);
+                        TestAnimator.SetBool("onFalling", false);
+                        TestAnimator.SetBool("onJumping", false);
+                        TestAnimator.SetBool("onLanded", true);
+                    }
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
                     if (thisAnimation.AnimationName !=idle1) {
                         thisAnimation.loop = true;

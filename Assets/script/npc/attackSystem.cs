@@ -12,7 +12,8 @@ public class attackSystem : MonoBehaviour {
     playerSensor2 playerSensor; //確定player在攻擊範圍
     [SerializeField]
     public float attackVelocity = 300;
-
+    [SerializeField]
+    public Animator TestAnimator;
 
     public float CD = 0.5F;
     public float npcReaction = 5.0F;
@@ -66,7 +67,7 @@ public class attackSystem : MonoBehaviour {
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
-            npcclass.CastAniP = npcClass.CastAni.onMovement;
+            //npcclass.CastAniP = npcClass.CastAni.onMovement;
         }
 
         if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
@@ -77,13 +78,25 @@ public class attackSystem : MonoBehaviour {
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
-            npcclass.CastAniP = npcClass.CastAni.onMovement;
+            //npcclass.CastAniP = npcClass.CastAni.onMovement;
         }
 
     }
 
     // Update is called once per frame
     void Update() {
+        if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 
+            Debug.Log("allahuakbar");
+            swordBlur.GetComponentInChildren<blurHold>().follow = false;
+            attackCDLock = true; //進入CD
+            StartCoroutine("attackColdDown");
+            //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
+            npcclass.CastAniP = npcClass.CastAni.onMovement;
+            //Time.timeScale = 0;
+        }
+            if (TestAnimator != null) {
+            TestAnimator.SetInteger("comboCounter", ComboCounter);
+        }
         Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
             if (Input.GetMouseButtonUp(1) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
@@ -147,12 +160,18 @@ public class attackSystem : MonoBehaviour {
     }
     public GameObject swordBlur;
     void spawnAttackAni() {
+
         npcclass.CastAniP = npcClass.CastAni.onAttack;
+
         swordBlur.transform.localScale = new Vector3(-npcclass.gameObject.transform.localScale.x, swordBlur.transform.localScale.y, swordBlur.transform.localScale.z);
         swordBlur.GetComponentInChildren<blurHold>().follow = true;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
+            if (TestAnimator != null) {
+                TestAnimator.SetInteger("comboCounter", ComboCounter);
+                TestAnimator.SetTrigger("attackTrigger");
+            }
             npcSkeletonAnimation.timeScale = 2.5f;
             
             swordBlur.SetActive(false);
