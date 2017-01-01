@@ -76,7 +76,7 @@ public class playerMove : MonoBehaviour {
             //movementX = 0;
         }
         else if (npcclass.CastAniP == npcClass.CastAni.onMovement) {
-            rb2d.velocity = new Vector2(movementX * (movespeed * 10) * Time.deltaTime, rb2d.velocity.y); //角色移動
+            rb2d.velocity = new Vector2(movementX * (movespeed ) , rb2d.velocity.y); //角色移動
         }
         //Debug.Log(rb2d.velocity);
 

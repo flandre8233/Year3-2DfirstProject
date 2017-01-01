@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class showGameFps : MonoBehaviour {
+public class showGameFps : MonoBehaviour
+{
     public playerDataClass pdc;
     string soulsText;
+    [SerializeField]
+    int frameRate = -1;
 
     float deltaTime = 0.0f;
 
+    void Awake() {
+        Application.targetFrameRate = frameRate;
+    }
+
+
     void Update() {
         deltaTime += (Time.deltaTime - deltaTime) * 0.1f;
-        soulsText  = pdc.playerSouls.ToString();
+        soulsText = pdc.playerSouls.ToString();
     }
 
     void OnGUI() {
@@ -26,10 +34,10 @@ public class showGameFps : MonoBehaviour {
         string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
         GUI.Label(rect, text, style);
 
-        Rect soulsRect = new Rect(100,100,100,100);
-        
+        Rect soulsRect = new Rect(100, 100, 100, 100);
 
-        GUI.Label(soulsRect, soulsText,style);
+
+        GUI.Label(soulsRect, soulsText, style);
     }
 
 }

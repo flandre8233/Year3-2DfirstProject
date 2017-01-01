@@ -49,6 +49,7 @@ public class attackSystem : MonoBehaviour {
                 npcSkeletonAnimation.Update(0);
                 attackGO.SetActive(false);
                 attackGO.SetActive(true);
+                
             }
             else {
                 
@@ -60,6 +61,8 @@ public class attackSystem : MonoBehaviour {
 
         if (trackEntry.animation.name == "side_attack" && trackEntry.trackIndex == 0) {
             attackGO.SetActive(false);
+            swordBlur.GetComponentInChildren<blurHold>().follow = false;
+            //swordBlur.SetActive(false);
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
@@ -67,7 +70,8 @@ public class attackSystem : MonoBehaviour {
         }
 
         if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
-            
+            swordBlur.GetComponentInChildren<blurHold>().follow = false;
+            //swordBlur.SetActive(false);
             npcSkeletonAnimation.state.SetAnimation(0, npcscript.idle1, false);
             attackGO.SetActive(false);
             attackCDLock = true; //進入CD
@@ -89,6 +93,7 @@ public class attackSystem : MonoBehaviour {
         else { //npc的攻擊
             if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) { //npc反應
                 npcReactionLock = false;
+                Debug.Log(npcclass.TypeP);
                 StartCoroutine("npcReactionColdDown");
             }
 
@@ -101,19 +106,26 @@ public class attackSystem : MonoBehaviour {
     void attackFunction() {
         if (ComboCounter >= 2) {
             attackCDLock = true; //鎖上不讓再打
+            
         }
         else if (ComboCounter == 1) {
             isCastCombo = true; //單純指出現在需要COMBO 未有任何程式碼需要用到
+            
         }
             if (attackGO != null) {
                 //StartCoroutine("spawnAttackSensorFunction");
                 ComboCounter++; //計算當前要不要COMBO COMBO到多少?
             spawnAttackAni();//播動畫
+            
         }
             else {
+            Debug.Log("ddd");
                 gunspawn.Shot();
-            }
-        
+            StartCoroutine("attackColdDown"); //正常要播完動畫才cd
+        }
+        if (swordBlur != null) {
+            swordBlur.GetComponentInChildren<Animator>().SetInteger("ComboCounter", ComboCounter);
+        }
     }
 
     IEnumerator attackColdDown() { //當正式打完攻擊招式時就進行COLDDOWN
@@ -131,13 +143,18 @@ public class attackSystem : MonoBehaviour {
         npcReactionLock = true;
 
     }
-
+    public GameObject swordBlur;
     void spawnAttackAni() {
         npcclass.CastAniP = npcClass.CastAni.onAttack;
+        swordBlur.transform.localScale = new Vector3(-npcclass.gameObject.transform.localScale.x, swordBlur.transform.localScale.y, swordBlur.transform.localScale.z);
+        swordBlur.GetComponentInChildren<blurHold>().follow = true;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
             npcSkeletonAnimation.timeScale = 1.25f;
+            swordBlur.SetActive(false);
+            swordBlur.GetComponentInChildren<blurHold>().Update();
+            swordBlur.SetActive(true);
             attackGO.SetActive(true);
             attackVelocitySetting(attackVelocity);
         }
