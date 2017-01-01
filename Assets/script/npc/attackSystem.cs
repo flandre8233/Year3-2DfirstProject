@@ -42,10 +42,10 @@ public class attackSystem : MonoBehaviour {
                                                                //throw new System.NotImplementedException();
 
         if (trackEntry.animation.name == "up_attack" && trackEntry.trackIndex == 0) {
-            if (ComboCounter >= 2) {
+            if (ComboCounter >=2) {
                 StartCoroutine("sideAttackStoprheVelocity");
                 npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
-                npcSkeletonAnimation.timeScale = 1.0f;
+                npcSkeletonAnimation.timeScale = 2.5f;
                 npcSkeletonAnimation.Update(0);
                 attackGO.SetActive(false);
                 attackGO.SetActive(true);
@@ -84,7 +84,7 @@ public class attackSystem : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
             if (Input.GetMouseButtonUp(1) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
                 attackFunction();
@@ -125,6 +125,8 @@ public class attackSystem : MonoBehaviour {
         }
         if (swordBlur != null) {
             swordBlur.GetComponentInChildren<Animator>().SetInteger("ComboCounter", ComboCounter);
+            Debug.Log(swordBlur.GetComponentInChildren<Animator>().name);
+            swordBlur.GetComponentInChildren<Animator>().speed = 2.5f;
         }
     }
 
@@ -151,7 +153,8 @@ public class attackSystem : MonoBehaviour {
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
-            npcSkeletonAnimation.timeScale = 1.25f;
+            npcSkeletonAnimation.timeScale = 2.5f;
+            
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);

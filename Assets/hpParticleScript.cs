@@ -27,15 +27,24 @@ public class hpParticleScript : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-        if (timeCount <= 0.6f) {
+
+    // Update is called once per frame
+    bool isIgnoreCollisionGround = false;
+
+    void Update () {
+        if (timeCount <= 0.8f) {
             timeCount +=Time.deltaTime;
         }
         else {
             //GetComponent<Rigidbody2D>().velocity+=new Vector2(0,20);
             if (playercontorl != null) {
+                if (!isIgnoreCollisionGround) {
+                    GameObject[] groundgameObj = GameObject.FindGameObjectsWithTag("ground");  //無視其他enemy碰撞
+                    foreach (GameObject each in groundgameObj) {
+                        Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                    }
+                    isIgnoreCollisionGround = true;
+                }
                 incontorlObj = playercontorl.incontorlObj;
                 transform.position = Vector2.MoveTowards(transform.position, incontorlObj.transform.position, 30 * Time.deltaTime);
             }

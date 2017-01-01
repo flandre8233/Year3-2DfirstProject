@@ -357,6 +357,10 @@ public class npcScript : GameFunction
         }
     }
 
+    void DeadFadeOut() {
+
+    }
+
     void spawnHPParticle(int Number)
     {
         #region hp粒子
