@@ -150,7 +150,7 @@ public class attackSystem : MonoBehaviour {
     }
     IEnumerator npcReactionColdDown() { //當正式打完攻擊招式時就進行COLDDOWN
         yield return new WaitForSeconds(npcReaction);
-        if (!attackCDLock && !npcReactionLock) {
+        if (!attackCDLock && !npcReactionLock && npcclass.liveStateP == npcClass.liveState.live) {
             attackCDLock = true; //只能打一次
             attackFunction();
         }

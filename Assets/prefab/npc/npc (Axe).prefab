@@ -361,7 +361,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539343632204802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.44, y: 2.125389, z: 0}
+  m_LocalPosition: {x: 9.036544, y: 3.9709268, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4976220860683782}
@@ -577,6 +577,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   thisAnimation: {fileID: 114746979984405214}
+  TestAnimator: {fileID: 0}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -654,11 +655,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcSkeletonAnimation: {fileID: 114746979984405214}
   playerSensor: {fileID: 114296983637410380}
+  attackVelocity: 300
+  TestAnimator: {fileID: 0}
   CD: 2
   npcReaction: 3
   attackGO: {fileID: 1430806575081382}
   gunspawn: {fileID: 0}
   attackSensorCD: 0.2
+  swordBlur: {fileID: 0}
 --- !u!114 &114746979984405214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3724a9d4d9c2847994482858e27742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 62
+  movespeed: 7
   jumpHeight: 800
   groundLayer:
     serializedVersion: 2

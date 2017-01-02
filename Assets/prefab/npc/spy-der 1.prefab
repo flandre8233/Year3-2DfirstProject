@@ -41,24 +41,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &1259170029702300
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4340360850778866}
-  - component: {fileID: 33666312064788576}
-  - component: {fileID: 23756938437921534}
-  - component: {fileID: 114673983376904644}
-  m_Layer: 0
-  m_Name: spy-der
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1353461611689850
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +104,25 @@ GameObject:
   m_Layer: 17
   m_Name: spy-der 1
   m_TagString: enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1671475712384782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4524771357453990}
+  - component: {fileID: 33076513227765238}
+  - component: {fileID: 23590074319472380}
+  - component: {fileID: 95070869675432990}
+  - component: {fileID: 114228274658897514}
+  m_Layer: 0
+  m_Name: Spine Mecanim GameObject (spider)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,19 +226,6 @@ Transform:
   m_Father: {fileID: 4962979501826186}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4340360850778866
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259170029702300}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4962979501826186}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4422320229293114
 Transform:
   m_ObjectHideFlags: 1
@@ -250,6 +238,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4962979501826186}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4524771357453990
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671475712384782}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4962979501826186}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4605119129209150
 Transform:
@@ -284,10 +285,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632723955330174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.07, y: 2.125389, z: 0}
+  m_LocalPosition: {x: -2.65, y: 2.125389, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4340360850778866}
+  - {fileID: 4524771357453990}
   - {fileID: 4605119129209150}
   - {fileID: 4215340869350274}
   - {fileID: 4216694289216482}
@@ -312,12 +313,12 @@ Transform:
   m_Father: {fileID: 4962979501826186}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23756938437921534
+--- !u!23 &23590074319472380
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259170029702300}
+  m_GameObject: {fileID: 1671475712384782}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -343,12 +344,12 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1385265519
   m_SortingOrder: 0
---- !u!33 &33666312064788576
+--- !u!33 &33076513227765238
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259170029702300}
+  m_GameObject: {fileID: 1671475712384782}
   m_Mesh: {fileID: 0}
 --- !u!50 &50592878530569552
 Rigidbody2D:
@@ -418,6 +419,23 @@ BoxCollider2D:
   m_Offset: {x: 0.009156227, y: 0.8172536}
   serializedVersion: 2
   m_Size: {x: 0.88946, y: 0.87926316}
+--- !u!95 &95070869675432990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671475712384782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fdffbf89ea6ef04e9fda288777c6c5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114063194892131760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -436,6 +454,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   thisAnimation: {fileID: 0}
+  TestAnimator: {fileID: 0}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -447,6 +466,30 @@ MonoBehaviour:
   dead: 
   attack1: 
   attack2: 
+--- !u!114 &114228274658897514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1671475712384782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: ebe107ff9c39e2f47adbbcfe5367728f, type: 2}
+  initialSkinName: default
+  separatorSlotNames: []
+  zSpacing: 0
+  renderMeshes: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  calculateNormals: 0
+  calculateTangents: 0
+  logErrors: 0
+  disableRenderingOnOverride: 1
+  layerMixModes: 00000000
 --- !u!114 &114269506092510802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -471,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3724a9d4d9c2847994482858e27742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 62
+  movespeed: 12
   jumpHeight: 800
   groundLayer:
     serializedVersion: 2
@@ -496,32 +539,6 @@ MonoBehaviour:
   rifleBullet: 10
   souls: 1
   HP: 2
---- !u!114 &114673983376904644
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259170029702300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: ebe107ff9c39e2f47adbbcfe5367728f, type: 2}
-  initialSkinName: default
-  separatorSlotNames: []
-  zSpacing: 0
-  renderMeshes: 1
-  immutableTriangles: 0
-  pmaVertexColors: 1
-  clearStateOnDisable: 0
-  calculateNormals: 0
-  calculateTangents: 0
-  logErrors: 0
-  disableRenderingOnOverride: 1
-  _animationName: idle_single
-  loop: 1
-  timeScale: 1
 --- !u!114 &114994533280420502
 MonoBehaviour:
   m_ObjectHideFlags: 1

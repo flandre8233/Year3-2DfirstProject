@@ -59,6 +59,7 @@ public class npcScript : GameFunction
 
     // Use this for initialization
     void Start () {
+        TestAnimator = GetComponentInChildren<Animator>();
         playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
         rigidbody2d = GetComponent<Rigidbody2D>();
         npcclass = GetComponent<npcClass>();
@@ -177,14 +178,8 @@ public class npcScript : GameFunction
         #endregion
     }
 
-
     void movementAnimationSetting() {
-        if (TestAnimator != null) {
-            TestAnimator.SetFloat("velocityX", rigidbody2d.velocity.x);
-            TestAnimator.SetFloat("velocityY", rigidbody2d.velocity.y);
-        }
-
-        if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement && thisAnimation != null) {
+        if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement) {
             switch (npcclass.movementStateP) {
                 case npcClass.movementState.walking:
                     if (TestAnimator != null) {
@@ -193,13 +188,6 @@ public class npcScript : GameFunction
                         TestAnimator.SetBool("onJumping", false);
                         TestAnimator.SetBool("onLanded", false);
                     }
-                    if (thisAnimation.AnimationName != "run") {
-                        thisAnimation.loop = true;
-                        thisAnimation.timeScale = 1f;
-                        //thisAnimation.AnimationName = "run_sword";
-                        thisAnimation.state.SetAnimation(0, "run", true);
-                    }
-
                     break;
                 case npcClass.movementState.jumpingBothCanMove:
                     if (TestAnimator != null) {
@@ -208,13 +196,6 @@ public class npcScript : GameFunction
                         TestAnimator.SetBool("onJumping", true);
                         TestAnimator.SetBool("onLanded", false);
                     }
-                    if (thisAnimation.AnimationName != "jump") {
-                        thisAnimation.loop = false;
-                        thisAnimation.timeScale = 1f;
-                        //thisAnimation.AnimationName = "jump_sword";
-                        thisAnimation.state.SetAnimation(0, "jump", false);
-                    }
-
                     break;
                 case npcClass.movementState.falling:
                     break;
@@ -226,17 +207,8 @@ public class npcScript : GameFunction
                         TestAnimator.SetBool("onLanded", true);
                     }
                     GetComponent<Rigidbody2D>().gravityScale = 1.0f;
-                    if (thisAnimation.AnimationName !=idle1) {
-                        thisAnimation.loop = true;
-                        thisAnimation.timeScale = 0.5f;
-                        //thisAnimation.AnimationName = "sword_idle_single_hand";
-                        thisAnimation.state.SetAnimation(0,idle1, true);
-                    }
                     break;
-
             }
-
-
         }
     }
 
@@ -265,10 +237,10 @@ public class npcScript : GameFunction
     void npcColorSetting() {
         #region 顏色設定，但放在這裡不會是一個好主意
         if (npcclass.TypeP == npcClass.Type.contorl) {
-            GetComponentInChildren<SkeletonAnimation>().skeleton.SetColor(Color.red);
+            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.red);
         }
         else {
-            GetComponentInChildren<SkeletonAnimation>().skeleton.SetColor(Color.white);
+            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.white);
         }
         #endregion
     }
@@ -353,17 +325,17 @@ public class npcScript : GameFunction
                     //rigidbody2d.velocity = new Vector2(-2.5f, 10);
                     rigidbody2d.velocity = new Vector2(-Function.RandomNumber(10) + 5,  Function.RandomNumber(15)+10  ); //大過0面向左邊,反則右邊
                 }
-
+                
 
             }
             else {  //當死亡時就一直做
                 if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly) { //landed時就毀掉自己
-                    Destroy(gameObject);
-                    
-                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity)  ;
+                    DeadFadeOut();
                     //playerData.playerSouls += npcclass.souls; //玩家靈魂增加
                 }
-
+                if (npcclass.liveStateP == npcClass.liveState.dead) {
+                    
+                }
             }
 
         }
@@ -375,15 +347,33 @@ public class npcScript : GameFunction
     void spyDerSpecDeadAni() {
         if (!spyTranformsSettingLock) {
             spyTranformsSettingLock = true;
-            //GetComponentInChildren<SkeletonAnimation>().gameObject.transform.localPosition = Vector3.zero;
+            //GetComponentInChildren<SkeletonAnimator>().gameObject.transform.localPosition = Vector3.zero;
         }
         if (npcclass.TypeP == npcClass.Type.spyder && npcclass.liveStateP == npcClass.liveState.dead) {
-            GetComponentInChildren<SkeletonAnimation>().gameObject.transform.RotateAround(transform.position, transform.forward, Time.deltaTime * Function.RandomNumber(45) + 10);
+            GetComponentInChildren<SkeletonAnimator>().gameObject.transform.RotateAround(transform.position, transform.forward, Time.deltaTime * Function.RandomNumber(45) + 10);
         }
     }
 
-    void DeadFadeOut() {
+    float onDeadAlpha =  1.0f;
 
+    void DeadFadeOut() {
+        onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*1.5f);
+        GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha) );
+        if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f) {
+            DestroyNpc();
+            Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+        }
+        
+    }
+
+    void DestroyNpc() {
+        if (npcclass.TypeP != npcClass.Type.spyder) {
+            Destroy(GetComponentInParent<Transform>().gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
+        
     }
 
     void spawnHPParticle(int Number)
