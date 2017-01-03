@@ -36,7 +36,7 @@ public class attackSystem : MonoBehaviour {
         if (GameObject.FindGameObjectsWithTag("megumin_player").Length != 0) {
             selectEnemySystem = GameObject.FindGameObjectsWithTag("megumin_player")[0].GetComponent<selectEnemySystemScript>(); //
         }
-        npcSkeletonAnimation.state.Complete += State_End;
+        //npcSkeletonAnimation.state.Complete += State_End;
     }
 
     private void State_End(Spine.TrackEntry trackEntry) { //動作結果那時
@@ -45,7 +45,7 @@ public class attackSystem : MonoBehaviour {
         if (trackEntry.animation.name == "up_attack" && trackEntry.trackIndex == 0) {
             if (ComboCounter >=2) {
                 StartCoroutine("sideAttackStoprheVelocity");
-                npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
+                //npcSkeletonAnimation.state.SetAnimation(0, "side_attack", false);
                 npcSkeletonAnimation.timeScale = 2.5f;
                 npcSkeletonAnimation.Update(0);
                 attackGO.SetActive(false);
@@ -54,7 +54,7 @@ public class attackSystem : MonoBehaviour {
             }
             else {
                 
-                npcSkeletonAnimation.state.SetAnimation(0, "up_front", false);
+                //npcSkeletonAnimation.state.SetAnimation(0, "up_front", false);
                 //npcSkeletonAnimation.state.SetAnimation(1, npcscript.idle1, false);
             }
 
@@ -73,7 +73,7 @@ public class attackSystem : MonoBehaviour {
         if (trackEntry.animation.name == "up_front" && trackEntry.trackIndex == 0) {
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             //swordBlur.SetActive(false);
-            npcSkeletonAnimation.state.SetAnimation(0, npcscript.idle1, false);
+            //npcSkeletonAnimation.state.SetAnimation(0, npcscript.idle1, false);
             attackGO.SetActive(false);
             attackCDLock = true; //進入CD
             StartCoroutine("attackColdDown");
@@ -89,12 +89,16 @@ public class attackSystem : MonoBehaviour {
             Debug.Log("allahuakbar");
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
+            attackGO.SetActive(false);
             StartCoroutine("attackColdDown");
             //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             npcclass.CastAniP = npcClass.CastAni.onMovement;
             //Time.timeScale = 0;
         }
-            if (TestAnimator != null) {
+        if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect") ) ) { // Avoid any reload. 
+            swordBlur.GetComponentInChildren<Animator>().SetTrigger("sideTrigger");
+        }
+        if (TestAnimator != null) {
             TestAnimator.SetInteger("comboCounter", ComboCounter);
         }
         Debug.Log(ComboCounter);
@@ -162,18 +166,15 @@ public class attackSystem : MonoBehaviour {
     void spawnAttackAni() {
 
         npcclass.CastAniP = npcClass.CastAni.onAttack;
-
+        
         swordBlur.transform.localScale = new Vector3(-npcclass.gameObject.transform.localScale.x, swordBlur.transform.localScale.y, swordBlur.transform.localScale.z);
         swordBlur.GetComponentInChildren<blurHold>().follow = true;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
-            npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
-            if (TestAnimator != null) {
-                TestAnimator.SetInteger("comboCounter", ComboCounter);
-                TestAnimator.SetTrigger("attackTrigger");
-            }
-            npcSkeletonAnimation.timeScale = 2.5f;
-            
+            //npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
+            TestAnimator.SetTrigger("attackTrigger");
+            //npcSkeletonAnimation.timeScale = 2.5f;
+
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);

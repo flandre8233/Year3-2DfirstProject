@@ -329,12 +329,12 @@ public class npcScript : GameFunction
 
             }
             else {  //當死亡時就一直做
-                if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly) { //landed時就毀掉自己
+                if (npcclass.movementStateP == npcClass.movementState.landed && inDeadHitFly && npcclass.TypeP != npcClass.Type.spyder) { //landed時就毀掉自己
                     DeadFadeOut();
                     //playerData.playerSouls += npcclass.souls; //玩家靈魂增加
                 }
-                if (npcclass.liveStateP == npcClass.liveState.dead) {
-                    
+                if (npcclass.liveStateP == npcClass.liveState.dead && npcclass.TypeP == npcClass.Type.spyder ) {
+                    DeadFadeOut();
                 }
             }
 
@@ -357,11 +357,14 @@ public class npcScript : GameFunction
     float onDeadAlpha =  1.0f;
 
     void DeadFadeOut() {
-        onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*1.5f);
+        onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*3f);
         GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha) );
         if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f) {
             DestroyNpc();
-            Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+            if (npcclass.TypeP != npcClass.Type.spyder) {
+                Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+            }
+
         }
         
     }

@@ -8,7 +8,7 @@ public class npcMove : GameFunction
     Rigidbody2D rb2d;
 
     [SerializeField]
-    private float speed;
+    public float speed;
     [SerializeField]
     private float jumpHeight;
     [SerializeField]
@@ -18,7 +18,7 @@ public class npcMove : GameFunction
     [SerializeField]
     private Transform patrolRightPoint;
     [Range(0,10)][SerializeField]
-    private int patrolWaitTime;
+    public int patrolWaitTime;
     [SerializeField]
     private GameObject attackTargetGameObject;
 

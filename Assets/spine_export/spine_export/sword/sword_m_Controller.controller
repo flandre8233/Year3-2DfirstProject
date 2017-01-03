@@ -44,6 +44,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: sideTrigger
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -870,9 +876,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.15509306
   m_TransitionOffset: 0
-  m_ExitTime: 0.3182438
+  m_ExitTime: 0.9652774
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -918,9 +924,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.18689853
   m_TransitionOffset: 0
-  m_ExitTime: 0.3182438
+  m_ExitTime: 0.6624022
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1140,18 +1146,18 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: comboCounter
-    m_EventTreshold: 0
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102298052669913806}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.3182438
+  m_TransitionDuration: 0.0024271458
+  m_TransitionOffset: 0.012136178
+  m_ExitTime: 0.99337107
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1164,7 +1170,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: side_attack
-  m_Speed: 2.5
+  m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101738553819416628}
@@ -1358,7 +1364,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: up_attack
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101137423197555182}
@@ -1421,7 +1427,7 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102331913972527370}
-    m_Position: {x: -36, y: 60, z: 0}
+    m_Position: {x: -60, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102326673479425198}
     m_Position: {x: 180, y: 24, z: 0}

@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207636862753312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.75, y: 1.47, z: 0}
+  m_LocalPosition: {x: 25.86, y: 1.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1cfea2ddf6655844b2d4b17adee9df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcPrefabs: {fileID: 1237405700300280, guid: a2072fb6240adf84b90cc0bafa75900e, type: 2}
-  spawnTimes: 5
+  npcPrefabs: {fileID: 1632723955330174, guid: 9cf47afad3b6b594e981910679cc3542, type: 2}
+  spawnTimes: 10
   dispersion: 6

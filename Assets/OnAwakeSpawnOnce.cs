@@ -16,6 +16,12 @@ public class OnAwakeSpawnOnce : MonoBehaviour
         while (spawnTimes-- > 0) { //it's work
             setLocalScale(npcPrefabs);
             GameObject Clone = Instantiate(npcPrefabs, setPosition(dispersion), Quaternion.identity);
+            int patrolTime = Clone.GetComponent<npcMove>().patrolWaitTime;
+            Clone.GetComponent<npcMove>().patrolWaitTime = Function.RandomNumber(patrolTime+(patrolTime/2)) -( (patrolTime - (patrolTime / 2)));
+            int speed = (int)Clone.GetComponent<npcMove>().speed;
+            Clone.GetComponent<npcMove>().speed = Function.RandomNumber(speed + (speed / 2)) - ((speed - (speed / 2)));
+
+            // (patrolTime - (patrolTime/2) )
             Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position = new Vector3(Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.x, Clone.GetComponentInChildren<MeshRenderer>().gameObject.transform.position.y - (Function.RandomNumber(10) / 20f), 0);
             //Debug.Log(Function.RandomNumber(6));
         }
