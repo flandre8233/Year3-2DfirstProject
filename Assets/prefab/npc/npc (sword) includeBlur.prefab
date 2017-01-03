@@ -28,25 +28,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1212745460531568
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4196730792017726}
-  - component: {fileID: 33998795205077574}
-  - component: {fileID: 23730154291136030}
-  - component: {fileID: 95736426713321610}
-  - component: {fileID: 114749058122384568}
-  m_Layer: 0
-  m_Name: Spine Mecanim GameObject (sword_m) (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1219256024891550
 GameObject:
   m_ObjectHideFlags: 1
@@ -229,6 +210,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1575312967273756
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4658736575971930}
+  - component: {fileID: 33143614537327992}
+  - component: {fileID: 23590446252828292}
+  - component: {fileID: 95881137257574992}
+  - component: {fileID: 114686988420223222}
+  m_Layer: 0
+  m_Name: Spine Mecanim GameObject (sword_m) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1759518577577898
 GameObject:
   m_ObjectHideFlags: 1
@@ -301,7 +301,7 @@ Transform:
   m_LocalPosition: {x: -18.844437, y: -1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4196730792017726}
+  - {fileID: 4658736575971930}
   - {fileID: 4494849201176976}
   - {fileID: 4130489033779086}
   - {fileID: 4549384663551190}
@@ -321,7 +321,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1233068726789286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.67, y: -0.75, z: 0}
+  m_LocalPosition: {x: -0.67, y: -0.98, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4044982961632572}
@@ -338,19 +338,6 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4549384663551190}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4196730792017726
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1212745460531568}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.32, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4044982961632572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4198543345807578
@@ -448,6 +435,19 @@ Transform:
   m_Father: {fileID: 4044982961632572}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4658736575971930
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575312967273756}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.32, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4044982961632572}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4699212974973186
 Transform:
   m_ObjectHideFlags: 1
@@ -455,7 +455,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449130546343734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.67, y: 2.09, z: 0}
+  m_LocalPosition: {x: -0.67, y: 1.47, z: 0}
   m_LocalScale: {x: 0.15055741, y: 0.24549417, z: 0.18168071}
   m_Children: []
   m_Father: {fileID: 4044982961632572}
@@ -528,12 +528,12 @@ Transform:
   m_Father: {fileID: 4044982961632572}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23730154291136030
+--- !u!23 &23590446252828292
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1212745460531568}
+  m_GameObject: {fileID: 1575312967273756}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -559,12 +559,12 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1385265519
   m_SortingOrder: 0
---- !u!33 &33998795205077574
+--- !u!33 &33143614537327992
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1212745460531568}
+  m_GameObject: {fileID: 1575312967273756}
   m_Mesh: {fileID: 0}
 --- !u!50 &50623136820162560
 Rigidbody2D:
@@ -597,9 +597,9 @@ CircleCollider2D:
   m_Material: {fileID: 6200000, guid: 9258f124cb06b964a90f8df8c91c3e2a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -1}
+  m_Offset: {x: 0, y: -0.64}
   serializedVersion: 2
-  m_Radius: 0.41016102
+  m_Radius: 0.59223413
 --- !u!60 &60303627473695288
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -651,7 +651,7 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 9258f124cb06b964a90f8df8c91c3e2a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.043561935, y: 0.49815083}
+  m_Offset: {x: 0, y: 0.49815083}
   serializedVersion: 2
   m_Size: {x: 1.0551453, y: 2.7424717}
 --- !u!61 &61498313739636688
@@ -702,13 +702,13 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95736426713321610
+--- !u!95 &95881137257574992
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1212745460531568}
+  m_GameObject: {fileID: 1575312967273756}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 58c2be744686c0842a1d9533028920a0, type: 2}
@@ -749,7 +749,7 @@ MonoBehaviour:
   npcSkeletonAnimation: {fileID: 0}
   playerSensor: {fileID: 114887622580650182}
   attackVelocity: 1200
-  TestAnimator: {fileID: 95736426713321610}
+  TestAnimator: {fileID: 95881137257574992}
   CD: 0.375
   npcReaction: 1
   attackGO: {fileID: 1234554437786476}
@@ -827,7 +827,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   thisAnimation: {fileID: 0}
-  TestAnimator: {fileID: 95736426713321610}
+  TestAnimator: {fileID: 95881137257574992}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -839,26 +839,12 @@ MonoBehaviour:
   dead: 
   attack1: 
   attack2: 
---- !u!114 &114722807857272474
+--- !u!114 &114686988420223222
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1234554437786476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b36d2625c0e5b9943aa4ffe0313cf017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSensorCode: {fileID: 114810749893721626}
-  pDc: {fileID: 0}
-  damage: 1
---- !u!114 &114749058122384568
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1212745460531568}
+  m_GameObject: {fileID: 1575312967273756}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
@@ -877,6 +863,20 @@ MonoBehaviour:
   logErrors: 0
   disableRenderingOnOverride: 1
   layerMixModes: 00000000
+--- !u!114 &114722807857272474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234554437786476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36d2625c0e5b9943aa4ffe0313cf017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSensorCode: {fileID: 114810749893721626}
+  pDc: {fileID: 0}
+  damage: 1
 --- !u!114 &114810749893721626
 MonoBehaviour:
   m_ObjectHideFlags: 1

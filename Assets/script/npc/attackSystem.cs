@@ -39,6 +39,7 @@ public class attackSystem : MonoBehaviour {
         //npcSkeletonAnimation.state.Complete += State_End;
     }
 
+    /*
     private void State_End(Spine.TrackEntry trackEntry) { //動作結果那時
                                                                //throw new System.NotImplementedException();
 
@@ -82,7 +83,7 @@ public class attackSystem : MonoBehaviour {
         }
 
     }
-
+    */
     // Update is called once per frame
     void Update() {
         if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 

@@ -79,8 +79,13 @@ public class npcScript : GameFunction
         npcDelegate += movementStateCheck;
         npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
-        npcDelegate += npcmove.delegateUpdate;
-        npcDelegate += playermove.delegateUpdate;
+        if (npcmove!=null) {
+            npcDelegate += npcmove.delegateUpdate;
+        }
+        if (playermove!=null) {
+            npcDelegate += playermove.delegateUpdate;
+        }
+
     }
 
     void ignoreCollisionSetUp() {//無視其他enemy碰撞
