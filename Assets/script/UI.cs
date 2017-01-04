@@ -18,6 +18,7 @@ public class UI : MonoBehaviour {
     public Slider volSlider;
     public GameObject pauseMenuCanvas;
 
+
     // Use this for initialization
     void Start() {
 
@@ -92,6 +93,16 @@ public class UI : MonoBehaviour {
         }
     }
     */
+
+    public void DisableLevelCanvas(GameObject go) {
+        go.SetActive(false);
+    }
+
+    public void selectLevelCanvas(GameObject go) {
+        Debug.Log(this.gameObject.name);
+        //GetComponentInParent<RectTransform>().gameObject.SetActive(false);
+        go.SetActive(true);
+    }
 
     void OnGUI() {
     }
