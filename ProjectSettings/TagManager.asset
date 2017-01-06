@@ -17,6 +17,7 @@ TagManager:
   - soulsTargetPoint
   - Menu/game-Canvas
   - enemy-cantbePossessed
+  - globalDataBase
   layers:
   - Default
   - TransparentFX

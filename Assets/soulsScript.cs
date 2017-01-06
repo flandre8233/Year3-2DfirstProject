@@ -17,7 +17,7 @@ public class soulsScript : MonoBehaviour
 
     void Start() {
         playerdataclass = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
-        if (playerdataclass.HP > 0.0f) {
+        if (playerdataclass.HP > 0.0f && GameObject.FindGameObjectsWithTag("soulsTargetPoint").Length > 0) {
             targetPositionGameObject = GameObject.FindGameObjectsWithTag("soulsTargetPoint")[0];
         }
         startPoint = transform.position;
@@ -25,7 +25,7 @@ public class soulsScript : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        if (playerdataclass.HP > 0.0f) {
+        if (playerdataclass.HP > 0.0f && targetPositionGameObject != null) {
             t += 0.5f * Time.deltaTime;
             targetPosition = targetPositionGameObject.transform.position;
             // transform.position = new Vector2(Mathf.Lerp(startPoint.x ,  targetPosition.x,  t), Mathf.Lerp(startPoint.y ,   targetPosition.y, t ));
@@ -47,6 +47,9 @@ public class soulsScript : MonoBehaviour
                 }
 
             }
+        }
+        else {
+            Destroy(gameObject);
         }
 
     }

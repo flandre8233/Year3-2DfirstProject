@@ -87,7 +87,7 @@ public class attackSystem : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 
-            Debug.Log("allahuakbar");
+            //Debug.Log("allahuakbar");
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
             attackGO.SetActive(false);
@@ -102,7 +102,7 @@ public class attackSystem : MonoBehaviour {
         if (TestAnimator != null) {
             TestAnimator.SetInteger("comboCounter", ComboCounter);
         }
-        Debug.Log(ComboCounter);
+        //Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
             if (Input.GetMouseButtonUp(1) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
                 attackFunction();
@@ -143,7 +143,7 @@ public class attackSystem : MonoBehaviour {
         }
         if (swordBlur != null) {
             swordBlur.GetComponentInChildren<Animator>().SetInteger("ComboCounter", ComboCounter);
-            Debug.Log(swordBlur.GetComponentInChildren<Animator>().name);
+            //Debug.Log(swordBlur.GetComponentInChildren<Animator>().name);
             swordBlur.GetComponentInChildren<Animator>().speed = 2.5f;
         }
     }

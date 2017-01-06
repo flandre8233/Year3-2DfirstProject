@@ -3,46 +3,85 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour {
-
-
+    gameStateDataClass gameData;
+    
 
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        gameData = GetComponent<gameStateDataClass>();
+        startTotalTarget = countTotalTarget();
+        Debug.Log(startTotalTarget);
 
-    public void OnPlayerGameOver() {
+    }
 
-        Debug.Log("ggggg");
-        GameObject[] playerGhost = GameObject.FindGameObjectsWithTag("Player"); //
+    // Update is called once per frame
+    void Update() {
+        if (Input.GetMouseButtonUp(1)) {
+            Debug.Log(countTotalTarget());
 
-        foreach (GameObject each in playerGhost) {
-            Destroy(each);
+
+
         }
+    }
 
-        //playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>(); //
-        //playerData.playerSouls = 0;
-
-        GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
-        GameObject LoseMenu = winLoseMenu.transform.GetChild(0).gameObject; //顯示輸掉畫面
-        LoseMenu.SetActive(true);
-        /*
-        do {
-            LoseMenu.GetComponent<Renderer>().material.color = new Color(1,1,1,0);
+    public float Percentage;
+    public int startTotalTarget = 0;
+    public int curTotalTarget = 0;
+    public int countTotalTarget() {
+        int totalTarget = 0;
+        GameObject[] gameObj = GameObject.FindGameObjectsWithTag("enemy");  //無視其他enemy碰撞
+        foreach (GameObject each in gameObj) {
+            if (each.GetComponent<npcClass>().TypeP == npcClass.Type.normal && each.GetComponent<npcClass>().liveStateP != npcClass.liveState.dead ) {
+                totalTarget++;
+            }
         }
-        while(){
-            LoseMenu.GetComponent<Renderer>().material.color = new Color(1,1,1,Time.deltaTime/fadeInTime );
-        }
-        */
+        return totalTarget;
+    }
 
+    void killPercentageCheck() {
+        curTotalTarget = countTotalTarget();
+
+        Percentage = (((float)startTotalTarget - 1.0f) - (float)curTotalTarget) / ((float)startTotalTarget - 1.0f) * 100.0f;
+        Debug.Log(Percentage + "%");
+        if (Percentage >= 90.0f) {
+            gameData.starNumber = 3;
+        }
+        else if (Percentage >= 70.0f) {
+            gameData.starNumber = 2;
+        }
+        else if (Percentage >= 50.0f) {
+            gameData.starNumber = 1;
+        }
+        else {
+            gameData.starNumber = 0;
+        }
 
     }
 
 
+    public void OnPlayerWin() {
+        killPercentageCheck();
+        GameObject gameCanvas = GameObject.FindGameObjectsWithTag("Menu/game-Canvas")[0];
+        gameCanvas.SetActive(false);
+
+        GameObject winLoseMenu = GameObject.FindGameObjectsWithTag("Menu/win-LoseMenu")[0];
+        GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;
+        winMenu.SetActive(true);
+
+        if (GameObject.Find("globalDataBase") != null) { //更新關卡數值
+            GameObject findObject = GameObject.Find("globalDataBase");
+            globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
+            if (globalDataBase.allLevelList[globalDataBase.curLevel].starNumber < gameData.starNumber) {
+                globalDataBase.allLevelList[globalDataBase.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
+            }
+            globalDataBase.allLevelList[globalDataBase.curLevel+1].isLocked = false ; //要放在on完成通關那邊
+        }
+
+    }
+
+    void OnDestroy() {
+        print("Script was destroyed");
+
+    }
 
 }

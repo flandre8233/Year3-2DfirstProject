@@ -3,12 +3,14 @@ using System.Collections;
 
 public class winCheck : GameFunction
 {
+    public gameManager gameManager;
     gameStateDataClass gameStateDataClass;
     [SerializeField]
     private GameObject GoalPoint ;
 
 	// Use this for initialization
 	void Start () {
+        gameManager = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<gameManager>();
         gameStateDataClass = GetComponent<gameStateDataClass>();
         if (gameStateDataClass.gameWin == gameStateDataClass.gameWinCondition.reciprocal) {
             StartCoroutine(reciprocal());
@@ -26,7 +28,7 @@ public class winCheck : GameFunction
         yield return new WaitForSeconds(20);
 
         if (gameStateDataClass.gamestate != gameStateDataClass.gameState.gameover) {
-            OnPlayerWin();
+            gameManager.OnPlayerWin();
             gameStateDataClass.gamestate = gameStateDataClass.gameState.gameover;
         }
 

@@ -23,8 +23,11 @@ public class UI : MonoBehaviour {
     void Start() {
 
         playerDataClass = GetComponent<playerDataClass>();
-        gameStateDataClass = GetComponent<gameStateDataClass>();
-        gameStateDataClass.gamestate = gameStateDataClass.gameState.game;
+        if ( GetComponent<gameStateDataClass>() != null) {
+            gameStateDataClass = GetComponent<gameStateDataClass>();
+            gameStateDataClass.gamestate = gameStateDataClass.gameState.game;
+        }
+        
         //scriptText = GetComponent<Text>();
         if (pauseMenuCanvas != null) {
             pauseMenuCanvas.SetActive(false);
@@ -44,13 +47,18 @@ public class UI : MonoBehaviour {
     }
 
     public void buttonEnterLevel(int loadScene) {
-        Debug.Log("nnnn");
+        if (GameObject.Find("globalDataBase") != null) {
+            GameObject findObject = GameObject.Find("globalDataBase");
+            globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
+            globalDataBase.curLevel = loadScene;
+        }
+
         SceneManager.LoadScene(loadScene); // enter select
+
     }
 
     public void buttonOnclick() {
-        Debug.Log("nnnn");
-        
+
     }
 
     public void buttonPause() {
