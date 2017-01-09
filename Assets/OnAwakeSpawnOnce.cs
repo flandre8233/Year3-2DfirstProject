@@ -40,6 +40,6 @@ public class OnAwakeSpawnOnce : MonoBehaviour
     Vector3 setPosition(int dispersion) {
         dispersion *= 10;
         //return new Vector3((transform.position.x + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, (transform.position.y + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, transform.position.z);
-        return new Vector3((transform.position.x + Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f, transform.position.y, transform.position.z);
+        return new Vector3((transform.position.x +( Function.RandomNumber(dispersion) - (dispersion / 2)) / 10f), transform.position.y, transform.position.z);
     }
 }
