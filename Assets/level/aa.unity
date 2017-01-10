@@ -1838,11 +1838,29 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &331583522 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1536122607076064, guid: 08f818a13166eed439fc4673904b41bb,
+    type: 2}
+  m_PrefabInternal: {fileID: 262179545}
 --- !u!224 &331583523 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224110042976607278, guid: 08f818a13166eed439fc4673904b41bb,
     type: 2}
   m_PrefabInternal: {fileID: 262179545}
+--- !u!114 &331583524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 331583522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 430c3070191fd9641b8691bb5649da63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsText: {fileID: 0}
+  timeText: {fileID: 0}
 --- !u!1 &333626104
 GameObject:
   m_ObjectHideFlags: 0
