@@ -1255,6 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596d980b1d6cf8447b2e84e88549bbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeCounter: 0
   Percentage: 0
   startTotalTarget: 0
   curTotalTarget: 0
@@ -1485,6 +1486,10 @@ Prefab:
         type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1536122607076064, guid: 08f818a13166eed439fc4673904b41bb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08f818a13166eed439fc4673904b41bb, type: 2}
@@ -1859,8 +1864,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430c3070191fd9641b8691bb5649da63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulsText: {fileID: 0}
-  timeText: {fileID: 0}
+  soulsText: {fileID: 690436276}
+  timeText: {fileID: 1441626453}
 --- !u!1 &333626104
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class gameManager : MonoBehaviour {
+    public static gameManager staticgameManager;
     gameStateDataClass gameData;
-    
+    public float timeCounter;
+
+    void Awake() {
+        staticgameManager = this;
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +21,10 @@ public class gameManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        timeCounter += Time.deltaTime;
         if (Input.GetMouseButtonUp(1)) {
-            Debug.Log(countTotalTarget());
-
+            //Debug.Log(countTotalTarget());
+            Debug.Log(playerDataClass.staticData.playerSouls);
 
 
         }
