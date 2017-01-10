@@ -74,13 +74,19 @@ public class gameManager : MonoBehaviour {
         GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;
         winMenu.SetActive(true);
 
-        if (GameObject.Find("globalDataBase") != null) { //更新關卡數值
-            GameObject findObject = GameObject.Find("globalDataBase");
-            globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
-            if (globalDataBase.allLevelList[globalDataBase.curLevel].starNumber < gameData.starNumber) {
-                globalDataBase.allLevelList[globalDataBase.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
+        if (GameObject.Find("globalDataBase.staticData") != null) { //更新關卡數值
+            GameObject findObject = GameObject.Find("globalDataBase.staticData");
+            if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber < gameData.starNumber) {
+                globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
             }
-            globalDataBase.allLevelList[globalDataBase.curLevel+1].isLocked = false ; //要放在on完成通關那邊
+            globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel+1].isLocked = false ; //要放在on完成通關那邊
+            if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls < playerDataClass.staticData.playerSouls) {
+                globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls = playerDataClass.staticData.playerSouls;
+            }
+            if (  globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].time < timeCounter) {
+                globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].time = timeCounter;
+            }
+            
         }
 
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class globalDataBase : MonoBehaviour {
+    public static globalDataBase staticData;
+
 
     public int curLevel = 0;
     int maxLevel = 25;
@@ -12,12 +14,21 @@ public class globalDataBase : MonoBehaviour {
         public string levelName = "";
         public bool isLocked = true;
         public int starNumber = 0;
+        public int souls = 0;
+        public float time = 0;
     }
 
     public List<levelDetails> allLevelList ;
 
 
     void Awake() {
+        if (staticData != null) {
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else {
+            staticData = this;
+        }
+
         if (GameObject.FindGameObjectsWithTag("globalDataBase").Length == 1) {
             Debug.Log("reset");
             allLevelList = new List<levelDetails>();
@@ -25,11 +36,6 @@ public class globalDataBase : MonoBehaviour {
                 allLevelList.Add(new levelDetails());
             }
             allLevelList[0 + 2].isLocked = false;
-            DontDestroyOnLoad(transform.gameObject);
-            
-        }
-        else {
-            Destroy(gameObject);
         }
     }
 

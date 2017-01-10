@@ -13,7 +13,7 @@ public class clearManager : MonoBehaviour
         soulsText.text = playerDataClass.staticData.playerSouls.ToString();
         if (!write) {
             write = true;
-            timeText.text = gameManager.staticgameManager.timeCounter.ToString();
+            timeText.text = (gameManager.staticgameManager.timeCounter) + "";
         }
         
     }
