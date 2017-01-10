@@ -53,7 +53,7 @@ ParticleSystem:
   looping: 0
   prewarm: 0
   playOnAwake: 1
-  autoRandomSeed: 0
+  autoRandomSeed: 1
   startDelay:
     scalar: 0
     maxCurve:
@@ -2650,8 +2650,8 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 58ef6afc1062a4a44b5194dbac2f84ef, type: 2}
-  - {fileID: 2100000, guid: 58ef6afc1062a4a44b5194dbac2f84ef, type: 2}
+  - {fileID: 2100000, guid: e47c1adc9fbacf34ba814e5053a48500, type: 2}
+  - {fileID: 2100000, guid: e47c1adc9fbacf34ba814e5053a48500, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

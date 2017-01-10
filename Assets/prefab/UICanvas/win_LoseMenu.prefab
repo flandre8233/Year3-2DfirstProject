@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224549868244402948}
   - component: {fileID: 222485561221650306}
   - component: {fileID: 114369885738415610}
-  - component: {fileID: 114771623170550430}
+  - component: {fileID: 114943006161071384}
   m_Layer: 5
   m_Name: star (1)
   m_TagString: Untagged
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 224859957262778968}
   - component: {fileID: 222782913959086282}
   - component: {fileID: 114903702177298404}
-  - component: {fileID: 114754736001038812}
+  - component: {fileID: 114196475187844568}
   m_Layer: 5
   m_Name: star (2)
   m_TagString: Untagged
@@ -472,6 +472,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSpriteList: []
+--- !u!114 &114196475187844568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796604985299256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b138f261c667a8240b7cc429468215cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateDataClass: {fileID: 0}
+  thisObjectStarLevel: 3
 --- !u!114 &114269849660034546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,7 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStateDataClass: {fileID: 0}
-  thisObjectStarLevel: 0
+  thisObjectStarLevel: 1
 --- !u!114 &114702793587991196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,30 +965,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114754736001038812
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1796604985299256}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262d740f4ef69cd418126a8b16108cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSpriteList: []
---- !u!114 &114771623170550430
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1064725246297922}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262d740f4ef69cd418126a8b16108cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponSpriteList: []
 --- !u!114 &114807997172739704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1068,6 +1057,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114943006161071384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1064725246297922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b138f261c667a8240b7cc429468215cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateDataClass: {fileID: 0}
+  thisObjectStarLevel: 2
 --- !u!198 &198200245976164544
 ParticleSystem:
   m_ObjectHideFlags: 1
