@@ -212,7 +212,10 @@ public class npcScript : GameFunction
                         TestAnimator.SetBool("onJumping", false);
                         TestAnimator.SetBool("onLanded", true);
                     }
-                    GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                    if (npcclass.Species != npcClass.SpeciesType.robot) {
+
+                        GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+                    }
                     break;
             }
         }
@@ -232,7 +235,7 @@ public class npcScript : GameFunction
 
     void movementStateCheck() {
         #region npc的move狀態定位
-        if (Time.timeScale != 0 ) {
+        if (Time.timeScale != 0 && npcclass.Species != npcClass.SpeciesType.robot) {
             if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
                 npcclass.movementStateP = npcClass.movementState.walking;
 
@@ -258,12 +261,15 @@ public class npcScript : GameFunction
 
     void npcColorSetting() {
         #region 顏色設定，但放在這裡不會是一個好主意
-        if (npcclass.TypeP == npcClass.Type.contorl) {
-            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.red);
+        if (npcclass.Species != npcClass.SpeciesType.robot) {
+            if (npcclass.TypeP == npcClass.Type.contorl) {
+                GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.red);
+            }
+            else {
+                GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.white);
+            }
         }
-        else {
-            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(Color.white);
-        }
+
         #endregion
     }
 
@@ -308,22 +314,32 @@ public class npcScript : GameFunction
     void NpcDead() { //do once
         #region npc死亡時做的程式
         if (npcclass.liveStateP == npcClass.liveState.dead && npcclass.TypeP != npcClass.Type.contorl) { //當死亡時
-             if (!IsAlreadyStartDeadFunction) { //當死亡時只做一次
+             if (!IsAlreadyStartDeadFunction )  { //當死亡時只做一次
                 IsAlreadyStartDeadFunction = true;
 
-                switch (npcclass.TypeP) {
-                    case npcClass.Type.normal:
-                        spawnHPParticle(10);
-                        break;
-                    case npcClass.Type.spyder:
-                        spawnHPParticle(1);
-                        break;
+                if (npcclass.Species != npcClass.SpeciesType.robot) {
+                    switch (npcclass.TypeP) {
+                        case npcClass.Type.normal:
+                            spawnHPParticle(10);
+                            break;
+                        case npcClass.Type.spyder:
+                            spawnHPParticle(1);
+                            break;
+                    }
                 }
+
+
+                GetComponent<Rigidbody2D>().gravityScale = 1.0f;
 
                 //GetComponent<npcMove>().enabled = false;
                 npcclass.CastAniP = npcClass.CastAni.onDestory;
-                npcDelegate -= npcmove.delegateUpdate;
-                npcDelegate -= playermove.delegateUpdate;
+
+                if (npcmove != null) {
+                    npcDelegate -= npcmove.delegateUpdate;
+                }
+                if (playermove != null) {
+                    npcDelegate -= playermove.delegateUpdate;
+                }
 
                 if (npcclass.TypeP == npcClass.Type.normal && GetComponentInChildren<attackSystem>() ) {
                     GetComponentInChildren<attackSystem>().enabled = false;

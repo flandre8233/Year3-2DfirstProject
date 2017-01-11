@@ -9,6 +9,10 @@ public class npcClass : MonoBehaviour {
     public enum Type{ contorl,normal,spyder};
     public Type TypeP;
 
+    public enum SpeciesType { alien, robot, spyder };
+    public SpeciesType Species;
+
+
     public enum liveState { live, dead };
     public liveState liveStateP;
 
