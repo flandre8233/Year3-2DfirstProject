@@ -1,0 +1,155 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1160236808904276}
+  m_IsPrefabParent: 1
+--- !u!1 &1160236808904276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4666161766399328}
+  - component: {fileID: 82626429299853336}
+  - component: {fileID: 114465687154928714}
+  m_Layer: 0
+  m_Name: soundEffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4666161766399328
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160236808904276}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82626429299853336
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160236808904276}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114465687154928714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1160236808904276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b63c070188107ce40bf326ff8792ad6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordloseTarget1: {fileID: 8300000, guid: 488f1c18c1556f240ba64b5c542b3463, type: 3}
+  swordloseTarget2: {fileID: 8300000, guid: e3a00b1bab340674cb030571c1f7383a, type: 3}
+  restoreHP: {fileID: 8300000, guid: 4aaf85420934b7d4aa798f05f809c085, type: 3}
+  rifleloseTarget: {fileID: 8300000, guid: 5f842b24cd03c6e47bc663c292fa5a5b, type: 3}
+  axeloseTarget: {fileID: 8300000, guid: a11e8c93f1a1dd245bb97e9bab588995, type: 3}
+  botShot: {fileID: 8300000, guid: cfc30d7c83a2d09479a5fbc717f637e9, type: 3}
+  templeFire: {fileID: 8300000, guid: 80113a3f7a0715b4db22c37d11e92c2e, type: 3}
+  run: {fileID: 8300000, guid: 750ba03f263c96147a802a65c27a0660, type: 3}
+  clickButton: {fileID: 8300000, guid: a794c0316cf890d459fa3d82ee330e6d, type: 3}
+  MoveOnButton: {fileID: 8300000, guid: 46c28398eebba6843b80dfc4525305b7, type: 3}
+  startSceneClickButton: {fileID: 8300000, guid: 15840eb4b7c720e4994a82a72e487e53,
+    type: 3}
+  swordHitTarget: {fileID: 8300000, guid: db11111bd53a5db4d873f596a00f96c1, type: 3}
+  axeHitTarget: {fileID: 8300000, guid: 1b0fdfb00f79388498f4efcf0a9eb40e, type: 3}
+  rifleHitTarget: {fileID: 8300000, guid: 9bfa5e35b908aa941ac3bdd7f39994b3, type: 3}
+  hitOrShotBotOrSpyder: {fileID: 8300000, guid: 048f1352589428b4e847b9219a4eeeea,
+    type: 3}
+  PriestAttack1: {fileID: 8300000, guid: 085ba4294e1f95047be9906c9af68b25, type: 3}
+  PriestAttack2: {fileID: 8300000, guid: 5e0a5ca072354db4aaa16d1d81a729a4, type: 3}
+  possessedOnOpen: {fileID: 8300000, guid: d763b3f98a208a542af6dfadbc97e864, type: 3}
+  possessedOnFinish: {fileID: 8300000, guid: 0a27b5c61edc472468a33705a7556da9, type: 3}

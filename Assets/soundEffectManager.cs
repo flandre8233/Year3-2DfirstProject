@@ -34,11 +34,12 @@ public class soundEffectManager : MonoBehaviour {
 
     void Awake () {
         if (staticSoundEffect != null) {
-
+            Destroy(gameObject);
         }
         else {
             staticSoundEffect = this;
         }
+        DontDestroyOnLoad(gameObject);
         audio = GetComponent<AudioSource>();
 	}
 

@@ -52,7 +52,7 @@ public class UI : MonoBehaviour {
             globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
             globalDataBase.curLevel = loadScene;
         }
-
+        soundEffectManager.staticSoundEffect.play_clickButton();
         SceneManager.LoadScene(loadScene); // enter select
 
     }
@@ -73,14 +73,17 @@ public class UI : MonoBehaviour {
             gameStateDataClass.gamestate = gameStateDataClass.gameState.pause;
             Time.timeScale = 0f;
         }
+        soundEffectManager.staticSoundEffect.play_clickButton();
         pauseMenuCanvas.SetActive(isPauseButtonDown);
     }
 
     public void restartCurGame() {
+        soundEffectManager.staticSoundEffect.play_clickButton();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void buttonQuit() {
+        soundEffectManager.staticSoundEffect.play_clickButton();
         Application.Quit();
         gameStateDataClass.gamestate = gameStateDataClass.gameState.menu; //?
     }
@@ -107,7 +110,8 @@ public class UI : MonoBehaviour {
     }
 
     public void selectLevelCanvas(GameObject go) {
-        Debug.Log(this.gameObject.name);
+        //Debug.Log(this.gameObject.name);
+        soundEffectManager.staticSoundEffect.play_MoveOnButton();
         //GetComponentInParent<RectTransform>().gameObject.SetActive(false);
         go.SetActive(true);
     }
