@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4003687414985388}
+  - component: {fileID: 114570016146737548}
   m_Layer: 0
   m_Name: level1backgroundScrollSystem
   m_TagString: Untagged
@@ -294,6 +295,21 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114570016146737548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1079477742942600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb4f53e57a524840962f3ca7833873e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingLayerName: 
+  camera: {fileID: 0}
+  scrollSpeed: 0
+  distance: 0
 --- !u!114 &114714543558363230
 MonoBehaviour:
   m_ObjectHideFlags: 1

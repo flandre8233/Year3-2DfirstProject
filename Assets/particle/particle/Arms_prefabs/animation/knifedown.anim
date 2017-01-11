@@ -172,4 +172,12 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_IsEmpty: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: attacksound
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 68adbc2bea664394fa43369a5e624860,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

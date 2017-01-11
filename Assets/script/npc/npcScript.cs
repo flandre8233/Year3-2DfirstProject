@@ -79,6 +79,7 @@ public class npcScript : GameFunction
         npcDelegate += movementStateCheck;
         npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
+        npcDelegate += movementSound;
         if (npcmove!=null) {
             npcDelegate += npcmove.delegateUpdate;
         }
@@ -217,22 +218,37 @@ public class npcScript : GameFunction
         }
     }
 
+    void movementSound() {
+        if (npcclass.TypeP != npcClass.Type.spyder) {
+            if (npcclass.movementStateP == npcClass.movementState.walking) {
+                GetComponent<npcSoundEffect>().play_run();
+            }
+            else {
+                GetComponent<npcSoundEffect>().stop();
+            }
+        }
+    }
+
     void movementStateCheck() {
         #region npc的move狀態定位
         if (Time.timeScale != 0 ) {
             if ((Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer)) && ((rigidbody2d.velocity.x > 0.1 * Time.deltaTime) || (rigidbody2d.velocity.x < -0.1 * Time.deltaTime))) {
                 npcclass.movementStateP = npcClass.movementState.walking;
+
             }
             else if (rigidbody2d.velocity.y > 0.1 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
                 npcclass.movementStateP = npcClass.movementState.jumpingBothCanMove;
                 GetComponent<Rigidbody2D>().gravityScale = 3.0f;
 
+
             }
             else if (rigidbody2d.velocity.y < -0.05 * Time.deltaTime && !(Physics2D.OverlapCircle(GroundCheck1.position, 0.35f, groundLayer))) {
                 npcclass.movementStateP = npcClass.movementState.falling;
+
             }
             else if (Physics2D.OverlapCircle(GroundCheck1.position, 0.15f, groundLayer)) {
                 npcclass.movementStateP = npcClass.movementState.landed;
+
             }
         }
         

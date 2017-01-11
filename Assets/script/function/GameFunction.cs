@@ -40,7 +40,7 @@ public class GameFunction : MonoBehaviour {
         
         Debug.Log("ggggg");
         GameObject[] playerGhost  = GameObject.FindGameObjectsWithTag("Player"); //
-        
+        backgroundMusicScript.staticBackground.playOnDead();
         foreach (GameObject each in playerGhost) {
             Destroy(each);
         }

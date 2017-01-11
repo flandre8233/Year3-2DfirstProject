@@ -59,6 +59,9 @@ public class attackSensorDamage : GameFunction
                 switch (npcclass.TypeP) {
                     case npcClass.Type.contorl:
                         if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {
+                            if (other.gameObject.GetComponent<npcClass>().TypeP == npcClass.Type.spyder) {
+                                soundEffectManager.staticSoundEffect.play_hitOrShotBotOrSpyder();
+                            }
                             other.gameObject.GetComponent<npcScript>().npcHPCheck(damage, "player");
                             alreadyDamageArray.Add(other.gameObject);
                             //gameObject.SetActive(false);

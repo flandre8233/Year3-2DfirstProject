@@ -14,9 +14,23 @@ public class blurHold : MonoBehaviour {
 	void Start () {
         //transform.localPosition = Vector3.zero;
 	}
-	
-	// Update is called once per frame
-	public void Update () {
+
+    void OnEnable() {
+
+    }
+
+
+    void attacksound() {
+        if (myFunction.Function.RandomNumber(2) == 1) {
+            soundEffectManager.staticSoundEffect.play_swordloseTarget1();
+        }
+        else {
+            soundEffectManager.staticSoundEffect.play_swordloseTarget2();
+        }
+    }
+
+    // Update is called once per frame
+    public void Update () {
         if (follow) {
             transform.position = npcObj.position;
             }

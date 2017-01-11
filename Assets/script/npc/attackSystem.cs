@@ -121,8 +121,9 @@ public class attackSystem : MonoBehaviour {
 
     }
 
+
     void attackFunction() {
-        if (ComboCounter >= 2) {
+        if (ComboCounter == 2) {
             attackCDLock = true; //鎖上不讓再打
             
         }
@@ -131,6 +132,7 @@ public class attackSystem : MonoBehaviour {
             
         }
             if (attackGO != null) {
+
                 //StartCoroutine("spawnAttackSensorFunction");
                 ComboCounter++; //計算當前要不要COMBO COMBO到多少?
             spawnAttackAni();//播動畫
@@ -167,7 +169,7 @@ public class attackSystem : MonoBehaviour {
     void spawnAttackAni() {
 
         npcclass.CastAniP = npcClass.CastAni.onAttack;
-        
+        //       
         swordBlur.transform.localScale = new Vector3(-npcclass.gameObject.transform.localScale.x, swordBlur.transform.localScale.y, swordBlur.transform.localScale.z);
         swordBlur.GetComponentInChildren<blurHold>().follow = true;
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
@@ -187,7 +189,9 @@ public class attackSystem : MonoBehaviour {
 
     }
 
+
     void attackVelocitySetting(float velocity) {        //velocityPart
+
         if (npcclass.TypeP == npcClass.Type.contorl) { //給予攻擊動量
             rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             rigid2d.AddForce(transform.right * velocity * -rigid2d.transform.localScale.x, ForceMode2D.Force);
