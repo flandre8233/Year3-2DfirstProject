@@ -57,6 +57,17 @@ public class UI : MonoBehaviour {
 
     }
 
+    public void startMenuEnterSelect() {
+        if (GameObject.Find("globalDataBase") != null) {
+            GameObject findObject = GameObject.Find("globalDataBase");
+            globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
+            globalDataBase.curLevel = 1;
+        }
+        soundEffectManager.staticSoundEffect.play_startSceneClickButton();
+        SceneManager.LoadScene(1); // enter select
+
+    }
+
     public void buttonOnclick() {
 
     }

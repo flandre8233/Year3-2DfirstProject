@@ -30,8 +30,13 @@ public class playerContorl : GameFunction {
 
     float CDSave = 0.0f;
 
-    void controlEnemyFunction(GameObject GameEnemy) {  //控制這裡
+    int counter = 0;
 
+    void controlEnemyFunction(GameObject GameEnemy) {  //控制這裡
+        counter++;
+        if (counter != 1) {
+            soundEffectManager.staticSoundEffect.play_possessedOnFinish();
+        }
         //GameEnemy.GetComponent<playerMove>().enabled = true;
 
         //GameEnemy.GetComponent<npcMove>().enabled = false;

@@ -219,13 +219,14 @@ public class npcScript : GameFunction
     }
 
     void movementSound() {
-        if (npcclass.TypeP != npcClass.Type.spyder) {
+        if (npcclass.TypeP != npcClass.Type.spyder && GetComponent<npcSoundEffect>() != null) {
             if (npcclass.movementStateP == npcClass.movementState.walking) {
                 GetComponent<npcSoundEffect>().play_run();
             }
             else {
                 GetComponent<npcSoundEffect>().stop();
             }
+
         }
     }
 
