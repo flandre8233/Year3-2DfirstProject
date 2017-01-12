@@ -22,8 +22,8 @@ public class hpParticleScript : MonoBehaviour {
         GameObject[] enemygameObj = GameObject.FindGameObjectsWithTag("enemy");  //無視其他enemy碰撞
         foreach (GameObject each in enemygameObj)
         {
-            Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<Collider2D>());
-            Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(each.GetComponent<CapsuleCollider2D>(), GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(each.GetComponent<CapsuleCollider2D>(), GetComponent<Collider2D>());
         }
 
     }

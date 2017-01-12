@@ -6,6 +6,7 @@ public class starScript : MonoBehaviour
 {
     public gameStateDataClass gameStateDataClass;
     public int thisObjectStarLevel;
+    public GameObject starObj;
 
     bool once = false;
 
@@ -15,7 +16,7 @@ public class starScript : MonoBehaviour
         if (!once) {
             gameStateDataClass = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<gameStateDataClass>();
             if (gameStateDataClass.starNumber >= thisObjectStarLevel) {
-                Debug.Log(thisObjectStarLevel + "level");
+                starObj.SetActive(true);
             }
 
             once = true;

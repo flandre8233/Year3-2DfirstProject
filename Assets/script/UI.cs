@@ -63,7 +63,6 @@ public class UI : MonoBehaviour {
             globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
             globalDataBase.curLevel = 1;
         }
-        soundEffectManager.staticSoundEffect.play_startSceneClickButton();
         SceneManager.LoadScene(1); // enter select
 
     }

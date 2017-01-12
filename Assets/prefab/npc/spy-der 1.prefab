@@ -94,13 +94,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4962979501826186}
-  - component: {fileID: 61480608025819630}
   - component: {fileID: 50592878530569552}
   - component: {fileID: 114383313473682980}
   - component: {fileID: 114994533280420502}
   - component: {fileID: 114482748680532762}
   - component: {fileID: 114063194892131760}
-  - component: {fileID: 58354776787594746}
+  - component: {fileID: 70559212772787432}
   m_Layer: 17
   m_Name: spy-der 1
   m_TagString: enemy
@@ -246,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1671475712384782}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4962979501826186}
@@ -285,8 +284,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632723955330174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4499762, y: 1.0054579, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 124.007034, y: 15.661488, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4524771357453990}
   - {fileID: 4605119129209150}
@@ -371,20 +370,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &58354776787594746
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1632723955330174}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.5}
-  serializedVersion: 2
-  m_Radius: 0.4883299
 --- !u!60 &60691012561268766
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -405,20 +390,20 @@ PolygonCollider2D:
       - {x: -6, y: -6}
       - {x: -12, y: -6}
       - {x: -12, y: 6}
---- !u!61 &61480608025819630
-BoxCollider2D:
+--- !u!70 &70559212772787432
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632723955330174}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 9258f124cb06b964a90f8df8c91c3e2a, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.009156227, y: 0.8172536}
-  serializedVersion: 2
-  m_Size: {x: 0.88946, y: 0.87926316}
+  m_Offset: {x: 0.055122375, y: -0.16537952}
+  m_Size: {x: 1.1339432, y: 1.3858851}
+  m_Direction: 0
 --- !u!95 &95070869675432990
 Animator:
   serializedVersion: 3

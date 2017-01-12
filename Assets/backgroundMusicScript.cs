@@ -47,22 +47,22 @@ public class backgroundMusicScript : MonoBehaviour {
             audio.PlayOneShot(selectLevel, 0.2f);
         }
         else if (level >= 2 && level < 7) {
-            audio.PlayOneShot(lv1, 0.2f);
+            audio.PlayOneShot(lv1, 0.8f);
         }
         else {
-            audio.PlayOneShot(lv2, 0.2f);
+            audio.PlayOneShot(lv2, 0.8f);
         }
 
     }
 
     public void playClearLevel() {
         audio.Stop();
-        audio.PlayOneShot(clear, 0.2f);
+        audio.PlayOneShot(clear, 0.8f);
     }
 
     public void playOnDead() {
         audio.Stop();
-        audio.PlayOneShot(dead, 0.2f);
+        audio.PlayOneShot(dead, 0.8f);
     }
 
 }

@@ -37,6 +37,12 @@ public class globalDataBase : MonoBehaviour {
             }
             allLevelList[0 + 2].isLocked = false;
         }
+
+        allLevelList[1 + 2].isLocked = false;
+        allLevelList[2 + 2].isLocked = false;
+        allLevelList[3 + 2].isLocked = false;
+        allLevelList[4 + 2].isLocked = false;
+        allLevelList[5 + 2].isLocked = false;
     }
 
 

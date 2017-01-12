@@ -41,11 +41,13 @@ public class levelButtonscript : MonoBehaviour
 
         if (islocked) {
             GetComponentInChildren<Image>().sprite = LockedLevelButtonSpriteList[level - 2];
+            GetComponentInChildren<Image>().SetNativeSize();
             GetComponent<Button>().enabled = false;
 
         }
         else {
             GetComponentInChildren<Image>().sprite = UnlockLevelButtonSpriteList[level - 2];
+            GetComponentInChildren<Image>().SetNativeSize();
             GetComponent<Button>().enabled = true;
 
             while (starNumber-- > 0) {

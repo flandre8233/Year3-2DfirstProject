@@ -6,8 +6,10 @@ public class npcSoundEffect : MonoBehaviour {
     public AudioClip run;
 
     AudioSource audio;
+    npcClass npcclass;
 
     void Awake () {
+        npcclass = GetComponentInParent<npcClass>();
         audio = GetComponent<AudioSource>();
 	}
 	
@@ -19,7 +21,12 @@ public class npcSoundEffect : MonoBehaviour {
     public void play_run() {
         //audio.Stop();
         if (!audio.isPlaying) {
-            audio.PlayOneShot(run, 1.0f);
+            if (npcclass.TypeP == npcClass.Type.contorl) {
+                audio.PlayOneShot(run, 0.7f);
+            }
+            else {
+               // audio.PlayOneShot(run,0.7f);
+            }
             //AudioSource.PlayClipAtPoint(run,transform.position);
             
         }

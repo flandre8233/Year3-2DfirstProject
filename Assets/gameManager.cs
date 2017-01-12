@@ -66,7 +66,9 @@ public class gameManager : MonoBehaviour {
 
 
     public void OnPlayerWin() {
-        backgroundMusicScript.staticBackground.playClearLevel();
+        if (backgroundMusicScript.staticBackground != null) {
+            backgroundMusicScript.staticBackground.playClearLevel();
+        }
         killPercentageCheck();
         GameObject gameCanvas = GameObject.FindGameObjectsWithTag("Menu/game-Canvas")[0];
         gameCanvas.SetActive(false);

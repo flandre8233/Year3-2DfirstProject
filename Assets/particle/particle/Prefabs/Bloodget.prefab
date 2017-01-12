@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4665034466863458}
   - component: {fileID: 198351399193284856}
   - component: {fileID: 199254293014695966}
+  - component: {fileID: 114905910566711634}
   m_Layer: 0
   m_Name: Bloodget
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114905910566711634
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620452601684718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b27c430f0e5dca44e8eafe539df7d2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198351399193284856
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -2667,7 +2679,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -196783491
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

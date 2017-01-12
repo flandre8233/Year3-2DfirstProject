@@ -93,10 +93,7 @@ public class npcScript : GameFunction
     void ignoreCollisionSetUp() {//無視其他enemy碰撞
         GameObject[] gameObj = GameObject.FindGameObjectsWithTag("enemy");  //無視其他enemy碰撞
         foreach (GameObject each in gameObj) {
-            Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>());
-            Physics2D.IgnoreCollision(each.GetComponent<BoxCollider2D>(), GetComponent<CircleCollider2D>());
-            Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<BoxCollider2D>());
-            Physics2D.IgnoreCollision(each.GetComponent<CircleCollider2D>(), GetComponent<CircleCollider2D>());
+            Physics2D.IgnoreCollision(each.GetComponent<CapsuleCollider2D>(), GetComponent<CapsuleCollider2D>());
         }
 
         if (gameObject.tag != "enemy") {  //無視自己同tag的npc碰撞
@@ -111,8 +108,7 @@ public class npcScript : GameFunction
 
         GameObject[] HPpartaclegameObj = GameObject.FindGameObjectsWithTag("HPpartacle");  //無視其他enemy碰撞
         foreach (GameObject each in HPpartaclegameObj) {
-            Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>());
-            Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<CircleCollider2D>());
+            Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<CapsuleCollider2D>());
         }
     }
 
@@ -297,6 +293,8 @@ public class npcScript : GameFunction
         #endregion
     }
 
+
+    string whoKillThis;
     public void npcHPCheck(short DamageDeal ,string dealerStringType) {
         #region HP
 
@@ -311,6 +309,7 @@ public class npcScript : GameFunction
         npcclass.HP -= DamageDeal;
         if (npcclass.HP <= 0 ) {
             npcclass.liveStateP = npcClass.liveState.dead;
+            whoKillThis = dealerStringType;
             if (dealerStringType == "player") { //是誰打出這個傷害
                 //playerData.HP = playerData.MAXHP;
             }
@@ -344,10 +343,16 @@ public class npcScript : GameFunction
                 if (npcclass.Species != npcClass.SpeciesType.robot) {
                     switch (npcclass.TypeP) {
                         case npcClass.Type.normal:
-                            spawnHPParticle(10);
+                            if (whoKillThis != "void") {
+
+                                spawnHPParticle(10);
+                            }
                             break;
                         case npcClass.Type.spyder:
-                            spawnHPParticle(1);
+                            if (whoKillThis != "void") {
+                                spawnHPParticle(1);
+                            }
+
                             break;
                     }
                 }

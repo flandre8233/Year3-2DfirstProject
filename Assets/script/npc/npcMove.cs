@@ -99,7 +99,7 @@ public class npcMove : GameFunction
 
 #region npc跳躍
     void simpleAutoJump() {
-        if ((Physics2D.OverlapCircle(jumpRequestPointCheck1.position, 0.15f, npcscript.groundLayer))   ) {
+        if ((Physics2D.OverlapCircle(jumpRequestPointCheck1.position, 0.15f, npcscript.groundLayer) && npcclass.movementStateP != npcClass.movementState.falling && npcclass.movementStateP != npcClass.movementState.jumpingBothCanMove)   ) {
             jump();
         }
     }

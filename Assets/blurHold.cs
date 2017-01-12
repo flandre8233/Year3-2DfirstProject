@@ -31,7 +31,7 @@ public class blurHold : MonoBehaviour {
 
     // Update is called once per frame
     public void Update () {
-        if (follow) {
+        if (follow && npcObj != null) {
             transform.position = npcObj.position;
             }
         /*

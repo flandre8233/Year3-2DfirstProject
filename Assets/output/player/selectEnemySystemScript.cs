@@ -160,7 +160,7 @@ public class selectEnemySystemScript : GameFunction
             }
 
         }
-
+        
         #region œEŠücode
         /*
         if (Input.GetKeyDown(KeyCode.LeftArrow) && openTargetLockDown) {
