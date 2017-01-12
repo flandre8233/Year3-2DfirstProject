@@ -75,7 +75,8 @@ public class npcScript : GameFunction
 	
     void DelegateSetUp() {
         npcDelegate += attackStateChangeCodeFunction;
-        npcDelegate += npcColorSetting;
+        //npcDelegate += npcColorSetting;
+        npcDelegate += ControlAniSetting;
         npcDelegate += movementStateCheck;
         npcDelegate += movementAnimationSetting;
         npcDelegate += NpcDead;
@@ -115,17 +116,40 @@ public class npcScript : GameFunction
         }
     }
 
+
+
 	// Update is called once per frame
 	void Update () {
         if (npcDelegate != null) {
             npcDelegate.Invoke();
         }
+
+
+
     }
 
     //很像end效果都一樣
     //complete 當完成這次動畫後
 
+    bool onContorl = false;
+    public testChange spineAniChange;
+    void ControlAniSetting()
+    {
+        if (npcclass.Species == npcClass.SpeciesType.alien)
+        {
+            if (npcclass.TypeP == npcClass.Type.contorl && !onContorl)
+            {
+                onContorl = true;
+                spineAniChange.ChangeToRed();
+            }
+            if (npcclass.TypeP != npcClass.Type.contorl && onContorl)
+            {
+                onContorl = false;
+                spineAniChange.ChangeToNormal();
+            }
 
+        }
+    }
 
     private void MyCompleteListener( Spine.TrackEntry trackEntry) {
         if (npcclass.TypeP == npcClass.Type.contorl) {
@@ -396,14 +420,31 @@ public class npcScript : GameFunction
 
     void DeadFadeOut() {
         onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*3f);
-        GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha) );
-        if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f) {
-            DestroyNpc();
-            if (npcclass.TypeP != npcClass.Type.spyder) {
-                Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+        if (npcclass.Species != npcClass.SpeciesType.robot)
+        {
+            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha));
+
+            if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f)
+            {
+                DestroyNpc();
+                if (npcclass.TypeP != npcClass.Type.spyder)
+                {
+                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+                }
+
             }
 
         }
+        else
+        {
+            GetComponent<SpriteRenderer>().material.color = new Color(GetComponent<SpriteRenderer>().material.color.r, GetComponent<SpriteRenderer>().material.color.g, GetComponent<SpriteRenderer>().material.color.b, onDeadAlpha);
+            if (GetComponent<SpriteRenderer>().material.color.a <= 0.1f)
+            {
+                DestroyNpc();
+            }
+        }
+
+
         
     }
 

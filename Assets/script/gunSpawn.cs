@@ -56,9 +56,9 @@ public class gunSpawn : GameFunction{
     }
 
     void spawnBulletSpecial1(int faceMidZRotation,int endZRotation,int everyAngleShotOnce) {
-        
+        soundEffectManager.staticSoundEffect.play_botShot();
 
-        
+
         for (int i = faceMidZRotation - (endZRotation/2); i <= (endZRotation/2)+faceMidZRotation; i+= everyAngleShotOnce) {
             if (shootByNpc && npcclass!= null) {
                 
@@ -93,6 +93,7 @@ public class gunSpawn : GameFunction{
     */
 
     IEnumerator spawnBullet(GameObject prefabs,Quaternion rotation, gunShot.damageType damageType , short bulletDamage) {
+
         GameObject PF = Instantiate(prefabs, transform.position, rotation) as GameObject;
         PF.GetComponent<gunShot>().damagetype = damageType;
         PF.GetComponent<gunShot>().damage = bulletDamage;

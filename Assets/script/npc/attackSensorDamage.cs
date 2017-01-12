@@ -45,6 +45,8 @@ public class attackSensorDamage : GameFunction
     void triggerNpc(Collider2D other) {
         bool alreadyDeal = false;
         if ( (other.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed" )&& other.gameObject != gameObject) {   //多重攻擊目標
+
+
             if (alreadyDamageArray.Count > 0) {
                 foreach (GameObject each in alreadyDamageArray) {
                     if (each == other.gameObject) {
@@ -61,6 +63,23 @@ public class attackSensorDamage : GameFunction
                         if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {
                             if (other.gameObject.GetComponent<npcClass>().Species == npcClass.SpeciesType.spyder || other.gameObject.GetComponent<npcClass>().Species == npcClass.SpeciesType.robot) {
                                 soundEffectManager.staticSoundEffect.play_hitOrShotBotOrSpyder();
+                            }else
+                            {
+                                switch (npcclass.WeaponP)
+                                {
+                                    case npcClass.Weapon.none:
+                                        break;
+                                    case npcClass.Weapon.sword:
+                                        soundEffectManager.staticSoundEffect.play_swordHitTarget();
+                                        break;
+                                    case npcClass.Weapon.rifle:
+                                        break;
+                                    case npcClass.Weapon.axe:
+                                        soundEffectManager.staticSoundEffect.play_axeHitTarget();
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
                             other.gameObject.GetComponent<npcScript>().npcHPCheck(damage, "player");
                             alreadyDamageArray.Add(other.gameObject);
@@ -70,6 +89,21 @@ public class attackSensorDamage : GameFunction
                         break;
                     case npcClass.Type.normal:
                         if (other.gameObject == playerSensorCode.npc && playerSensorCode.npc != null) {
+                            switch (npcclass.WeaponP)
+                            {
+                                case npcClass.Weapon.none:
+                                    break;
+                                case npcClass.Weapon.sword:
+                                    soundEffectManager.staticSoundEffect.play_swordHitTarget();
+                                    break;
+                                case npcClass.Weapon.rifle:
+                                    break;
+                                case npcClass.Weapon.axe:
+                                    soundEffectManager.staticSoundEffect.play_axeHitTarget();
+                                    break;
+                                default:
+                                    break;
+                            }
                             other.gameObject.GetComponent<npcScript>().npcHPCheck(damage, "enemy");
                             alreadyDamageArray.Add(other.gameObject);
                             //gameObject.SetActive(false);
