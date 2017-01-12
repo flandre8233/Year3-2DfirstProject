@@ -2261,11 +2261,6 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114360379155251684, guid: f421e66bcfcb9e24d8ba95cdd34177ec,
-        type: 2}
-      propertyPath: WeaponP
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f421e66bcfcb9e24d8ba95cdd34177ec, type: 2}
   m_IsPrefabParent: 0

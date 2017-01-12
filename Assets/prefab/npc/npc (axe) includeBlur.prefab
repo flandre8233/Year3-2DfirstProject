@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 23814433417710836}
   - component: {fileID: 95967901360150806}
   - component: {fileID: 114497071814340444}
+  - component: {fileID: 114559736716670492}
   m_Layer: 0
   m_Name: Spine Mecanim GameObject (axe_m)
   m_TagString: Untagged
@@ -880,6 +881,7 @@ MonoBehaviour:
   dead: 
   attack1: 
   attack2: 
+  spineAniChange: {fileID: 114559736716670492}
 --- !u!114 &114360379155251684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -897,7 +899,7 @@ MonoBehaviour:
   attackStateP: 1
   movementStateP: 0
   CastAniP: 0
-  WeaponP: 1
+  WeaponP: 3
   rifleBullet: 10
   souls: 1
   HP: 2
@@ -971,6 +973,20 @@ MonoBehaviour:
   attackTargetGameObject: {fileID: 1975527551274580}
   isPatrolToLeft: 1
   patrolWaitLock: 0
+--- !u!114 &114559736716670492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891492018336050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cee192f1fa332d4385c51c1a2dc472a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  non: {fileID: 11400000, guid: 6476e35a3a02be44aa37c7f6739e6871, type: 2}
+  red: {fileID: 11400000, guid: 9297f115114f6f942a72b460a8e2941c, type: 2}
+  sk: {fileID: 114497071814340444}
 --- !u!114 &114858962468208998
 MonoBehaviour:
   m_ObjectHideFlags: 1
