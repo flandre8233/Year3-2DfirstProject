@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class showGameFps : MonoBehaviour
-{
+{/*
     public playerDataClass pdc;
     string soulsText;
     [SerializeField]
@@ -39,5 +39,5 @@ public class showGameFps : MonoBehaviour
 
         GUI.Label(soulsRect, soulsText, style);
     }
-
+    */
 }

@@ -425,32 +425,39 @@ public class npcScript : GameFunction
 
     void DeadFadeOut() {
         onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*3f);
+        
         if (npcclass.Species != npcClass.SpeciesType.robot)
         {
-            GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha));
+            
+                GetComponentInChildren<SkeletonAnimator>().skeleton.SetColor(new Color(GetComponentInChildren<SkeletonAnimator>().skeleton.r, GetComponentInChildren<SkeletonAnimator>().skeleton.g, GetComponentInChildren<SkeletonAnimator>().skeleton.b, onDeadAlpha));
 
-            if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f)
-            {
-                DestroyNpc();
-                if (npcclass.TypeP != npcClass.Type.spyder)
+                if (GetComponentInChildren<SkeletonAnimator>().skeleton.A <= 0.1f)
                 {
-                    Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+                    DestroyNpc();
+                    if (npcclass.TypeP != npcClass.Type.spyder)
+                    {
+                        Instantiate(SoulsParticlePrefab, transform.position, Quaternion.identity);
+                    }
+
                 }
 
             }
-
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().material.color = new Color(GetComponent<SpriteRenderer>().material.color.r, GetComponent<SpriteRenderer>().material.color.g, GetComponent<SpriteRenderer>().material.color.b, onDeadAlpha);
-            if (GetComponent<SpriteRenderer>().material.color.a <= 0.1f)
+            else
             {
+            if (onDeadAlpha  <= 0.1f) {
                 DestroyNpc();
             }
+            /*
+                GetComponent<SpriteRenderer>().material.color = new Color(GetComponent<SpriteRenderer>().material.color.r, GetComponent<SpriteRenderer>().material.color.g, GetComponent<SpriteRenderer>().material.color.b, onDeadAlpha);
+                if (GetComponent<SpriteRenderer>().material.color.a <= 0.1f)
+                {
+                    DestroyNpc();
+                }
+                */
         }
 
 
-        
+
     }
 
     void DestroyNpc() {
