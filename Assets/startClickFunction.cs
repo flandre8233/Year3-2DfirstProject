@@ -6,19 +6,16 @@ public class startClickFunction : MonoBehaviour {
 
     public Animator buttonAni;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-       
-	}
+    bool once = false;
+
 
     public void set() {
-        soundEffectManager.staticSoundEffect.play_startSceneClickButton();
-        buttonAni.SetTrigger("click");
+        if (!once) {
+            once = true;
+            soundEffectManager.staticSoundEffect.play_startSceneClickButton();
+            buttonAni.SetTrigger("click");
+        }
+
     }
 
 }
