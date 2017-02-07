@@ -40,6 +40,7 @@ public class hpParticleScript : MonoBehaviour {
             if (playercontorl != null) {
                 if (!isIgnoreCollisionGround) {
                     GameObject[] groundgameObj = GameObject.FindGameObjectsWithTag("ground");  //無視其他enemy碰撞
+                    GetComponent<Rigidbody2D>().gravityScale = 0.0f;
                     foreach (GameObject each in groundgameObj) {
                         Physics2D.IgnoreCollision(each.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                     }
