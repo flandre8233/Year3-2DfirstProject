@@ -8,6 +8,7 @@ public class playerSensorCode : MonoBehaviour {
     public bool isLostPlayer = false;
     float timer = 2.0f;
 
+
     // Use this for initialization
     void Start() {
     }
@@ -26,6 +27,8 @@ public class playerSensorCode : MonoBehaviour {
         else {
             timer = 2.0f;
         }
+
+
 
 	}
 

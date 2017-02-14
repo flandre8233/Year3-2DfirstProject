@@ -21,6 +21,8 @@ public class npcMove : GameFunction
     public int patrolWaitTime;
     [SerializeField]
     private GameObject attackTargetGameObject;
+    [SerializeField]
+    private playerSensor2 playerEnterAttackRange;
 
     Vector3 attackTargetPoint;
 
@@ -152,7 +154,7 @@ public class npcMove : GameFunction
     #endregion
     #region 追玩家
     void simpleChasePlayer() {
-        if (attackTargetGameObject.GetComponent<playerSensorCode>().npc != null) {
+        if (attackTargetGameObject.GetComponent<playerSensorCode>().npc != null && !playerEnterAttackRange.isFindPlayer) {
             attackTargetPoint = attackTargetGameObject.GetComponent<playerSensorCode>().npc.transform.position;
             //Gfunction.ImageLookAt2D(transform.position, attackTargetPoint);
 
@@ -184,4 +186,8 @@ public class npcMove : GameFunction
         }
     }
     #endregion
+
+
+
 }
+

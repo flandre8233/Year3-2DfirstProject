@@ -23,6 +23,6 @@ public class testAA : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         
-        Debug.Log(rd.velocity);
+       // Debug.Log(rd.velocity);
     }
 }
