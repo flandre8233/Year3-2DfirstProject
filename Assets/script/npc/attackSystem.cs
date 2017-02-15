@@ -104,7 +104,7 @@ public class attackSystem : MonoBehaviour {
         }
         //Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
-            if (Input.GetMouseButtonUp(1) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
+            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
                 attackFunction();
             }
         }

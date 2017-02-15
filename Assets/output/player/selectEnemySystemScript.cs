@@ -123,17 +123,18 @@ public class selectEnemySystemScript : GameFunction
     // Update is called once per frame
     void Update() {
 
-        if (gameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj) {
+        if (gameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj ) {
             if (Input.GetButtonDown("OpenCloseControlPreview")) {
-                soundEffectManager.staticSoundEffect.play_possessedOnOpen();
+
                 if (openTargetLockDown) {  //ｵｲ?EEﾜｱｱｨ・
                     cancelTargetLockDown();
                 }
                 else {  //ｶ}ｩl?Eﾜｱｱｨ・
-                    Instantiate(possessedPacticlePrefab, transform.position, Quaternion.identity);
-
                     playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
                     if (playerData.HP - controlHpCost > 0) { //要消耗hp才能發動
+                        soundEffectManager.staticSoundEffect.play_possessedOnOpen();
+                        Instantiate(possessedPacticlePrefab, transform.position, Quaternion.identity);
+
                         playerData.HP -= controlHpCost;
                         setupTargetLockDown();
                         timerCount = 0;

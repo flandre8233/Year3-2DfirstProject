@@ -250,7 +250,7 @@ public class playerContorl : GameFunction {
         if (other.gameObject.tag == "enemy" && !inContorl && other.gameObject != incontorlObj) {
             //Debug.Log("ssssasdasd");
 
-            if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {   //還原
+            if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl && other.gameObject.GetComponent<npcClass>().liveStateP != npcClass.liveState.dead) {   //還原
                 
                 incontorlObj = other.gameObject;
                 Instantiate(blooduseParticle,transform.position,Quaternion.identity);
