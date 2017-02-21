@@ -12,23 +12,25 @@ public class attackSensorDamage : GameFunction
     float lifetime = 0.4f;
     List<GameObject> alreadyDamageArray = new List<GameObject>();
 
-    void Start() {
-
+    void Awake() {
     }
 
     void OnEnable() {
+        pDc = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
         alreadyDamageArray.Clear();
     }
 
     private void Update()
     {
-        if (lifetime < 0.0f)
+        /*
+        if (lifetime > 0.0f)
         {
             lifetime -= Time.deltaTime;
         }else
         {
             Destroy(gameObject);
         }
+        */
     }
 
     //prefab那邊有問題 小心  http://stackoverflow.com/questions/36095870/how-to-keep-references-to-ui-elements-in-a-prefab-instantiated-at-runtime
