@@ -90,7 +90,7 @@ public class attackSystem : MonoBehaviour {
             //Debug.Log("allahuakbar");
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
-            attackGO.SetActive(false);
+            //attackGO.SetActive(false);
             StartCoroutine("attackColdDown");
             //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             npcclass.CastAniP = npcClass.CastAni.onMovement;
@@ -181,7 +181,9 @@ public class attackSystem : MonoBehaviour {
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);
-            attackGO.SetActive(true);
+            //attackGO.SetActive(true);
+            GameObject npcattacksensor = Instantiate(attackGO, gameObject.transform.position,Quaternion.identity);
+            npcattacksensor.SetActive(true);
             attackVelocitySetting(attackVelocity);
         }
         //Spine.TrackEntry trackEntry1 = npcSkeletonAnimation.state.GetCurrent(1); //*******

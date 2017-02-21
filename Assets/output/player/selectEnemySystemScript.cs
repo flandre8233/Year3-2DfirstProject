@@ -32,6 +32,8 @@ public class selectEnemySystemScript : GameFunction
     GameObject[] TriggerArray;
 
     public GameObject targetGameObj;  //､｣ｬO､箍ﾊｩi･h
+    //sadadssadsadsad
+    public GameObject ggggggggggg;
 
     int selectTaget = 1;
 
@@ -96,7 +98,7 @@ public class selectEnemySystemScript : GameFunction
         Time.timeScale = slowMotionTimeScale;  //ｴ鋓Cｾ罸ﾓｹCﾀｸｳtｫﾗ
         //playercontorl.incontorlObj.GetComponent<playerMove>().enabled = false;
         targetGameObj = null;
-
+   
         playerSelectPointerSystem.SetActive(true);  //ｶ}ｱﾒ?Eﾜｶ・
         //selectPointerUIpart.SetActive(true);
         GB = TriggerArray;
@@ -104,6 +106,7 @@ public class selectEnemySystemScript : GameFunction
     }
 
     public void cancelTargetLockDown() {  //ｨ峵unction
+        ggggggggggg.SetActive(false);
         //GB = TriggerArray;
         Time.timeScale = 1f;
         //playercontorl.incontorlObj.GetComponent<playerMove>().enabled = true;
@@ -128,6 +131,7 @@ public class selectEnemySystemScript : GameFunction
 
                 if (openTargetLockDown) {  //ｵｲ?EEﾜｱｱｨ・
                     cancelTargetLockDown();
+
                 }
                 else {  //ｶ}ｩl?Eﾜｱｱｨ・
                     playerDataClass playerData = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
@@ -151,7 +155,15 @@ public class selectEnemySystemScript : GameFunction
             TriggerArray = OnTriggerEnter2DCircle.TriggerList.ToArray();
             Vector3 pointerV3 = pointer.position;
             startTargetLockDown(pointerV3, 0);
-
+            if (GB.Length > 0 )
+            {
+                ggggggggggg.SetActive(true);
+                ggggggggggg.transform.position = targetGameObj.transform.position;
+            }else
+            {
+                ggggggggggg.SetActive(false);
+                //ggggggggggg.transform.position = targetGameObj.transform.position;
+            }
 
             if (timerCount <= timeToComplete * slowMotionTimeScale ) { //?間計算系? 已算進slowMotion的?間差問題
                 timerCount += Time.deltaTime;

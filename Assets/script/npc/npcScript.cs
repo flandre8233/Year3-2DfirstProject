@@ -205,7 +205,7 @@ public class npcScript : GameFunction
     }
 
     void movementAnimationSetting() {
-        if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement) {
+        if (Time.timeScale != 0 && npcclass.CastAniP == npcClass.CastAni.onMovement && npcclass.Species != npcClass.SpeciesType.robot) {
             switch (npcclass.movementStateP) {
                 case npcClass.movementState.walking:
                     if (TestAnimator != null) {

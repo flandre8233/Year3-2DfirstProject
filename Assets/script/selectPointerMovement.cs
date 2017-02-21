@@ -9,7 +9,6 @@ public class selectPointerMovement : GameFunction
 
     public GameObject playerSelf;
 
-
     // Update is called once per frame
     void Update() {
 

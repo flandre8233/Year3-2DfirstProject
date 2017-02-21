@@ -9,6 +9,7 @@ public class attackSensorDamage : GameFunction
     public playerDataClass pDc;
     public short damage;
 
+    float lifetime = 0.4f;
     List<GameObject> alreadyDamageArray = new List<GameObject>();
 
     void Start() {
@@ -19,7 +20,16 @@ public class attackSensorDamage : GameFunction
         alreadyDamageArray.Clear();
     }
 
-
+    private void Update()
+    {
+        if (lifetime < 0.0f)
+        {
+            lifetime -= Time.deltaTime;
+        }else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     //prefab那邊有問題 小心  http://stackoverflow.com/questions/36095870/how-to-keep-references-to-ui-elements-in-a-prefab-instantiated-at-runtime
     void OnTriggerEnter2D(Collider2D other) {
