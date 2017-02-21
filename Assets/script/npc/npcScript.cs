@@ -317,6 +317,7 @@ public class npcScript : GameFunction
             //Destroy(gameObject);
             
             if (npcclass.TypeP == npcClass.Type.contorl) {
+                TestAnimator.SetBool("hit_sword",true);
                if (playerData.HP - DamageDeal <= 0) {//玩家控制並玩家已經沒有hp
                     Time.timeScale = 1f;
                     playerData.HP = 0.0f;
@@ -380,6 +381,10 @@ public class npcScript : GameFunction
                     thisAnimation.state.SetAnimation(0, "hit_sword", false);
                     thisAnimation.loop = false;
                 }
+                if (TestAnimator != null)
+                {
+                    TestAnimator.SetBool("hit_sword",true);
+                }
                 inDeadHitFly = true;
                 npcDelegate += spyDerSpecDeadAni;
                 //rigidbody2d.velocity = new Vector2(5f * (Function.RandomNumber(10) / 10) * transform.localScale.x, 20 * (Function.RandomNumber(10) / 10)); //大過0面向左邊,反則右邊
@@ -424,7 +429,7 @@ public class npcScript : GameFunction
     float onDeadAlpha =  1.0f;
 
     void DeadFadeOut() {
-        onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*3f);
+        onDeadAlpha = Mathf.Lerp(onDeadAlpha,0,Time.deltaTime*5f);
         
         if (npcclass.Species != npcClass.SpeciesType.robot)
         {
