@@ -23,7 +23,10 @@ public class gunSpawn : GameFunction{
     [SerializeField]
     short bulletDamage;
 
-	
+	void Awake() {
+        Player = GameObject.FindGameObjectsWithTag("megumin_player")[0] ;
+    }
+
 	public void Shot() {
 
         npcclass = GetComponentInParent<Transform>().GetComponentInParent<npcClass>();
