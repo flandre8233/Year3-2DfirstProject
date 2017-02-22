@@ -381,9 +381,9 @@ public class npcScript : GameFunction
                     thisAnimation.state.SetAnimation(0, "hit_sword", false);
                     thisAnimation.loop = false;
                 }
-                if (TestAnimator != null)
+                if (TestAnimator != null && npcclass.Species == npcClass.SpeciesType.alien)
                 {
-                    TestAnimator.SetBool("hit_sword",true);
+                    TestAnimator.SetTrigger("ondead");
                 }
                 inDeadHitFly = true;
                 npcDelegate += spyDerSpecDeadAni;
