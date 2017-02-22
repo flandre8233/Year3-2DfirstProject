@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class droneScript : MonoBehaviour {
+    [SerializeField]GameObject shotPoint;
     gunSpawn shotBulletScript;
 
     public float CD = 0.5F;
@@ -11,14 +12,14 @@ public class droneScript : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        shotBulletScript = GetComponentInChildren<gunSpawn>();
+        shotBulletScript = shotPoint.GetComponent<gunSpawn>();
 
     }
 
     // Update is called once per frame
     void Update() {
 
-            if (!attackCDLock) {
+            if (!attackCDLock && shotPoint.active) {
                 StartCoroutine("attackFunction");
             }
 

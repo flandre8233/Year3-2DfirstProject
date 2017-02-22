@@ -6,6 +6,7 @@ public class gunSpawn : GameFunction{
     
 
     public GameObject bulletPrefabs;
+    [HideInInspector]
     public GameObject Player;
     public float perSecond;
     bool spawnLock = false;
