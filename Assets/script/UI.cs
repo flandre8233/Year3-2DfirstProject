@@ -12,12 +12,15 @@ public class UI : MonoBehaviour {
     float originalTimeScale = 0.0f;
     float volumeConNumber = 0.1f;
 
+
+    public int saveLoadScene;
+
     GUIStyle myStyle;
 
     //public Text scriptText2; //soulsText
     public Slider volSlider;
     public GameObject pauseMenuCanvas;
-
+    public GameObject blackFade;
 
     // Use this for initialization
     void Start() {
@@ -43,17 +46,24 @@ public class UI : MonoBehaviour {
         //scriptText = GameObject.Find("/Canvas/CountText").GetComponent("Text (Script)");
         //SoulsText();
         SilderVol();
-
     }
+   
 
     public void buttonEnterLevel(int loadScene) {
+        soundEffectManager.staticSoundEffect.play_clickButton();
+        if (blackFade!=null) {
+            blackFade.SetActive(true);
+            blackFade.GetComponent<UI>().saveLoadScene = loadScene;
+        }
+    }
+
+    public void buttonEnterLevel2() {
         if (GameObject.Find("globalDataBase") != null) {
             GameObject findObject = GameObject.Find("globalDataBase");
             globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
-            globalDataBase.curLevel = loadScene;
+            globalDataBase.curLevel = saveLoadScene;
         }
-        soundEffectManager.staticSoundEffect.play_clickButton();
-        SceneManager.LoadScene(loadScene); // enter select
+        SceneManager.LoadScene(saveLoadScene); // enter select
 
     }
 

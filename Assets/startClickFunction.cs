@@ -5,6 +5,7 @@ using UnityEngine;
 public class startClickFunction : MonoBehaviour {
 
     public Animator buttonAni;
+    public Animator fadeOutAni;
 
     bool once = false;
 
@@ -14,6 +15,7 @@ public class startClickFunction : MonoBehaviour {
             once = true;
             soundEffectManager.staticSoundEffect.play_startSceneClickButton();
             buttonAni.SetTrigger("click");
+            fadeOutAni.SetTrigger("click");
         }
 
     }

@@ -5,7 +5,9 @@ using UnityEngine;
 public class AniSc : MonoBehaviour {
 
     public void destroyAni() {
-        Destroy(gameObject);
+        if (Application.loadedLevel == 1) {
+            Destroy(gameObject);
+        }
     }
 
     // Use this for initialization
