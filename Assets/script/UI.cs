@@ -52,8 +52,8 @@ public class UI : MonoBehaviour {
     public void buttonEnterLevel(int loadScene) {
         soundEffectManager.staticSoundEffect.play_clickButton();
         if (blackFade!=null) {
-            blackFade.SetActive(true);
             blackFade.GetComponent<UI>().saveLoadScene = loadScene;
+            blackFade.GetComponent<blackFadeScipt>().isStartAni = true;
         }
     }
 

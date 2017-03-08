@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class blackFadeScipt : MonoBehaviour {
     [SerializeField]
-    bool isStartAni;
+    public bool isStartAni;
     [SerializeField]
-    bool isNeedFadeIn = false;
+    public bool isNeedFadeIn = false;
     [SerializeField]
     Animator ani;
     [SerializeField]
@@ -17,21 +17,25 @@ public class blackFadeScipt : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ani.Stop(); //here
+        check();
         Rts.anchorMax = new Vector2(1,1);
-        
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        if (isStartAni&& !DoOnce) {
+    void check() {
+        if (isStartAni && !DoOnce) {
             DoOnce = true;
+            ani.SetTrigger("start");
             if (isNeedFadeIn) {
-                ani.Play("BlackFadeInnimation");
+                ani.SetBool("fadeIn", true);
             }
             else {
-                ani.Play("blackFadeOut");
+                ani.SetBool("fadeIn", false);
             }
         }
-	}
+    }
+
+	// Update is called once per frame
+	void Update () {
+        check();
+    }
 }

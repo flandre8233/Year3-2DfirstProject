@@ -434,8 +434,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc27b161d71cb4db4cf105b2f12fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadScene: 0
   volSlider: {fileID: 0}
   pauseMenuCanvas: {fileID: 0}
+  blackFade: {fileID: 0}
 --- !u!1 &578499866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,8 +1085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc27b161d71cb4db4cf105b2f12fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadScene: 0
   volSlider: {fileID: 0}
   pauseMenuCanvas: {fileID: 0}
+  blackFade: {fileID: 0}
 --- !u!1 &1908984447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,8 +1120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc27b161d71cb4db4cf105b2f12fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadScene: 0
   volSlider: {fileID: 0}
   pauseMenuCanvas: {fileID: 0}
+  blackFade: {fileID: 0}
 --- !u!114 &1908984449
 MonoBehaviour:
   m_ObjectHideFlags: 0

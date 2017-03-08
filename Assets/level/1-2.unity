@@ -821,8 +821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9148dd6538da6f44e92ce5534e5325c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pdc: {fileID: 218340971}
-  frameRate: -1
 --- !u!114 &218340971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -887,8 +885,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc27b161d71cb4db4cf105b2f12fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveLoadScene: 0
   volSlider: {fileID: 872286317}
   pauseMenuCanvas: {fileID: 734323087}
+  blackFade: {fileID: 0}
 --- !u!114 &218340976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,11 +1228,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 223662919029176136, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
+    - target: {fileID: 114050651554171414, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
         type: 2}
-      propertyPath: m_Camera
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 679033325}
+      objectReference: {fileID: 218340975}
     - target: {fileID: 114332018649275954, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
         type: 2}
       propertyPath: playerDataclass
@@ -1243,16 +1243,11 @@ Prefab:
       propertyPath: playerContorl
       value: 
       objectReference: {fileID: 649465873}
-    - target: {fileID: 114050651554171414, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
+    - target: {fileID: 223662919029176136, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 218340975}
-    - target: {fileID: 114050651554171414, guid: 39c2b2f5d8d117148b0b2616f5341ec1,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buttonPause
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 679033325}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39c2b2f5d8d117148b0b2616f5341ec1, type: 2}
   m_IsPrefabParent: 0

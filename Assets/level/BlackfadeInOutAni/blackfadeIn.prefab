@@ -24,13 +24,14 @@ GameObject:
   - component: {fileID: 114571467358561602}
   - component: {fileID: 114206176179005570}
   - component: {fileID: 95214456708317848}
+  - component: {fileID: 114607495505707564}
   m_Layer: 5
   m_Name: blackfadeIn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &95214456708317848
 Animator:
   serializedVersion: 3
@@ -74,6 +75,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f126c727b4cd6b4bba25ad54ccbbfbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114607495505707564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1866328041837316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57061c58444f7ef45a286b53d887271a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStartAni: 0
+  isNeedFadeIn: 1
+  ani: {fileID: 95214456708317848}
+  Rts: {fileID: 224696786700223058}
 --- !u!114 &114757384082722428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -121,7 +137,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
