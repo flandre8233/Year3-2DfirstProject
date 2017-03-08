@@ -20,10 +20,10 @@ public class gameStateDataClass : MonoBehaviour {
     void Awake() {
         //DontDestroyOnLoad(transform.gameObject);
         if (staticGameStateDataClass != null) {
-            staticGameStateDataClass = this;
+            Destroy(this);
         }
         else {
-            Destroy(this);
+            staticGameStateDataClass = this;
         }
 
     }

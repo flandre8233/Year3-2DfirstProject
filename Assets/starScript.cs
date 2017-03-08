@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class starScript : MonoBehaviour
 {
-    public gameStateDataClass gameStateDataClass;
     public int thisObjectStarLevel;
     public GameObject starObj;
 
@@ -14,12 +13,13 @@ public class starScript : MonoBehaviour
     // Update is called once per frame
     void Update() {
         if (!once) {
-            gameStateDataClass = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<gameStateDataClass>();
-            if (gameStateDataClass.starNumber >= thisObjectStarLevel) {
-                starObj.SetActive(true);
+            if (gameStateDataClass.staticGameStateDataClass != null) {
+                if (gameStateDataClass.staticGameStateDataClass.starNumber >= thisObjectStarLevel) {
+                    starObj.SetActive(true);
+                    once = true;
+                }
             }
 
-            once = true;
         }
 
 

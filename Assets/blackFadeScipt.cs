@@ -13,7 +13,7 @@ public class blackFadeScipt : MonoBehaviour {
     [SerializeField]
     RectTransform Rts;
 
-    bool DoOnce;
+    public bool DoOnce;
 
 	// Use this for initialization
 	void Start () {

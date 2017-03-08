@@ -51,11 +51,18 @@ public class UI : MonoBehaviour {
 
     public void buttonEnterLevel(int loadScene) {
         soundEffectManager.staticSoundEffect.play_clickButton();
+        Time.timeScale = 1.0f;
         if (blackFade!=null) {
+            Debug.Log(Application.loadedLevel);
+            if (Application.loadedLevel > 1) {
+                blackFade.GetComponent<blackFadeScipt>().DoOnce = false;
+                blackFade.GetComponent<blackFadeScipt>().isNeedFadeIn = true;
+            }
             blackFade.GetComponent<UI>().saveLoadScene = loadScene;
             blackFade.GetComponent<blackFadeScipt>().isStartAni = true;
         }
     }
+
 
     public void buttonEnterLevel2() {
         if (GameObject.Find("globalDataBase") != null) {

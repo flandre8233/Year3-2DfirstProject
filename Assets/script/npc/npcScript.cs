@@ -112,11 +112,19 @@ public class npcScript : GameFunction
         }
     }
 
-
+    bool stopMoveOnce = false;
 
 	// Update is called once per frame
 	void Update () {
         if (npcDelegate != null) {
+            if (gameStateDataClass.staticGameStateDataClass != null) {
+                if (gameStateDataClass.staticGameStateDataClass.gamestate == gameStateDataClass.gameState.gameover && !stopMoveOnce) {
+                    stopMoveOnce = true;
+                    npcDelegate -= npcmove.delegateUpdate;
+                    npcDelegate -= playermove.delegateUpdate;
+                }
+            }
+
             npcDelegate.Invoke();
         }
 
