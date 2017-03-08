@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class gameStateDataClass : MonoBehaviour {
-    
+    public static gameStateDataClass staticGameStateDataClass;
+
+
     public enum gameState { menu,game,pause,gameover };
     public gameState gamestate;
 
@@ -17,6 +19,13 @@ public class gameStateDataClass : MonoBehaviour {
     }
     void Awake() {
         //DontDestroyOnLoad(transform.gameObject);
+        if (staticGameStateDataClass != null) {
+            staticGameStateDataClass = this;
+        }
+        else {
+            Destroy(this);
+        }
+
     }
     // Update is called once per frame
     void Update () {
