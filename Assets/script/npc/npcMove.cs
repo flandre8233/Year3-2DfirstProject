@@ -24,6 +24,9 @@ public class npcMove : GameFunction
     [SerializeField]
     private playerSensor2 playerEnterAttackRange;
 
+    [SerializeField]
+    private 
+
     Vector3 attackTargetPoint;
 
     Vector3 patrolLeftPointSave;
