@@ -77,8 +77,7 @@ public class gameManager : MonoBehaviour {
         GameObject winMenu = winLoseMenu.transform.GetChild(1).gameObject;
         winMenu.SetActive(true);
 
-        if (GameObject.Find("globalDataBase.staticData") != null) { //更新關卡數值
-            GameObject findObject = GameObject.Find("globalDataBase.staticData");
+        if (globalDataBase.staticData != null) { //更新關卡數值
             if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber < gameData.starNumber) {
                 globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
             }
