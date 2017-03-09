@@ -23,26 +23,26 @@ public class globalDataBase : MonoBehaviour {
 
     void Awake() {
         if (staticData != null) {
-            DontDestroyOnLoad(transform.gameObject);
+            Destroy(transform.gameObject);
         }
         else {
             staticData = this;
-        }
+            DontDestroyOnLoad(transform.gameObject);
 
-        if (GameObject.FindGameObjectsWithTag("globalDataBase").Length == 1) {
             Debug.Log("reset");
             allLevelList = new List<levelDetails>();
             while (maxLevel-- >= 0) {
                 allLevelList.Add(new levelDetails());
             }
             allLevelList[0 + 2].isLocked = false;
+            //allLevelList[1 + 2].isLocked = false;
+            //allLevelList[2 + 2].isLocked = false;
+            //allLevelList[3 + 2].isLocked = false;
+            //allLevelList[4 + 2].isLocked = false;
+            //allLevelList[5 + 2].isLocked = false;
         }
 
-        allLevelList[1 + 2].isLocked = false;
-        allLevelList[2 + 2].isLocked = false;
-        allLevelList[3 + 2].isLocked = false;
-        allLevelList[4 + 2].isLocked = false;
-        allLevelList[5 + 2].isLocked = false;
+
     }
 
 

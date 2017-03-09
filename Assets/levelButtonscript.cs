@@ -20,8 +20,6 @@ public class levelButtonscript : MonoBehaviour
     [SerializeField]
     public bool islocked;
 
-    globalDataBase globalDataBase;
-
     // Use this for initialization
     void Start() {
 
@@ -34,10 +32,9 @@ public class levelButtonscript : MonoBehaviour
     }
 
     public void buttonSetUp() {
-        GameObject findObject = GameObject.Find("globalDataBase");
-        globalDataBase = findObject.GetComponent<globalDataBase>();
-        islocked = globalDataBase.allLevelList[level].isLocked;
-        starNumber = globalDataBase.allLevelList[level].starNumber;
+
+        islocked = globalDataBase.staticData.allLevelList[level].isLocked;
+        starNumber = globalDataBase.staticData.allLevelList[level].starNumber;
 
         if (islocked) {
             GetComponentInChildren<Image>().sprite = LockedLevelButtonSpriteList[level - 2];
