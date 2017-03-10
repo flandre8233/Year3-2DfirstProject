@@ -7,6 +7,12 @@ public class npcMove : GameFunction
     npcScript npcscript;
     Rigidbody2D rb2d;
 
+    Transform GroundCheckWall1;
+    Transform GroundCheckWall2;
+
+    [SerializeField]
+    private LayerMask groundLayer;
+
     [SerializeField]
     public float speed;
     [SerializeField]
@@ -40,6 +46,8 @@ public class npcMove : GameFunction
     void Awake() {
         rb2d = GetComponent<Rigidbody2D>();
         npcscript = GetComponent<npcScript>();
+        GroundCheckWall1 = npcscript.GroundCheckWall1;
+        GroundCheckWall2 = npcscript.GroundCheckWall2;
         npcclass = GetComponent<npcClass>();
         patrolLeftPointSave = patrolLeftPoint.position;
         patrolRightPointSave = patrolRightPoint.position;
@@ -64,7 +72,9 @@ public class npcMove : GameFunction
     }
 
     public void delegateUpdate() {
+        if ( (Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)) ) {
 
+        }
         if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 
         }
         else {  // npcAIMove npc自行控制

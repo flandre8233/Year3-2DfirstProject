@@ -589,6 +589,7 @@ MonoBehaviour:
   dead: 
   attack1: 
   attack2: 
+  spineAniChange: {fileID: 0}
 --- !u!114 &114250380368538774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,6 +601,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902d9522dec0ada4a9e2e8428992af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 3.5
   jumpHeight: 800
   jumpRequestPointCheck1: {fileID: 4197491895228004}
@@ -607,6 +611,8 @@ MonoBehaviour:
   patrolRightPoint: {fileID: 4090936031482476}
   patrolWaitTime: 4
   attackTargetGameObject: {fileID: 1229143990257042}
+  playerEnterAttackRange: {fileID: 0}
+  attackTargetPoint: {x: 0, y: 0, z: 0}
   isPatrolToLeft: 1
   patrolWaitLock: 0
 --- !u!114 &114296983637410380
@@ -634,6 +640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeP: 1
+  Species: 0
   liveStateP: 0
   attackStateP: 1
   movementStateP: 5

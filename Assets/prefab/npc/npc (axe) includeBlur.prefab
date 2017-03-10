@@ -949,6 +949,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902d9522dec0ada4a9e2e8428992af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 3.5
   jumpHeight: 800
   jumpRequestPointCheck1: {fileID: 4430940914614912}
@@ -956,6 +959,8 @@ MonoBehaviour:
   patrolRightPoint: {fileID: 4849476956401032}
   patrolWaitTime: 4
   attackTargetGameObject: {fileID: 1975527551274580}
+  playerEnterAttackRange: {fileID: 0}
+  attackTargetPoint: {x: 0, y: 0, z: 0}
   isPatrolToLeft: 1
   patrolWaitLock: 0
 --- !u!114 &114559736716670492

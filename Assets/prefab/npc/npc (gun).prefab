@@ -541,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeP: 1
+  Species: 0
   liveStateP: 0
   attackStateP: 1
   movementStateP: 5
@@ -606,6 +607,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   thisAnimation: {fileID: 114323693262561758}
+  TestAnimator: {fileID: 0}
   hpParticlePrefab: {fileID: 1000011468030348, guid: 08793c8db9fea9842bfda952dc78138f,
     type: 2}
   SoulsParticlePrefab: {fileID: 1773057374487356, guid: 2829734d4822dfa4592c648241b31ff8,
@@ -617,6 +619,7 @@ MonoBehaviour:
   dead: 
   attack1: 
   attack2: 
+  spineAniChange: {fileID: 0}
 --- !u!114 &114524321615438036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -680,11 +683,13 @@ MonoBehaviour:
   npcSkeletonAnimation: {fileID: 114323693262561758}
   playerSensor: {fileID: 114570967384173354}
   attackVelocity: 300
+  TestAnimator: {fileID: 0}
   CD: 1.5
   npcReaction: 5
   attackGO: {fileID: 0}
   gunspawn: {fileID: 114543656306620558}
   attackSensorCD: 0.2
+  swordBlur: {fileID: 0}
 --- !u!114 &114995810169080926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -696,6 +701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 902d9522dec0ada4a9e2e8428992af7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 3.5
   jumpHeight: 800
   jumpRequestPointCheck1: {fileID: 4383769880742480}
@@ -703,5 +711,7 @@ MonoBehaviour:
   patrolRightPoint: {fileID: 4302269067041720}
   patrolWaitTime: 4
   attackTargetGameObject: {fileID: 1544942098335626}
+  playerEnterAttackRange: {fileID: 0}
+  attackTargetPoint: {x: 0, y: 0, z: 0}
   isPatrolToLeft: 1
   patrolWaitLock: 0
