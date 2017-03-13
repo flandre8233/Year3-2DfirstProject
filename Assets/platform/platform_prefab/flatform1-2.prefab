@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60841221787622348}
   - component: {fileID: 50230342528733124}
   - component: {fileID: 251545201464972562}
+  - component: {fileID: 114714242496709020}
   m_Layer: 9
   m_Name: flatform1-2
   m_TagString: ground
@@ -83,6 +84,17 @@ PolygonCollider2D:
       - {x: 2.138918, y: -0.6}
       - {x: 2.1427765, y: 2.1332946}
       - {x: -2.1832657, y: 2.1126094}
+--- !u!114 &114714242496709020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044103272657666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c838bff45992aec4790a68f672b515b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212197133267902712
 SpriteRenderer:
   m_ObjectHideFlags: 1

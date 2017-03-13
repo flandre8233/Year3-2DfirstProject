@@ -122,6 +122,7 @@ public class npcScript : GameFunction
                     stopMoveOnce = true;
                     npcDelegate -= npcmove.delegateUpdate;
                     npcDelegate -= playermove.delegateUpdate;
+                    rigidbody2d.velocity = Vector3.zero;
                 }
             }
 

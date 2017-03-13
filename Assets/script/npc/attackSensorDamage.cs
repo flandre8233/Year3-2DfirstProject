@@ -16,8 +16,7 @@ public class attackSensorDamage : GameFunction
     }
 
     void OnEnable() {
-        pDc = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
-        alreadyDamageArray.Clear();
+        
     }
 
     private void Update()
@@ -31,6 +30,11 @@ public class attackSensorDamage : GameFunction
             Destroy(gameObject);
         }
         */
+
+        if (transform.position == Vector3.zero)
+        {
+            
+        }
     }
 
     //prefab那邊有問題 小心  http://stackoverflow.com/questions/36095870/how-to-keep-references-to-ui-elements-in-a-prefab-instantiated-at-runtime
@@ -40,6 +44,12 @@ public class attackSensorDamage : GameFunction
         triggerBullet(other);
         triggerNpc(other); //problem maybe?
 
+    }
+
+    public void resetAttack()
+    {
+        pDc = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
+        alreadyDamageArray.Clear();
     }
 
     void triggerBullet(Collider2D other) {
@@ -54,10 +64,12 @@ public class attackSensorDamage : GameFunction
         }
         #endregion
     }
-    void triggerNpc(Collider2D other) {
-        bool alreadyDeal = false;
-        if ( (other.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed" )&& other.gameObject != gameObject) {   //多重攻擊目標
 
+    public bool alreadyDeal = false;
+    void triggerNpc(Collider2D other) {
+
+        if ( (other.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed" )&& other.gameObject != gameObject) {   //多重攻擊目標
+            Debug.Log("fonhi2t");
 
             if (alreadyDamageArray.Count > 0) {
                 foreach (GameObject each in alreadyDamageArray) {
@@ -73,6 +85,7 @@ public class attackSensorDamage : GameFunction
                 switch (npcclass.TypeP) {
                     case npcClass.Type.contorl:
                         if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {
+                            
                             if (other.gameObject.GetComponent<npcClass>().Species == npcClass.SpeciesType.spyder || other.gameObject.GetComponent<npcClass>().Species == npcClass.SpeciesType.robot) {
                                 soundEffectManager.staticSoundEffect.play_hitOrShotBotOrSpyder();
                             }else
@@ -100,7 +113,9 @@ public class attackSensorDamage : GameFunction
 
                         break;
                     case npcClass.Type.normal:
+                        Debug.Log("fonhit");
                         if (other.gameObject == playerSensorCode.npc && playerSensorCode.npc != null) {
+                            Debug.Log("hit" + other.tag);
                             switch (npcclass.WeaponP)
                             {
                                 case npcClass.Weapon.none:

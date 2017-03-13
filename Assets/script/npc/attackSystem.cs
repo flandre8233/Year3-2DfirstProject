@@ -90,7 +90,9 @@ public class attackSystem : MonoBehaviour {
             //Debug.Log("allahuakbar");
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
-            attackGO.SetActive(false);
+            attackGO.transform.position = Vector3.zero;
+            //attackGO.SetActive(false);
+            attackGO.GetComponent<attackSensorDamage>().resetAttack();
             StartCoroutine("attackColdDown");
             //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             npcclass.CastAniP = npcClass.CastAni.onMovement;
@@ -181,6 +183,8 @@ public class attackSystem : MonoBehaviour {
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);
+            //attackGO.transform.position = Vector3.zero;
+            attackGO.transform.localPosition = new Vector3(-2,1,0);
             attackGO.SetActive(true);
             //GameObject npcattacksensor = Instantiate(attackGO, gameObject.transform.position,Quaternion.identity);
             //npcattacksensor.SetActive(true);
