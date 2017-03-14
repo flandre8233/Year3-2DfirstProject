@@ -84,8 +84,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4202066783532902}
+  - component: {fileID: 58393736911775718}
   - component: {fileID: 114159396049691306}
-  - component: {fileID: 61937517982646898}
   m_Layer: 0
   m_Name: GoalPoint
   m_TagString: Untagged
@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1173137634030548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 426.02, y: 17.89, z: 1.01}
+  m_LocalPosition: {x: 509.0645, y: 7.957591, z: 1.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4202066783532902}
@@ -193,8 +193,8 @@ Transform:
   m_Father: {fileID: 4280595405876726}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61937517982646898
-BoxCollider2D:
+--- !u!58 &58393736911775718
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -204,9 +204,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.00004887581, y: 14.63442}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 34.670002}
+  m_Radius: 0.5
 --- !u!114 &114159396049691306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa1ef01b2cb23d4ab645e1e0461245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateDataClass: {fileID: 0}
   gameManager: {fileID: 0}
   pacticle: {fileID: 1111982856138456}
 --- !u!198 &198105177412759502
