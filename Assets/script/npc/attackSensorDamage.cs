@@ -50,6 +50,9 @@ public class attackSensorDamage : GameFunction
     {
         pDc = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
         alreadyDamageArray.Clear();
+        alreadyDeal = false;
+        Debug.Log("allahuakbar");
+        Debug.Log(alreadyDamageArray.Count + "all");
     }
 
     void triggerBullet(Collider2D other) {
@@ -69,9 +72,10 @@ public class attackSensorDamage : GameFunction
     void triggerNpc(Collider2D other) {
 
         if ( (other.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed" )&& other.gameObject != gameObject) {   //多重攻擊目標
-            Debug.Log("fonhi2t");
+            
 
             if (alreadyDamageArray.Count > 0) {
+                
                 foreach (GameObject each in alreadyDamageArray) {
                     if (each == other.gameObject) {
                         alreadyDeal = true;
@@ -82,6 +86,7 @@ public class attackSensorDamage : GameFunction
 
 
             if (!alreadyDeal) {
+                Debug.Log("fonhi2t");
                 switch (npcclass.TypeP) {
                     case npcClass.Type.contorl:
                         if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {

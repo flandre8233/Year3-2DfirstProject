@@ -87,7 +87,7 @@ public class attackSystem : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 
-            //Debug.Log("allahuakbar");
+            
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
             attackGO.transform.position = Vector3.zero;

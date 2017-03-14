@@ -7,6 +7,7 @@ public class globalDataBase : MonoBehaviour {
 
 
     public int curLevel = 0;
+    public int curSelectPage { set; get; }
     int maxLevel = 25;
 
     public class levelDetails
@@ -22,6 +23,7 @@ public class globalDataBase : MonoBehaviour {
 
 
     void Awake() {
+        curSelectPage = 1;
         if (staticData != null) {
             Destroy(transform.gameObject);
         }

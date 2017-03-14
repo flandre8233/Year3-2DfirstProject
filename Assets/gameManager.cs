@@ -81,7 +81,10 @@ public class gameManager : MonoBehaviour {
             if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber < gameData.starNumber) {
                 globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
             }
-            globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel+1].isLocked = false ; //要放在on完成通關那邊
+            if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber != 0)
+            {
+                globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].isLocked = false; //要放在on完成通關那邊
+            }
             if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls < playerDataClass.staticData.playerSouls) {
                 globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls = playerDataClass.staticData.playerSouls;
             }
