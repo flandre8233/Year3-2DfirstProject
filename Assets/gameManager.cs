@@ -15,7 +15,7 @@ public class gameManager : MonoBehaviour {
 	void Start () {
         gameData = GetComponent<gameStateDataClass>();
         startTotalTarget = countTotalTarget();
-        Debug.Log(startTotalTarget);
+
 
     }
 
@@ -24,10 +24,15 @@ public class gameManager : MonoBehaviour {
         timeCounter += Time.deltaTime;
         if (Input.GetMouseButtonUp(1)) {
             //Debug.Log(countTotalTarget());
-            Debug.Log(playerDataClass.staticData.playerSouls);
-
-
         }
+
+        if (gameData.gamestate == gameStateDataClass.gameState.game) {
+            if (playerDataClass.staticData.HP + 0.05f * Time.deltaTime <= playerDataClass.staticData.MAXHP) {
+                playerDataClass.staticData.HP += 0.05f * Time.deltaTime;
+            }
+        }
+
+
     }
 
     public float Percentage;

@@ -39,7 +39,7 @@ public class gunShot : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
 
-        Debug.Log(other.gameObject.tag);
+
 
         if (other.gameObject.tag == "enemy" || other.gameObject.tag == "enemy-cantbePossessed") {
             switch (damagetype) {

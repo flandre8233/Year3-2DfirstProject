@@ -60,8 +60,10 @@ public class selectEnemySystemScript : GameFunction
             eachEnemylerpFloat = new float[GB.Length];  //化成每個敵人?EEw相差多少?
             short i = 0;
             foreach (GameObject each in GB) {
-               // each.GetComponent<SpriteRenderer>().color = Color.white;
+                // each.GetComponent<SpriteRenderer>().color = Color.white;
                 eachEnemylerpFloat[i] = Vector3.Distance(centerObjectPosition, each.GetComponent<Transform>().position);
+
+                //eachEnemylerpFloat[i] = Vector3.Distance(centerObjectPosition, each.GetComponent<Transform>().position);
                 i++;
             }
 
@@ -146,11 +148,15 @@ public class selectEnemySystemScript : GameFunction
 
         }
 
+        
 
         if (openTargetLockDown) {
 
             TriggerArray = OnTriggerEnter2DCircle.TriggerList.ToArray();
-            Vector3 pointerV3 = pointer.position;
+            //Vector3 pointerV3 = pointer.position;
+            Camera Ccamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            Vector3 pointerV3 = Ccamera.ScreenToWorldPoint(Input.mousePosition);
+            //startTargetLockDown(pointerV3, 0);
             startTargetLockDown(pointerV3, 0);
             if (GB.Length > 0 )
             {

@@ -247,7 +247,7 @@ public class playerContorl : GameFunction {
     Object blooduseParticle;
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "enemy" && !inContorl && other.gameObject != incontorlObj) {
+        if (other.gameObject == lockDownSystem.targetGameObj && other.gameObject.tag == "enemy" && !inContorl && other.gameObject != incontorlObj) {
             //Debug.Log("ssssasdasd");
 
             if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl && other.gameObject.GetComponent<npcClass>().liveStateP != npcClass.liveState.dead) {   //還原

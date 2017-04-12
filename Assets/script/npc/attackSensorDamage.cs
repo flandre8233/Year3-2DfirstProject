@@ -51,8 +51,7 @@ public class attackSensorDamage : GameFunction
         pDc = GameObject.FindGameObjectsWithTag("backgroundScipt")[0].GetComponent<playerDataClass>();
         alreadyDamageArray.Clear();
         alreadyDeal = false;
-        Debug.Log("allahuakbar");
-        Debug.Log(alreadyDamageArray.Count + "all");
+
     }
 
     void triggerBullet(Collider2D other) {
@@ -86,7 +85,7 @@ public class attackSensorDamage : GameFunction
 
 
             if (!alreadyDeal) {
-                Debug.Log("fonhi2t");
+
                 switch (npcclass.TypeP) {
                     case npcClass.Type.contorl:
                         if (other.gameObject.GetComponent<npcClass>().TypeP != npcClass.Type.contorl) {
@@ -118,9 +117,9 @@ public class attackSensorDamage : GameFunction
 
                         break;
                     case npcClass.Type.normal:
-                        Debug.Log("fonhit");
+
                         if (other.gameObject == playerSensorCode.npc && playerSensorCode.npc != null) {
-                            Debug.Log("hit" + other.tag);
+
                             switch (npcclass.WeaponP)
                             {
                                 case npcClass.Weapon.none:

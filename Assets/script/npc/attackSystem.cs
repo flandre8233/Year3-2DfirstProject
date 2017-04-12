@@ -106,14 +106,14 @@ public class attackSystem : MonoBehaviour {
         }
         //Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
-            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
+            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown && gameStateDataClass.staticGameStateDataClass.gamestate != gameStateDataClass.gameState.gameover && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect") ) {  //玩家按下攻擊
                 attackFunction();
             }
         }
         else { //npc的攻擊
             if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) { //npc反應
                 npcReactionLock = false;
-                Debug.Log(npcclass.TypeP);
+
                 StartCoroutine("npcReactionColdDown");
             }
 

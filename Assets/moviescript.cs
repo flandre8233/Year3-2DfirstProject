@@ -19,7 +19,7 @@ public class moviescript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        ((MovieTexture)GetComponent<Renderer>().material.mainTexture).Play();
+       // ((MovieTexture)GetComponent<Renderer>().material.mainTexture).Play();
     }
 	
 	// Update is called once per frame
@@ -30,9 +30,9 @@ public class moviescript : MonoBehaviour {
 
         }else
         {
-            Destroy(gameObject);
-            whitefadein.SetActive(true);
-            eventsystem.SetActive(true);
+            //Destroy(gameObject);
+            //whitefadein.SetActive(true);
+            //eventsystem.SetActive(true);
         }
 	}
 }

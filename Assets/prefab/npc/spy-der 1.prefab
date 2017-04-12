@@ -500,8 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3724a9d4d9c2847994482858e27742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 15
-  jumpHeight: 800
+  movespeed: 17
+  jumpHeight: 700
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -525,7 +525,7 @@ MonoBehaviour:
   WeaponP: 0
   rifleBullet: 10
   souls: 1
-  HP: 2
+  HP: 1
 --- !u!114 &114994533280420502
 MonoBehaviour:
   m_ObjectHideFlags: 1

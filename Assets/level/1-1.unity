@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1547,75 +1547,31 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114478475329984962, guid: 2fff4e47144fe394b9ff106464964971,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1255399208}
+    - target: {fileID: 114695984376020170, guid: 2fff4e47144fe394b9ff106464964971,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1255399212}
+    - target: {fileID: 114515814193872132, guid: 2fff4e47144fe394b9ff106464964971,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1255399212}
+    - target: {fileID: 114851468691550962, guid: 2fff4e47144fe394b9ff106464964971,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1255399212}
     - target: {fileID: 223612063827249150, guid: 2fff4e47144fe394b9ff106464964971,
         type: 2}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1001149486}
-    - target: {fileID: 114851468691550962, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1255399212}
-    - target: {fileID: 114851468691550962, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buttonPause
-      objectReference: {fileID: 0}
-    - target: {fileID: 114515814193872132, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1255399212}
-    - target: {fileID: 114515814193872132, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: restartCurGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 114695984376020170, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1255399212}
-    - target: {fileID: 114695984376020170, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: buttonEnterLevel
-      objectReference: {fileID: 0}
-    - target: {fileID: 114515814193872132, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070171904275920, guid: 2fff4e47144fe394b9ff106464964971, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224940172032033268, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224940172032033268, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224520909479182648, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224520909479182648, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224520909479182648, guid: 2fff4e47144fe394b9ff106464964971,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2fff4e47144fe394b9ff106464964971, type: 2}
   m_IsPrefabParent: 0
@@ -3124,6 +3080,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca2af029003a33648a578a2202d2628d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &554903956 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114478475329984962, guid: 2fff4e47144fe394b9ff106464964971,
+    type: 2}
+  m_PrefabInternal: {fileID: 248020336}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &559019052
 Prefab:
   m_ObjectHideFlags: 0
@@ -6117,7 +6079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveLoadScene: 0
-  volSlider: {fileID: 0}
+  volSlider: {fileID: 554903956}
   pauseMenuCanvas: {fileID: 1638792821}
   blackFade: {fileID: 2105290653}
 --- !u!114 &1255399213
