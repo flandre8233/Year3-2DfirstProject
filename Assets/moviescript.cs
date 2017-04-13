@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class moviescript : MonoBehaviour {
-    Renderer renderer;
     MovieTexture movie;
 
     public GameObject eventsystem;
@@ -12,19 +12,18 @@ public class moviescript : MonoBehaviour {
 
     private void Awake()
     {
-        renderer = GetComponent<Renderer>();
-        movie = (MovieTexture)renderer.material.mainTexture;
+        movie = (MovieTexture)GetComponent<RawImage>().texture;
     }
 
 
     // Use this for initialization
     void Start () {
-       ((MovieTexture)GetComponent<Renderer>().material.mainTexture).Play();
+        movie.Play();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(movie.isPlaying);
+
         if (movie.isPlaying)
         {
 
