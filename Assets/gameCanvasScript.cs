@@ -48,6 +48,9 @@ public class gameCanvasScript : MonoBehaviour {
             case npcClass.Weapon.rifle:
                 npcTypePart.sprite = npcTypePartArray[2];
                 break;
+            case npcClass.Weapon.none:
+                npcTypePart.sprite = npcTypePartArray[3];
+                break;
         }
     }
 
