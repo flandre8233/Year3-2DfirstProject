@@ -515,8 +515,8 @@ Transform:
   - {fileID: 1586895979}
   - {fileID: 1627952101}
   - {fileID: 385899614}
-  - {fileID: 584951368}
   - {fileID: 292936350}
+  - {fileID: 584951368}
   - {fileID: 1575314283}
   - {fileID: 1084145352}
   - {fileID: 745798914}
@@ -10690,6 +10690,16 @@ Prefab:
     - target: {fileID: 1536122607076064, guid: 08f818a13166eed439fc4673904b41bb, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224274728182272550, guid: 08f818a13166eed439fc4673904b41bb,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 224274728182272550, guid: 08f818a13166eed439fc4673904b41bb,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 3000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08f818a13166eed439fc4673904b41bb, type: 2}
