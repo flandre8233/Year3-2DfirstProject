@@ -17,6 +17,7 @@ public class globalDataBase : MonoBehaviour {
         public int starNumber = 0;
         public int souls = 0;
         public float time = 0;
+        public float score = 0;
     }
 
     public List<levelDetails> allLevelList ;

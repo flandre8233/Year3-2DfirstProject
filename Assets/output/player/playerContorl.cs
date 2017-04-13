@@ -32,6 +32,7 @@ public class playerContorl : GameFunction {
 
     int counter = 0;
 
+
     void controlEnemyFunction(GameObject GameEnemy) {  //控制這裡
         counter++;
         if (counter != 1) {
@@ -57,6 +58,7 @@ public class playerContorl : GameFunction {
     }
 
     void Start() {
+        
         GetComponent<Collider2D>().enabled = false;
         SoulPacticle.SetActive(false);
         lockDownSystem = GetComponent<selectEnemySystemScript>();
