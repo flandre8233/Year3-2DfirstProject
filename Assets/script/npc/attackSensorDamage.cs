@@ -59,8 +59,9 @@ public class attackSensorDamage : GameFunction
         if (other.tag == "bullet" && npcclass.WeaponP == npcClass.Weapon.sword && npcclass.TypeP == npcClass.Type.contorl) {
             GameObject bulletObject = other.gameObject;
             //bulletObject.transform.eulerAngles = new Vector3(0,0,444);
-            bulletObject.transform.eulerAngles = new Vector3(0, 0, Function.RandomNumber(40) + 160 + bulletObject.transform.eulerAngles.z);
+            bulletObject.transform.eulerAngles = new Vector3(0, 0, Function.RandomNumber(30) + 150 + bulletObject.transform.eulerAngles.z);
             bulletObject.GetComponent<gunShot>().speed *= 3;
+            bulletObject.GetComponent<gunShot>().damagetype = gunShot.damageType.npcOnly;
             //bulletObject
             //transform.rotation = Quaternion.Euler(0, 0, i);
         }
