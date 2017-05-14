@@ -11,9 +11,6 @@ public class selectEnemySystemScript : GameFunction
     public GameObject playerSelectPointerSystem; //®˙±oselectPointerMovementµ{¶° §∫Æe
     //public GameObject selectPointerUIpart;
 
-    [SerializeField]
-    [HideInInspector]
-    gameStateDataClass gameStateDataClass;
 
     [SerializeField][HideInInspector]
     Transform pointer;  //•H®∫≠”πœß@?Ew ∂}©lß‰≥Ã™Ò™∫?EE
@@ -63,8 +60,10 @@ public class selectEnemySystemScript : GameFunction
             eachEnemylerpFloat = new float[GB.Length];  //§∆¶®®C≠”ºƒ§H?EEw¨€Æt¶h§÷?
             short i = 0;
             foreach (GameObject each in GB) {
-               // each.GetComponent<SpriteRenderer>().color = Color.white;
+                // each.GetComponent<SpriteRenderer>().color = Color.white;
                 eachEnemylerpFloat[i] = Vector3.Distance(centerObjectPosition, each.GetComponent<Transform>().position);
+
+                //eachEnemylerpFloat[i] = Vector3.Distance(centerObjectPosition, each.GetComponent<Transform>().position);
                 i++;
             }
 
@@ -125,8 +124,8 @@ public class selectEnemySystemScript : GameFunction
 
     // Update is called once per frame
     void Update() {
-
-        if (gameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj ) {
+        
+        if (gameStateDataClass.staticGameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj ) {
             if (Input.GetButtonDown("OpenCloseControlPreview")) {
 
                 if (openTargetLockDown) {  //µ≤?EE‹±±®ÅE
@@ -149,11 +148,15 @@ public class selectEnemySystemScript : GameFunction
 
         }
 
+        
 
         if (openTargetLockDown) {
 
             TriggerArray = OnTriggerEnter2DCircle.TriggerList.ToArray();
-            Vector3 pointerV3 = pointer.position;
+            //Vector3 pointerV3 = pointer.position;
+            Camera Ccamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            Vector3 pointerV3 = Ccamera.ScreenToWorldPoint(Input.mousePosition);
+            //startTargetLockDown(pointerV3, 0);
             startTargetLockDown(pointerV3, 0);
             if (GB.Length > 0 )
             {

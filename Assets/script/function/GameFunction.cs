@@ -38,7 +38,7 @@ public class GameFunction : MonoBehaviour {
 
     public void OnPlayerGameOver() {
         
-        Debug.Log("ggggg");
+
         GameObject[] playerGhost  = GameObject.FindGameObjectsWithTag("Player"); //
         backgroundMusicScript.staticBackground.playOnDead();
         foreach (GameObject each in playerGhost) {

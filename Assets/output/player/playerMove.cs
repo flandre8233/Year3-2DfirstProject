@@ -72,7 +72,10 @@ public class playerMove : MonoBehaviour {
 
         float movementX = Input.GetAxisRaw("Horizontal");
 
-        if (((Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)))) {
+        //if (((Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer))))
+
+        if (Physics2D.OverlapArea(GroundCheckWall1.position, GroundCheckWall2.position, groundLayer))
+        {
             //movementX = 0;
         }
         else if (npcclass.CastAniP == npcClass.CastAni.onMovement) {

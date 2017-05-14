@@ -24,6 +24,7 @@ public class UI : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        //volSlider = GameObject.FindGameObjectWithTag("soundBar").GetComponent<Slider>();
 
         playerDataClass = GetComponent<playerDataClass>();
         if ( GetComponent<gameStateDataClass>() != null) {
@@ -136,11 +137,25 @@ public class UI : MonoBehaviour {
         go.SetActive(false);
     }
 
+     
+
     public void selectLevelCanvas(GameObject go) {
         //Debug.Log(this.gameObject.name);
         soundEffectManager.staticSoundEffect.play_MoveOnButton();
         //GetComponentInParent<RectTransform>().gameObject.SetActive(false);
         go.SetActive(true);
+    }
+
+    public Animator changeBackground;
+
+    public void selectLevelCanvas2(int number) {
+        if (GameObject.Find("globalDataBase") != null) {
+            GameObject findObject = GameObject.Find("globalDataBase");
+            globalDataBase globalDataBase = findObject.GetComponent<globalDataBase>();
+            globalDataBase.curSelectPage = number;
+            changeBackground.SetTrigger("change");
+        }
+
     }
 
     void OnGUI() {

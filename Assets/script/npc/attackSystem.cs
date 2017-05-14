@@ -87,31 +87,43 @@ public class attackSystem : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 
-            //Debug.Log("allahuakbar");
+            
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
-            attackGO.SetActive(false);
+            attackGO.transform.position = Vector3.zero;
+            //attackGO.SetActive(false);
+            attackGO.GetComponent<attackSensorDamage>().resetAttack();
             StartCoroutine("attackColdDown");
             //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             npcclass.CastAniP = npcClass.CastAni.onMovement;
             //Time.timeScale = 0;
         }
-        if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect") ) ) { // Avoid any reload. 
-            swordBlur.GetComponentInChildren<Animator>().SetTrigger("sideTrigger");
-        }
+
         if (TestAnimator != null) {
             TestAnimator.SetInteger("comboCounter", ComboCounter);
         }
+        if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect")) && !swordBlur.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("knifedown"))
+        { // Avoid any reload. 
+            Debug.Log(TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect"));
+            swordBlur.GetComponentInChildren<Animator>().SetTrigger("sideTrigger");
+            //swordBlur.GetComponentInChildren<Animator>().ResetTrigger("sideTrigger");
+        }
+
+        if (swordBlur.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("knifedown"))
+        { // Avoid any reload. 
+            swordBlur.GetComponentInChildren<Animator>().ResetTrigger("sideTrigger");
+        }
+
         //Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
-            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
+            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown && gameStateDataClass.staticGameStateDataClass.gamestate != gameStateDataClass.gameState.gameover && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect") ) {  //玩家按下攻擊
                 attackFunction();
             }
         }
         else { //npc的攻擊
             if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) { //npc反應
                 npcReactionLock = false;
-                Debug.Log(npcclass.TypeP);
+
                 StartCoroutine("npcReactionColdDown");
             }
 
@@ -126,10 +138,18 @@ public class attackSystem : MonoBehaviour {
         if (ComboCounter == 2) {
             attackCDLock = true; //鎖上不讓再打
             
+            /*
+            if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect")) && !swordBlur.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("knifedown"))
+            { // Avoid any reload. 
+                Debug.Log(TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect"));
+                swordBlur.GetComponentInChildren<Animator>().SetTrigger("sideTrigger");
+            }
+            */
         }
         else if (ComboCounter == 1) {
             isCastCombo = true; //單純指出現在需要COMBO 未有任何程式碼需要用到
-            
+
+
         }
             if (attackGO != null) {
 
@@ -143,11 +163,16 @@ public class attackSystem : MonoBehaviour {
                 gunspawn.Shot();
             StartCoroutine("attackColdDown"); //正常要播完動畫才cd
         }
-        if (swordBlur != null) {
+
+        if (swordBlur != null)
+        {
             swordBlur.GetComponentInChildren<Animator>().SetInteger("ComboCounter", ComboCounter);
             //Debug.Log(swordBlur.GetComponentInChildren<Animator>().name);
             swordBlur.GetComponentInChildren<Animator>().speed = 2.5f;
+
+
         }
+
     }
 
     IEnumerator attackColdDown() { //當正式打完攻擊招式時就進行COLDDOWN
@@ -175,12 +200,15 @@ public class attackSystem : MonoBehaviour {
         //npcSkeletonAnimation.AnimationName = "side_attack_sword";
         if (ComboCounter == 1) { //反之 COMBOECOUNTER = 2就不需要用這個
             //npcSkeletonAnimation.state.SetAnimation(0, "up_attack", false);
+            swordBlur.GetComponentInChildren<Animator>().SetTrigger("attack");
             TestAnimator.SetTrigger("attackTrigger");
             //npcSkeletonAnimation.timeScale = 2.5f;
 
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);
+            //attackGO.transform.position = Vector3.zero;
+            attackGO.transform.localPosition = new Vector3(-2,1,0);
             attackGO.SetActive(true);
             //GameObject npcattacksensor = Instantiate(attackGO, gameObject.transform.position,Quaternion.identity);
             //npcattacksensor.SetActive(true);

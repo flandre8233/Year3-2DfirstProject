@@ -48,6 +48,9 @@ public class gameCanvasScript : MonoBehaviour {
             case npcClass.Weapon.rifle:
                 npcTypePart.sprite = npcTypePartArray[2];
                 break;
+            case npcClass.Weapon.none:
+                npcTypePart.sprite = npcTypePartArray[3];
+                break;
         }
     }
 
@@ -56,9 +59,18 @@ public class gameCanvasScript : MonoBehaviour {
         soulsDisplayText.text = playerDataclass.playerSouls.ToString();
     }
 
+    float ShowUphpbarAmount = 1.0f;
+
     void HPBARPart() {
         HPFillAmountInBar = (1.0f / playerDataclass.MAXHP) * playerDataclass.HP;
-        HPPart.fillAmount = HPFillAmountInBar;
+        //HPPart.fillAmount = HPFillAmountInBar;
+        HPPart.fillAmount = Mathf.Lerp(HPPart.fillAmount, HPFillAmountInBar,0.05f);
+
+
+        //
+
+
+
     }
     void ShieldPart() {
 

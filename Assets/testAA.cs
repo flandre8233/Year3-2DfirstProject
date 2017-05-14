@@ -16,7 +16,7 @@ public class testAA : MonoBehaviour {
     void Start () {
         rd = GetComponent<Rigidbody>();
         myint = 2;
-        Debug.Log(rd.angularDrag) ;
+
 
 	}
 	

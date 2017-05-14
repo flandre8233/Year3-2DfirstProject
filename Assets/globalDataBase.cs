@@ -7,6 +7,7 @@ public class globalDataBase : MonoBehaviour {
 
 
     public int curLevel = 0;
+    public int curSelectPage { set; get; }
     int maxLevel = 25;
 
     public class levelDetails
@@ -16,12 +17,14 @@ public class globalDataBase : MonoBehaviour {
         public int starNumber = 0;
         public int souls = 0;
         public float time = 0;
+        public float score = 0;
     }
 
     public List<levelDetails> allLevelList ;
 
 
     void Awake() {
+        curSelectPage = 1;
         if (staticData != null) {
             Destroy(transform.gameObject);
         }
