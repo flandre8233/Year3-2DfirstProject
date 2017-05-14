@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 60142488782940386}
   - component: {fileID: 50203048298507620}
   - component: {fileID: 251696603463821450}
+  - component: {fileID: 114130445957515004}
   m_Layer: 9
   m_Name: flatform1-5new 1
   m_TagString: ground
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1214922481708688}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -167.72873, y: -18.297792, z: 0}
+  m_LocalPosition: {x: 215.0987, y: 0.21291065, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,11 +79,22 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -2.1578217, y: 0.25532722}
-      - {x: -2.1579285, y: -1.8953133}
-      - {x: -0.01802063, y: -1.8628998}
-      - {x: 1.0651093, y: -1.1055851}
+      - {x: -2.1401215, y: -0.95093274}
+      - {x: -0.035842896, y: -0.95415634}
+      - {x: 1.047287, y: -0.16120422}
       - {x: 1.0857544, y: 1.0594921}
       - {x: -1.0591125, y: 1.0388069}
+--- !u!114 &114130445957515004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1214922481708688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c838bff45992aec4790a68f672b515b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212583367097125208
 SpriteRenderer:
   m_ObjectHideFlags: 1

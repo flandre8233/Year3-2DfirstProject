@@ -15,7 +15,7 @@ public class gameManager : MonoBehaviour {
 	void Start () {
         gameData = GetComponent<gameStateDataClass>();
         startTotalTarget = countTotalTarget();
-        Debug.Log(startTotalTarget);
+
 
     }
 
@@ -24,7 +24,7 @@ public class gameManager : MonoBehaviour {
         timeCounter += Time.deltaTime;
         if (Input.GetMouseButtonUp(1)) {
             //Debug.Log(countTotalTarget());
-            Debug.Log(playerDataClass.staticData.playerSouls);
+
 
 
         }
@@ -81,7 +81,10 @@ public class gameManager : MonoBehaviour {
             if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber < gameData.starNumber) {
                 globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber = gameData.starNumber; //要放在on完成通關那邊
             }
-            globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel+1].isLocked = false ; //要放在on完成通關那邊
+            if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel].starNumber != 0)
+            {
+                globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].isLocked = false; //要放在on完成通關那邊
+            }
             if (globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls < playerDataClass.staticData.playerSouls) {
                 globalDataBase.staticData.allLevelList[globalDataBase.staticData.curLevel + 1].souls = playerDataClass.staticData.playerSouls;
             }

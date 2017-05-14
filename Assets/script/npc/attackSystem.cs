@@ -87,10 +87,12 @@ public class attackSystem : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (TestAnimator != null && (TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_front") || TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack")) ) { // Avoid any reload. 
-            //Debug.Log("allahuakbar");
+            
             swordBlur.GetComponentInChildren<blurHold>().follow = false;
             attackCDLock = true; //進入CD
-            attackGO.SetActive(false);
+            attackGO.transform.position = Vector3.zero;
+            //attackGO.SetActive(false);
+            attackGO.GetComponent<attackSensorDamage>().resetAttack();
             StartCoroutine("attackColdDown");
             //rigid2d.velocity = new Vector2(0, rigid2d.velocity.y);
             npcclass.CastAniP = npcClass.CastAni.onMovement;
@@ -104,14 +106,14 @@ public class attackSystem : MonoBehaviour {
         }
         //Debug.Log(ComboCounter);
         if (npcclass.TypeP == npcClass.Type.contorl) { //player attack
-            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown) {  //玩家按下攻擊
+            if (Input.GetMouseButtonUp(0) && !attackCDLock && !selectEnemySystem.openTargetLockDown && gameStateDataClass.staticGameStateDataClass.gamestate != gameStateDataClass.gameState.gameover && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("up_attack") && !TestAnimator.GetCurrentAnimatorStateInfo(0).IsName("side_connect") ) {  //玩家按下攻擊
                 attackFunction();
             }
         }
         else { //npc的攻擊
             if (playerSensor.isFindPlayer && npcReactionLock &&!attackCDLock ) { //npc反應
                 npcReactionLock = false;
-                Debug.Log(npcclass.TypeP);
+
                 StartCoroutine("npcReactionColdDown");
             }
 
@@ -181,6 +183,8 @@ public class attackSystem : MonoBehaviour {
             swordBlur.SetActive(false);
             swordBlur.GetComponentInChildren<blurHold>().Update();
             swordBlur.SetActive(true);
+            //attackGO.transform.position = Vector3.zero;
+            attackGO.transform.localPosition = new Vector3(-2,1,0);
             attackGO.SetActive(true);
             //GameObject npcattacksensor = Instantiate(attackGO, gameObject.transform.position,Quaternion.identity);
             //npcattacksensor.SetActive(true);

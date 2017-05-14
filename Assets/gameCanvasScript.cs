@@ -56,9 +56,18 @@ public class gameCanvasScript : MonoBehaviour {
         soulsDisplayText.text = playerDataclass.playerSouls.ToString();
     }
 
+    float ShowUphpbarAmount = 1.0f;
+
     void HPBARPart() {
         HPFillAmountInBar = (1.0f / playerDataclass.MAXHP) * playerDataclass.HP;
-        HPPart.fillAmount = HPFillAmountInBar;
+        //HPPart.fillAmount = HPFillAmountInBar;
+        HPPart.fillAmount = Mathf.Lerp(HPPart.fillAmount, HPFillAmountInBar,0.05f);
+
+
+        //
+
+
+
     }
     void ShieldPart() {
 
