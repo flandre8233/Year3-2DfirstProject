@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class backgroundMusicScript : MonoBehaviour {
     public static backgroundMusicScript staticBackground;
-    
+
     public AudioClip lv1;
     public AudioClip lv2;
     public AudioClip dead;

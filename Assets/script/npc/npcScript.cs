@@ -120,12 +120,8 @@ public class npcScript : GameFunction
             if (gameStateDataClass.staticGameStateDataClass != null) {
                 if (gameStateDataClass.staticGameStateDataClass.gamestate == gameStateDataClass.gameState.gameover && !stopMoveOnce) {
                     stopMoveOnce = true;
-                    if (npcclass.Species != npcClass.SpeciesType.robot)
-                    {
-                        npcDelegate -= npcmove.delegateUpdate;
-                        npcDelegate -= playermove.delegateUpdate;
-                    }
-                    rigidbody2d.velocity = Vector3.zero;
+                    npcDelegate -= npcmove.delegateUpdate;
+                    npcDelegate -= playermove.delegateUpdate;
                 }
             }
 
@@ -482,7 +478,7 @@ public class npcScript : GameFunction
             Destroy(GetComponentInParent<Transform>().gameObject);
         }
         else {
-            Destroy(gameObject.GetComponentInParent<Transform>().gameObject);
+            Destroy(gameObject);
         }
         
     }

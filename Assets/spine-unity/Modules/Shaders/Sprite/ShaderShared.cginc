@@ -1,5 +1,3 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 #ifndef SHADER_SHARED_INCLUDED
 #define SHADER_SHARED_INCLUDED
 
@@ -16,7 +14,7 @@ inline float4 calculateWorldPos(float4 vertex)
 
 inline float4 calculateLocalPos(float4 vertex)
 {
-	return UnityObjectToClipPos(vertex);
+	return mul(UNITY_MATRIX_MVP, vertex);
 }
 
 inline half3 calculateWorldNormal(float3 normal)

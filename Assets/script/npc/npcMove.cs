@@ -72,8 +72,7 @@ public class npcMove : GameFunction
     }
 
     public void delegateUpdate() {
-        if (Physics2D.OverlapArea(GroundCheckWall1.position, GroundCheckWall2.position, groundLayer))
-        {
+        if ( (Physics2D.OverlapCircle(GroundCheckWall1.position, 0.15f, groundLayer)) || (Physics2D.OverlapCircle(GroundCheckWall2.position, 0.15f, groundLayer)) ) {
 
         }
         if (npcclass.TypeP == npcClass.Type.contorl) {  // playerControl 

@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-//Shader written by Alex Dixon
+﻿//Shader written by Alex Dixon
 Shader "Spine/Special/SkeletonGhost" 
 {
     Properties 
@@ -50,7 +48,7 @@ Shader "Spine/Special/SkeletonGhost"
                 vertex_output vert (vertex_input v)
                 {
                     vertex_output o;
-                    o.pos = UnityObjectToClipPos( v.vertex);
+                    o.pos = mul( UNITY_MATRIX_MVP, v.vertex);
                     o.uv = v.texcoord.xy;
                     o.color = v.color;
 					

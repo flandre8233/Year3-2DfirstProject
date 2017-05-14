@@ -18,7 +18,6 @@ TagManager:
   - Menu/game-Canvas
   - enemy-cantbePossessed
   - globalDataBase
-  - soundBar
   layers:
   - Default
   - TransparentFX

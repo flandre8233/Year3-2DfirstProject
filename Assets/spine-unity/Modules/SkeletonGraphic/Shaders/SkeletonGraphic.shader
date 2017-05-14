@@ -1,5 +1,3 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
 // This is a premultiply-alpha adaptation of the built-in Unity shader "UI/Default" to allow Unity UI stencil masking.
 
 Shader "Spine/SkeletonGraphic (Premultiply Alpha)"
@@ -72,7 +70,7 @@ Shader "Spine/SkeletonGraphic (Premultiply Alpha)"
 			v2f vert(appdata_t IN)
 			{
 				v2f OUT;
-				OUT.vertex = UnityObjectToClipPos(IN.vertex);
+				OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
 				OUT.texcoord = IN.texcoord;
 
 				#ifdef UNITY_HALF_TEXEL_OFFSET

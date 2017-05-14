@@ -11,6 +11,9 @@ public class selectEnemySystemScript : GameFunction
     public GameObject playerSelectPointerSystem; //®˙±oselectPointerMovementµ{¶° §∫Æe
     //public GameObject selectPointerUIpart;
 
+    [SerializeField]
+    [HideInInspector]
+    gameStateDataClass gameStateDataClass;
 
     [SerializeField][HideInInspector]
     Transform pointer;  //•H®∫≠”πœß@?Ew ∂}©lß‰≥Ã™Ò™∫?EE
@@ -122,8 +125,8 @@ public class selectEnemySystemScript : GameFunction
 
     // Update is called once per frame
     void Update() {
-        
-        if (gameStateDataClass.staticGameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj ) {
+
+        if (gameStateDataClass.gamestate != gameStateDataClass.gameState.pause && playercontorl.incontorlObj ) {
             if (Input.GetButtonDown("OpenCloseControlPreview")) {
 
                 if (openTargetLockDown) {  //µ≤?EE‹±±®ÅE

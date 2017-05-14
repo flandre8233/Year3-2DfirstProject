@@ -24,7 +24,6 @@ public class UI : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        //volSlider = GameObject.FindGameObjectWithTag("soundBar").GetComponent<Slider>();
 
         playerDataClass = GetComponent<playerDataClass>();
         if ( GetComponent<gameStateDataClass>() != null) {

@@ -523,6 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9148dd6538da6f44e92ce5534e5325c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pdc: {fileID: 218340971}
+  frameRate: -1
 --- !u!114 &218340971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,10 +589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91bc27b161d71cb4db4cf105b2f12fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveLoadScene: 0
   volSlider: {fileID: 872286317}
   pauseMenuCanvas: {fileID: 734323087}
-  blackFade: {fileID: 0}
 --- !u!114 &218340976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596d980b1d6cf8447b2e84e88549bbb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeCounter: 0
   Percentage: 0
   startTotalTarget: 0
   curTotalTarget: 0
@@ -799,8 +798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fa1ef01b2cb23d4ab645e1e0461245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateDataClass: {fileID: 218340974}
   gameManager: {fileID: 0}
-  pacticle: {fileID: 0}
 --- !u!1001 &300035179
 Prefab:
   m_ObjectHideFlags: 0
@@ -1632,11 +1631,6 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 33143614537327992, guid: b9df55090e75186408ca24d070a27b75,
-        type: 2}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 33283362003963028, guid: b9df55090e75186408ca24d070a27b75,
         type: 2}
       propertyPath: m_Mesh
       value: 
